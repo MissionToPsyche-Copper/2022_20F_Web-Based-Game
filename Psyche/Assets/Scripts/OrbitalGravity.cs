@@ -33,7 +33,7 @@ public class OrbitalGravity : MonoBehaviour
     {
         gravConst = 6.6743f * Mathf.Pow(10, -2.5f);
         if(massFactor)
-            massByMass = Mathf.Pow(body.GetComponent<Rigidbody2D>().mass, factor) * this.GetComponent<Rigidbody2D>().mass;
+            massByMass = factor * body.GetComponent<Rigidbody2D>().mass * this.GetComponent<Rigidbody2D>().mass;
         else
             massByMass = body.GetComponent<Rigidbody2D>().mass * this.GetComponent<Rigidbody2D>().mass;
     }
