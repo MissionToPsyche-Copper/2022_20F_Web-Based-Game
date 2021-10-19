@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ShipControl : MonoBehaviour
 {
+    [Header("----- Flight Controls -----")]
     public float moveSpeed = 0.01f;
     public float rotateSpeed = 0.01f;
     public bool hardMode = false;
 
-    
+    [Header("----- Ship Parts -----")]
+    public GameObject thrustTrail;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +26,10 @@ public class ShipControl : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             this.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * moveSpeed);
+            thrustTrail.SetActive(true);
         }
+        else
+            thrustTrail.SetActive(false);
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
