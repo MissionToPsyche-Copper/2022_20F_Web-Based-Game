@@ -12,7 +12,6 @@ public class OrbitalGravity : MonoBehaviour
     private Vector3 displacement;
     private Vector2 normalUnit;
     private float radius;
-    private float gravConst;
     private double massByMass;
     [ReadOnly]
     public Vector2 force;
@@ -31,7 +30,6 @@ public class OrbitalGravity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gravConst = 6.6743f * Mathf.Pow(10, -2.5f);
         if(massFactor)
             massByMass = factor * body.GetComponent<Rigidbody2D>().mass * this.GetComponent<Rigidbody2D>().mass;
         else
@@ -44,8 +42,7 @@ public class OrbitalGravity : MonoBehaviour
         displacement = this.transform.position - body.transform.position;
         normalUnit = new Vector2(displacement.x, displacement.y).normalized;
         radius = displacement.magnitude;
-        force = -normalUnit * (gravConst * (float)(massByMass / Mathf.Pow(radius, 2)));
+        force = -normalUnit * (Constants.gravityConstant * (float)(massByMass / Mathf.Pow(radius, 2)));
         this.GetComponent<Rigidbody2D>().AddForce(force);
-
     }
 }

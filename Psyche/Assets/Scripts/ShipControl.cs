@@ -25,7 +25,7 @@ public class ShipControl : MonoBehaviour
         //||  Input.GetKey(KeyCode.W)
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            this.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * moveSpeed);
+            this.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * Constants.shipThrust);
             thrustTrail.SetActive(true);
         }
         else
@@ -34,18 +34,18 @@ public class ShipControl : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             if(hardMode)
-                this.GetComponent<Rigidbody2D>().angularVelocity += rotateSpeed;
+                this.GetComponent<Rigidbody2D>().angularVelocity += Constants.shipRotateSpeed;
             else
-                this.transform.Rotate(Vector3.forward, rotateSpeed);
+                this.transform.Rotate(Vector3.forward, Constants.shipRotateSpeed);
         }
 
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             if(hardMode)
-               this.GetComponent<Rigidbody2D>().angularVelocity += -rotateSpeed;
+               this.GetComponent<Rigidbody2D>().angularVelocity += -Constants.shipRotateSpeed;
             else
-               this.transform.Rotate(Vector3.forward, -rotateSpeed);
+               this.transform.Rotate(Vector3.forward, -Constants.shipRotateSpeed);
         }
     }
 }
