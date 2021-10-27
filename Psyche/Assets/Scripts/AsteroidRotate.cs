@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class AsteroidRotate : MonoBehaviour
 {
+    public Vector3 rotationAxis = Vector3.forward;
     // Update is called once per frame
     void Update()
     {
-        this.transform.Rotate(Vector3.forward, Constants.asteroidRotateSpeed);
+        if(rotationAxis != Vector3.zero)
+            this.transform.Rotate(rotationAxis.normalized, Constants.asteroidRotateSpeed);
     }
 }

@@ -27,7 +27,7 @@ public class CameraFollow : MonoBehaviour
         displacement = shipTarget.transform.position - body.transform.position;
         currDistace = displacement.magnitude;
 
-        this.transform.position = (displacement * (2.0f / 3.0f)) + Vector3.forward * (-10);
+        this.transform.position = (displacement * (2.0f / 3.0f)) + Vector3.forward * (-40);
         this.GetComponent<Camera>().orthographicSize = initCamSize * (currDistace / initDistance);
 
         if (cameraRotate)

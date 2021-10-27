@@ -5,8 +5,6 @@ using UnityEngine;
 public class ShipControl : MonoBehaviour
 {
     [Header("----- Flight Controls -----")]
-    public float moveSpeed = 0.01f;
-    public float rotateSpeed = 0.01f;
     public bool hardMode = false;
 
     [Header("----- Ship Parts -----")]

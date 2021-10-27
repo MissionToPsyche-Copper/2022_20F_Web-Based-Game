@@ -16,6 +16,8 @@ public class OrbitalGravity : MonoBehaviour
     [ReadOnly]
     public Vector2 force;
 
+    public bool boostInitVelocity;
+
 
 
     //public void Awake()
@@ -29,11 +31,24 @@ public class OrbitalGravity : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {    
         if(massFactor)
             massByMass = factor * body.GetComponent<Rigidbody2D>().mass * this.GetComponent<Rigidbody2D>().mass;
         else
             massByMass = body.GetComponent<Rigidbody2D>().mass * this.GetComponent<Rigidbody2D>().mass;
+
+        if(boostInitVelocity)
+        {
+            Vector3 initDisplace = body.transform.position - this.transform.position;
+            float initRadius = initDisplace.magnitude;
+            float initVel = Mathf.Sqrt((Constants.gravityConstant * (float)massByMass) / initRadius);
+
+            Vector3 shipDirect = Vector3.Cross(initDisplace, Vector3.left).normalized;
+
+ //           this.transform.rotation = Quaternion.LookRotation(shipDirect);
+
+            this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * initVel, ForceMode2D.Impulse);
+        }
     }
 
     // Update is called once per frame
