@@ -14,6 +14,11 @@ public class GameRoot : MonoBehaviour
 {
     [HideInInspector]
     public static GameRoot _Root;
+    [HideInInspector]
+    public static GameObject player;
+
+
+    public int[] neutronScores;
 
 
     private void Awake()
@@ -25,7 +30,9 @@ public class GameRoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        neutronScores = new int[5];
     }
 
     // Update is called once per frame
@@ -33,4 +40,12 @@ public class GameRoot : MonoBehaviour
     {
         
     }
+
+    public void ScoreNeutron(int index, int score)
+    {
+        neutronScores[index] += score;
+    }
+
+
+
 }
