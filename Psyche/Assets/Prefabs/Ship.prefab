@@ -4290,6 +4290,7 @@ GameObject:
   - component: {fileID: 6320334952760314055}
   - component: {fileID: 9103942590393117319}
   - component: {fileID: 8573021527906223817}
+  - component: {fileID: 4075573189017789924}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -4385,6 +4386,14 @@ MonoBehaviour:
   factor: 10
   force: {x: 0, y: 0}
   boostInitVelocity: 0
+--- !u!81 &4075573189017789924
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793370144006235946}
+  m_Enabled: 1
 --- !u!1 &827226080980471175
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,14 +6,14 @@ using UnityTimer;
 public class GammaGenerator : MonoBehaviour
 {
     public GameObject sunRayMaster;
-    public GameObject asteroidObj;
+    public GameObject asteroidObj;    
 
     private Timer ejectTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        ejectTimer = Timer.Register(Random.Range(Constants.ejectMinTime, Constants.ejectMaxTime), this.EjectRay, useRealTime: false);
+        ejectTimer = Timer.Register(Random.Range(Constants.Spectrometer.Ray.ejectMinTime, Constants.Spectrometer.Ray.ejectMaxTime), this.EjectRay, useRealTime: false);
     }
 
     // Update is called once per frame
@@ -32,8 +32,8 @@ public class GammaGenerator : MonoBehaviour
 
         sunRayTemp.SetActive(true);
         sunRayTemp.transform.position = this.transform.position;
-        sunRayTemp.GetComponent<Rigidbody2D>().velocity = direction * Constants.ejectForce;
+        sunRayTemp.GetComponent<Rigidbody2D>().velocity = direction * Constants.Spectrometer.Ray.ejectForce;
 
-        ejectTimer = Timer.Register(Random.Range(Constants.ejectMinTime, Constants.ejectMaxTime), this.EjectRay, useRealTime: false);
+        ejectTimer = Timer.Register(Random.Range(Constants.Spectrometer.Ray.ejectMinTime, Constants.Spectrometer.Ray.ejectMaxTime), this.EjectRay, useRealTime: false);
     }
 }

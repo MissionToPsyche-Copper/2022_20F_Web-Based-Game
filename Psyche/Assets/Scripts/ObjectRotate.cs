@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectRotate : MonoBehaviour
 {
     public Vector3 rotationAxis = Vector3.forward;
-    public float rotationSpeed = Constants.objRotateSpeed;
+    public float rotationSpeed = Constants.Space.objRotateSpeed;
     // Update is called once per frame
     void Update()
     {

@@ -12,10 +12,18 @@ using UnityEngine;
 /// </summary>
 public class GameRoot : MonoBehaviour
 {
+    //GAME ASSET ROOT OBJECTS
     [HideInInspector]
     public static GameRoot _Root;
     [HideInInspector]
     public static GameObject player;
+
+    //AUDIO ROOT SETTINGS
+    [HideInInspector]
+    public static AudioListener UIAudioListener;
+    public static AudioSource UIaudioSounds;
+    [Range(0.0f,1.0f)]
+    public static float masterVolume = 1.0f;
 
 
     public int[] neutronScores;
@@ -24,6 +32,10 @@ public class GameRoot : MonoBehaviour
     private void Awake()
     {
         _Root = this;
+        UIAudioListener = this.GetComponent<AudioListener>();
+        UIaudioSounds = this.GetComponent<AudioSource>();
+        
+        
         DontDestroyOnLoad(this);
     }
 
@@ -31,6 +43,7 @@ public class GameRoot : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
 
         neutronScores = new int[5];
     }

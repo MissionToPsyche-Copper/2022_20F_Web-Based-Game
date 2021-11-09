@@ -6,10 +6,18 @@ public class NeutronEmitter : MonoBehaviour
 {
     public List<GameObject> neutrons;
 
+
+    private UnityTimer.Timer selfDest;
+    private AudioSource audioEmitter;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        audioEmitter = this.GetComponent<AudioSource>();
+        audioEmitter.volume *= GameRoot.masterVolume;
+        audioEmitter.clip = GammaRayController.rayShootFX;
     }
 
 
@@ -43,7 +51,12 @@ public class NeutronEmitter : MonoBehaviour
     private void Emit()
     {
         int id;
-        int emitNum = Random.Range(1, Constants.emitMaxNeutrons);
+        int emitNum = Random.Range(1, Constants.Spectrometer.Neutron.emitMax);
+
+        audioEmitter.clip = GammaRayController.rayCollideFX;
+        audioEmitter.loop = false;
+        audioEmitter.volume = 0.25f * GameRoot.masterVolume; ;
+        audioEmitter.Play();
 
         for (int i = 0; i < emitNum; i++)
         {
@@ -57,6 +70,6 @@ public class NeutronEmitter : MonoBehaviour
         }
 
         Destroy(this.gameObject);
-
     }
+
 }

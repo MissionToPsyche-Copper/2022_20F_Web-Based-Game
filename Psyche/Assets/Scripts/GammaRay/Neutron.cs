@@ -10,10 +10,16 @@ public class Neutron : MonoBehaviour
     private Timer destroyTimer;
     private Timer turnToTrigger;
 
+    private AudioSource audioEmitter;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        destroyTimer = Timer.Register(Constants.neutronSelfDestTime, this.SelfDestruct, isLooped: false, useRealTime: false);
+        audioEmitter = this.GetComponent<AudioSource>();
+        audioEmitter.volume *= GameRoot.masterVolume;
+        destroyTimer = Timer.Register(Constants.Spectrometer.Neutron.SelfDestTime, this.SelfDestruct, isLooped: false, useRealTime: false);
         turnToTrigger = Timer.Register(0.1f, this.ToggleTrigger, isLooped: false, useRealTime: false);
     }
 
@@ -24,9 +30,13 @@ public class Neutron : MonoBehaviour
             //Call some method in GameRoot/GameController to add this neutron to score
             GameRoot._Root.ScoreNeutron(IDindex, 1);
 
-            Timer.Cancel(this.destroyTimer);
-            Timer.Cancel(this.turnToTrigger);
-            Destroy(this.gameObject);
+            audioEmitter.clip = GammaRayController.neutronPickupFX;
+            audioEmitter.volume = 0.5f * GameRoot.masterVolume; ;
+            audioEmitter.Play();
+
+            //Hide the object but don't destroy it yet.
+            //We need the object to still exist until its soundFX has finished playing
+            this.SelfDestruct();
         }
     }
 

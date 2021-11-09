@@ -41,7 +41,7 @@ public class OrbitalGravity : MonoBehaviour
         {
             Vector3 initDisplace = body.transform.position - this.transform.position;
             float initRadius = initDisplace.magnitude;
-            float initVel = Mathf.Sqrt((Constants.gravityConstant * (float)massByMass) / initRadius);
+            float initVel = Mathf.Sqrt((Constants.Space.gravityConstant * (float)massByMass) / initRadius);
 
             Vector3 shipDirect = Vector3.Cross(initDisplace, Vector3.left).normalized;
 
@@ -57,7 +57,7 @@ public class OrbitalGravity : MonoBehaviour
         displacement = this.transform.position - body.transform.position;
         normalUnit = new Vector2(displacement.x, displacement.y).normalized;
         radius = displacement.magnitude;
-        force = -normalUnit * (Constants.gravityConstant * (float)(massByMass / Mathf.Pow(radius, 2)));
+        force = -normalUnit * (Constants.Space.gravityConstant * (float)(massByMass / Mathf.Pow(radius, 2)));
         this.GetComponent<Rigidbody2D>().AddForce(force);
     }
 }
