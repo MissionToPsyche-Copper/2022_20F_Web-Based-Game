@@ -9532,7 +9532,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20968
+  m_Name: pb_Mesh107318
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9766,7 +9766,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1200
-  field of view: 36
+  field of view: 61.3
   orthographic: 1
   orthographic size: 25
   m_Depth: -1
@@ -10528,6 +10528,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7374272190741402633, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
+      propertyPath: rate
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374272190741402633, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
+      propertyPath: maxHeight
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374272190741402633, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
+      propertyPath: asteroidObj
+      value: 
+      objectReference: {fileID: 9103326813247933530}
     - target: {fileID: 7680650464320493362, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
