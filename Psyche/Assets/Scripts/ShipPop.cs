@@ -18,6 +18,7 @@ public class ShipPop : MonoBehaviour
     {
         distanceFrom = (shipObject.transform.position - asteroidObj.transform.position).magnitude;
         initDistance = distanceFrom;
+
     }
 
     // Update is called once per frame

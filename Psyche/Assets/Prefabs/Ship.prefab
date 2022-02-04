@@ -4245,12 +4245,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9139015071804179966}
-  - component: {fileID: 3080537887125652221}
-  - component: {fileID: 6320334952760314055}
   - component: {fileID: 9103942590393117319}
   - component: {fileID: 8573021527906223817}
-  - component: {fileID: 4075573189017789924}
   - component: {fileID: 7374272190741402633}
+  - component: {fileID: 3080537887125652221}
+  - component: {fileID: 6320334952760314055}
+  - component: {fileID: 4075573189017789924}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -4277,6 +4277,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9103942590393117319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793370144006235946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3becd42ed1f616498e0a47a9b8c9a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hardMode: 1
+  thrustTrail: {fileID: 7811287473795462585}
+--- !u!114 &8573021527906223817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793370144006235946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3094a9063744c4c4eb276f81250e5650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 0}
+  massFactor: 0
+  factor: 10
+  force: {x: 0, y: 0}
+  boostInitVelocity: 0
+--- !u!114 &7374272190741402633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793370144006235946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d07003d59c4063a4a8a68693c1343126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipObject: {fileID: 936942749974063474}
+  asteroidObj: {fileID: 0}
+  maxHeight: 20
+  rate: 0.1
 --- !u!50 &3080537887125652221
 Rigidbody2D:
   serializedVersion: 4
@@ -4314,37 +4361,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.2}
   m_Size: {x: 1.5, y: 4.5}
   m_Direction: 0
---- !u!114 &9103942590393117319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793370144006235946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3becd42ed1f616498e0a47a9b8c9a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hardMode: 1
-  thrustTrail: {fileID: 7811287473795462585}
---- !u!114 &8573021527906223817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793370144006235946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3094a9063744c4c4eb276f81250e5650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  body: {fileID: 0}
-  massFactor: 0
-  factor: 10
-  force: {x: 0, y: 0}
-  boostInitVelocity: 0
 --- !u!81 &4075573189017789924
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4353,22 +4369,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793370144006235946}
   m_Enabled: 1
---- !u!114 &7374272190741402633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793370144006235946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d07003d59c4063a4a8a68693c1343126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipObject: {fileID: 936942749974063474}
-  asteroidObj: {fileID: 0}
-  maxHeight: 20
-  rate: 0.1
 --- !u!1 &827226080980471175
 GameObject:
   m_ObjectHideFlags: 0

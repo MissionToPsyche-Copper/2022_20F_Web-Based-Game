@@ -13,6 +13,7 @@ public class MagnetometerScore : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
+
         Debug.Log("Ship is in field");
         showEffect = true;
     }

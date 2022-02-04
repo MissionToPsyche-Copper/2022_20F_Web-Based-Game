@@ -25,13 +25,15 @@ public class GameRoot : MonoBehaviour
     [Range(0.0f,1.0f)]
     public static float masterVolume = 1.0f;
 
-
-    public int[] neutronScores;
+    //Scores
+    [SerializeField] private int[] neutronScores;
+    [SerializeField] private float radioScore;
 
 
     private void Awake()
     {
         _Root = this;
+        player = GameObject.FindGameObjectWithTag("Player");
         UIAudioListener = this.GetComponent<AudioListener>();
         UIaudioSounds = this.GetComponent<AudioSource>();
         
@@ -42,10 +44,11 @@ public class GameRoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-
-
         neutronScores = new int[5];
+        for (int i = 0; i < neutronScores.Length; i++)
+            neutronScores[i] = 0;
+
+        radioScore = 0;
     }
 
     // Update is called once per frame
@@ -59,6 +62,10 @@ public class GameRoot : MonoBehaviour
         neutronScores[index] += score;
     }
 
+    public void ScoreRadio(float score)
+    {
+        radioScore += score;
+    }
 
 
 }

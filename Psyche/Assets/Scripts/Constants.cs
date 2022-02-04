@@ -16,8 +16,8 @@ public class Constants : MonoBehaviour
     /// </summary>
     public static class Ship
     {
-        public const float Thrust = 2.5f;
-        public const float RotateSpeed = 1.0f;
+        public const float Thrust = 2.75f;
+        public const float RotateSpeed = 1.25f;
     }
 
     /// <summary>
