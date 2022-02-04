@@ -47,7 +47,7 @@ public class OrbitalGravity : MonoBehaviour
 
  //           this.transform.rotation = Quaternion.LookRotation(shipDirect);
 
-            this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * initVel, ForceMode2D.Impulse);
+            this.GetComponent<Rigidbody2D>().AddForce(Vector2.right * initVel, ForceMode2D.Impulse);
         }
     }
 
