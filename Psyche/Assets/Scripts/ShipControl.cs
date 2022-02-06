@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShipControl : MonoBehaviour
 {
+    [HideInInspector]
+    public static AudioListener shipAudioListener;
+
     [Header("----- Flight Controls -----")]
     public bool hardMode = false;
 
@@ -14,7 +17,7 @@ public class ShipControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        shipAudioListener = this.GetComponent<AudioListener>();
     }
 
     // Update is called once per frame
@@ -23,7 +26,7 @@ public class ShipControl : MonoBehaviour
         //||  Input.GetKey(KeyCode.W)
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            this.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * Constants.shipThrust);
+            this.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * Constants.Ship.Thrust);
             thrustTrail.SetActive(true);
         }
         else
@@ -32,18 +35,18 @@ public class ShipControl : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             if(hardMode)
-                this.GetComponent<Rigidbody2D>().angularVelocity += Constants.shipRotateSpeed;
+                this.GetComponent<Rigidbody2D>().angularVelocity += Constants.Ship.RotateSpeed;
             else
-                this.transform.Rotate(Vector3.forward, Constants.shipRotateSpeed);
+                this.transform.Rotate(Vector3.forward, Constants.Ship.RotateSpeed);
         }
 
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             if(hardMode)
-               this.GetComponent<Rigidbody2D>().angularVelocity += -Constants.shipRotateSpeed;
+               this.GetComponent<Rigidbody2D>().angularVelocity += -Constants.Ship.RotateSpeed;
             else
-               this.transform.Rotate(Vector3.forward, -Constants.shipRotateSpeed);
+               this.transform.Rotate(Vector3.forward, -Constants.Ship.RotateSpeed);
         }
     }
 }
