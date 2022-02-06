@@ -12,10 +12,9 @@ public class RadioCollision : MonoBehaviour
     [Range(1,10)]
     [Tooltip("Total number of rings")]
     [SerializeField] private int numOfRings;
-    [Tooltip("Radius of the First ring")]
-    [SerializeField] private int maxRadius;
-    [Tooltip("Radius of the Final ring")]
-    [SerializeField] private int minRadius;
+    [Tooltip("Max Value is the radius of the first ring, Min Value is the Radius of the Final Ring")]
+    [MinMaxRange(0, 400)]
+    public MinMaxInt minMaxRingSize = new MinMaxInt(40, 100);
     [Tooltip("Smoothness of the rings.\nHigher numbers means more line verticies and better smoothness")]
     [SerializeField] private float ringSmoothScalar = 7.0f;
     [Range(0.0f, 100.0f)]
@@ -63,13 +62,6 @@ public class RadioCollision : MonoBehaviour
         currPitch = audioEmitter.pitch;
         initPitch = audioEmitter.pitch;
         currTime = 0.0f;
-        if(minRadius > maxRadius)
-        {
-            Debug.LogWarning("MinRadius(" + minRadius.ToString() + ") is greater than MaxRadius(" + maxRadius.ToString() + ")\nSwapping Min and Max");
-            int temp = maxRadius;
-            maxRadius = minRadius;
-            minRadius = temp;
-        }
         CreateRings();
         AdjustAudioSettings();
         ringPrefab.SetActive(false);
@@ -139,7 +131,7 @@ public class RadioCollision : MonoBehaviour
         
         Color psColor = ringList[ringID - 1].GetComponent<LineRenderer>().endColor;
         main.startColor = new Color(psColor.r, psColor.g, psColor.b, 1.0f);
-        var trail = ps.transform.FindChild("Trail").GetComponent<ParticleSystem>();
+        var trail = ps.transform.Find("Trail").GetComponent<ParticleSystem>();
         var trailMain = trail.main;
         trailMain.startColor = new Color(psColor.r, psColor.g, psColor.b, 1.0f) * 4.0f;
         Gradient trailGrad = trail.colorOverLifetime.color.gradient;
@@ -157,7 +149,7 @@ public class RadioCollision : MonoBehaviour
 
 
 
-        var glow = ps.transform.FindChild("GlowTrail").GetComponent<ParticleSystem>();
+        var glow = ps.transform.Find("GlowTrail").GetComponent<ParticleSystem>();
         var glowMain = glow.main;
         glowMain.startColor = new Color(psColor.r, psColor.g, psColor.b, 0.01f) * 10.0f;
 
@@ -173,10 +165,10 @@ public class RadioCollision : MonoBehaviour
         GameObject temp;
         float ringWidth;
         if (numOfRings > 1)
-            ringWidth = (maxRadius - minRadius) / (float)(numOfRings - 1);
+            ringWidth = (minMaxRingSize.Max - minMaxRingSize.Min) / (float)(numOfRings - 1);
         else
-            ringWidth = (maxRadius - minRadius);
-        float currSize = maxRadius + ringWidth;
+            ringWidth = (minMaxRingSize.Max - minMaxRingSize.Min);
+        float currSize = minMaxRingSize.Max + ringWidth;
 
         for (int i = 1; i <= numOfRings; i++)
         {

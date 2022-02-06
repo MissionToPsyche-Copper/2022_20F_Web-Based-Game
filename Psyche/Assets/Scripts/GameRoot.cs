@@ -17,6 +17,8 @@ public class GameRoot : MonoBehaviour
     public static GameRoot _Root;
     [HideInInspector]
     public static GameObject player;
+    [HideInInspector]
+    public static GameObject mainAsteroid;
 
     //AUDIO ROOT SETTINGS
     [HideInInspector]
@@ -28,12 +30,15 @@ public class GameRoot : MonoBehaviour
     //Scores
     [SerializeField] private int[] neutronScores;
     [SerializeField] private float radioScore;
+    [SerializeField] private float magnetometerScore;
+    [SerializeField] private float multispectScore;
 
 
     private void Awake()
     {
         _Root = this;
         player = GameObject.FindGameObjectWithTag("Player");
+        mainAsteroid = GameObject.FindGameObjectWithTag("asteroid");
         UIAudioListener = this.GetComponent<AudioListener>();
         UIaudioSounds = this.GetComponent<AudioSource>();
         
@@ -49,6 +54,8 @@ public class GameRoot : MonoBehaviour
             neutronScores[i] = 0;
 
         radioScore = 0;
+        magnetometerScore = 0;
+        multispectScore = 0;
     }
 
     // Update is called once per frame
@@ -65,6 +72,15 @@ public class GameRoot : MonoBehaviour
     public void ScoreRadio(float score)
     {
         radioScore += score;
+    }
+
+    public void ScoreMultispect(float score)
+    {
+        multispectScore += score;
+    }
+    public void ScoreMagnetometer(float score)
+    {
+        magnetometerScore += score;
     }
 
 

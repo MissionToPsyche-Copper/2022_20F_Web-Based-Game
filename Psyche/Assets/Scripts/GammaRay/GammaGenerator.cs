@@ -5,6 +5,7 @@ using UnityTimer;
 
 public class GammaGenerator : MonoBehaviour
 {
+    public GammaRayController mainController;
     public GameObject sunRayMaster;
     public GameObject asteroidObj;    
 
@@ -29,6 +30,7 @@ public class GammaGenerator : MonoBehaviour
         Vector3 vectVari = new Vector2(Random.Range(-20, 20), Random.Range(-20, 20));
         Vector2 direction = ((asteroidObj.transform.position + vectVari) - this.transform.position).normalized;
         GameObject sunRayTemp = Instantiate(sunRayMaster);
+        sunRayTemp.transform.parent = mainController.raysList.transform;
 
         sunRayTemp.SetActive(true);
         sunRayTemp.transform.position = this.transform.position;

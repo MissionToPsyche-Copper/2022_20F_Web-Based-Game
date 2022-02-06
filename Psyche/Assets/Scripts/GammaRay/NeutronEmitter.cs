@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NeutronEmitter : MonoBehaviour
 {
+    public GammaRayController mainController;
+
     public List<GameObject> neutrons;
 
 
@@ -64,7 +66,7 @@ public class NeutronEmitter : MonoBehaviour
             GameObject temp = Instantiate(neutrons[id]);
             temp.SetActive(true);
             temp.transform.position = this.transform.position;
-
+            temp.transform.parent = mainController.neutronsList.transform;
             temp.GetComponent<Neutron>().SetID(id);
             temp.GetComponent<Rigidbody2D>().velocity = this.GetComponent<Rigidbody2D>().velocity * Random.Range(0.2f, 1.0f);
         }

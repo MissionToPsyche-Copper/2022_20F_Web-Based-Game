@@ -26,7 +26,7 @@ public class Constants : MonoBehaviour
     public static class Space
     {
         public static float gravityConstant = 6.6743f * Mathf.Pow(10, -2.5f);
-        public const float objRotateSpeed = 0.1f;
+        public const float objRotateSpeed = 0.3f;
     }
 
     public static class Magnetometer

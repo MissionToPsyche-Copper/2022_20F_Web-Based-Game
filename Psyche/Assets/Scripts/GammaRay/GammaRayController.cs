@@ -9,6 +9,9 @@ public class GammaRayController : MonoBehaviour
     public ObjectRotate pivotPoint;
     private Timer pivotTimer;
 
+    public GameObject raysList;
+    public GameObject neutronsList;
+
     [HideInInspector]
     public static AudioClip neutronPickupFX;
     public static AudioClip rayShootFX;
