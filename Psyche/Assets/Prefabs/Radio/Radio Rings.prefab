@@ -48,18 +48,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentRing: 0
   numOfRings: 3
-  maxRadius: 300
-  minRadius: 100
+  minMaxRingSize:
+    Min: 40
+    Max: 100
   ringSmoothScalar: 7
   ringOpacity: 50
   outerColor: {r: 0.018987417, g: 1, b: 0, a: 1}
   middleColor: {r: 1, g: 0.8674295, b: 0, a: 1}
   innerColor: {r: 1, g: 0, b: 0, a: 1}
   maxEffectSpeed: 0
-  audioEmitter: {fileID: 3169130191770114543}
   soundVolume: 0.5
   pitchVariance: 0
-  varianceFreq: 1
+  rateOfPitchChange: 1
   scoreRatePS: 0
   effect: {fileID: 813325658915927617}
   ringPrefab: {fileID: 8611258817859510934}
@@ -359,6 +359,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4137926865676906459}
     m_Modifications:
+    - target: {fileID: 1037522537500460, guid: 049d3714c12b13b479e230e0bcf9cc18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389893291797962, guid: 049d3714c12b13b479e230e0bcf9cc18, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1639537447080378, guid: 049d3714c12b13b479e230e0bcf9cc18, type: 3}
       propertyPath: m_Name
       value: FairiesBlue
@@ -419,9 +427,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198924081032190054, guid: 049d3714c12b13b479e230e0bcf9cc18, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 198997311709958256, guid: 049d3714c12b13b479e230e0bcf9cc18, type: 3}
       propertyPath: simulationSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198997311709958256, guid: 049d3714c12b13b479e230e0bcf9cc18, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198997311709958256, guid: 049d3714c12b13b479e230e0bcf9cc18, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198997311709958256, guid: 049d3714c12b13b479e230e0bcf9cc18, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 199014677013192500, guid: 049d3714c12b13b479e230e0bcf9cc18, type: 3}
       propertyPath: m_Materials.Array.size

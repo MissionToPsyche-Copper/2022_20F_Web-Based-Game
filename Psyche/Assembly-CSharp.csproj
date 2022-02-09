@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,9 +52,6 @@
     <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Polyverse Skies\Core\Scripts\PolyverseSkies.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -134,6 +131,8 @@
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeOptionsAttribute.cs" />
+    <Compile Include="Assets\Scripts\ShipResources.cs" />
+    <Compile Include="Assets\Scripts\GammaRay\TractorBeam.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -921,6 +920,10 @@
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
       <Project>{540C4DBB-3C3C-ACE3-574A-7BA7AE840C1A}</Project>
       <Name>Unity.2D.SpriteShape.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
+      <Project>{11C727B3-6E51-B84F-BF52-6CCB09B76A90}</Project>
+      <Name>AllIn1SpriteShaderAssembly</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,6 +5,8 @@ using MyBox;
 
 public class MultiSpectController : MonoBehaviour
 {
+    public static MultiSpectController instance;
+
     private int targetCount;
 
     [Header("------Spawning Target Controls--------")]
@@ -41,8 +43,6 @@ public class MultiSpectController : MonoBehaviour
     public Color offAngleColor;
 
     [Header("------Audio Controls--------")]
-    [Range(0.0f, 1.0f)]
-    public float volume = 0.1f;
     [MinMaxRange(0.0f, 10.0f)]
     public RangedFloat pitchShiftRange = new RangedFloat(2.0f, 6.0f);
     [SerializeField][ReadOnly]
@@ -69,20 +69,25 @@ public class MultiSpectController : MonoBehaviour
 
     void Start()
     {
+        instance = this;    
+
         asteroid = GameRoot.mainAsteroid.GetComponent<CircleCollider2D>();
         targetList = new List<GameObject>();
         pivot.GetComponent<ObjectRotate>().SetAxis(asteroid.gameObject.GetComponent<ObjectRotate>().rotationAxis);
         intervalVal = Random.Range(spawnInterval.Min, spawnInterval.Max);
         scanLine = this.GetComponent<LineRenderer>();
         audioEmitter = shipAntenna.GetComponent<AudioSource>();
-        audioEmitter.volume = volume;
+        audioEmitter.volume = Constants.Multispectral.Sounds.beamVolume * GameRoot.masterVolume;
         antennaPoint = shipAntenna.transform.Find("AntennaPoint").gameObject;
         shipAntenna.transform.position = GameRoot.player.transform.position;
         shipAntenna.transform.parent = GameRoot.player.transform;
     }
 
-    private Vector3 GenerateTargetPosition()
+    private Vector3 GenerateTargetPosition(int iteration)
     {
+        if (iteration > 20)
+            return Vector3.zero;
+
         float dist2AnotherTarget = 1000.0f;
         Vector3 circleDirection = Random.insideUnitCircle.normalized;
         circleDirection = circleDirection.normalized * asteroid.radius * (asteroid.gameObject.transform.localScale.x) + (circleDirection.normalized * spawnOffset);
@@ -91,10 +96,10 @@ public class MultiSpectController : MonoBehaviour
         //Check that this target is not too close to any other active targets
         for(int i = 0; i < targetList.Count; i++)
         {
-            dist2AnotherTarget = (this.transform.position - targetList[i].transform.position).magnitude;
+            dist2AnotherTarget = (circleDirection - targetList[i].transform.position).magnitude;
 
             if (dist2AnotherTarget < distBetweenTargets)
-                return GenerateTargetPosition();
+                return GenerateTargetPosition(iteration++);
         }
 
         return circleDirection;
@@ -121,7 +126,7 @@ public class MultiSpectController : MonoBehaviour
                 float spawnSize = Random.Range(spawnSizeRange.Min, spawnSizeRange.Max);
                 temp.transform.localScale *= spawnSize;
                 temp.transform.parent = pivot.transform;
-                temp.transform.position = GenerateTargetPosition();
+                temp.transform.position = GenerateTargetPosition(0);
                 temp.transform.rotation = GenerateTargetInitDirection(temp.transform.position);
                 temp.GetComponent<Target>().SetScoreSizeMod(spawnSizeRange.Min / spawnSize);
                 temp.GetComponent<Target>().SetLifespan(Random.Range(spawnLifetime.Min, spawnLifetime.Max));

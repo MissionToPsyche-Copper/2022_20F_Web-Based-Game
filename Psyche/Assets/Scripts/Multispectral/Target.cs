@@ -48,8 +48,17 @@ public class Target : MonoBehaviour
 
     public void OnMouseOver()
     {
+
         if(clicked)
         {
+            if (!ShipControl.resources.CanUsePower())
+            {
+                clicked = false;
+                mainController.ToggleLine(false);
+                mainController.GetAudio().Stop();
+                return;
+            }
+
             currTargetAngle = CheckShipAngle();
 
             if (ezMode)
@@ -57,7 +66,7 @@ public class Target : MonoBehaviour
 
             if (currTargetAngle < maxTargetAngle)
             {
-
+                ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.Multispectral * Time.deltaTime);
                 anglePercent = currTargetAngle / maxTargetAngle;
                 mainController.ToggleLine(true);
                 mainController.GetAudio().pitch = 10.0f * (1 - anglePercent);
@@ -97,15 +106,20 @@ public class Target : MonoBehaviour
         Vector3 shipDirection = (GameRoot.player.transform.position - mainController.GetAntennaPos()).normalized;
         float angle2target = Vector3.SignedAngle(targetDirection, shipDirection, Vector3.forward);
 
+        if (!ShipControl.resources.CanUsePower())
+            return;
+
         if (angle2target == 0)
             return;
         else if(angle2target < 0)
         {
             GameRoot.player.transform.Rotate(Vector3.forward, Constants.Ship.RotateSpeed);
+            ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.GyroRotate * Time.deltaTime);
         }
         else
         {
             GameRoot.player.transform.Rotate(Vector3.forward, -Constants.Ship.RotateSpeed);
+            ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.GyroRotate * Time.deltaTime);
         }
     }
 

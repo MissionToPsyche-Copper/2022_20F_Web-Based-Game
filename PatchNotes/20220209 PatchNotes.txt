@@ -1,0 +1,59 @@
+-----------Major Changes in Brief-------------
+Performance pass made to limit particle effects and increase framerate
+Implimentation of Resource Systems (fuel and power)
+Sound mix overhauling
+Tractor beam for GammaRaySpectrometer
+
+
+-----------Tool Changes-------------
+:::GammaRayNeutronSpectrometer:::
+>>>Performance Pass
+Replaced the particle effect for the incoming "SunRays" to be instead a simple LineRenderer
+Replaced the neutron effect from a hard to see tiny object with hundreds of particles to a simpler and easier to see glowing and pulsating orbs of different colors
+
+>>>Tractor Beam
+Implimented a tractor beam to help "collect" the neutrons
+Beam can be activated by clicking and holding "RightClick"
+Beam controls (width, length, power, etc) can be found Constants.cs
+Beam draws a LineRenderer and a custom PolygonCollider2D traced to the LineRenderer
+Beam strength increases the closer the particle is to the collector
+Damping occurs also based on how close the particle is to the collector
+Beam is projected from the nose of the ship at a fixed direction
+Ship can still collect neutrons passively, but use beam to collect neutrons just out of reach without thrusting around.
+
+
+
+:::Multispectral Imaging:::
+>>>Performance Pass
+Reduced the particle effects on surface anomally.
+Effect is now only a glowing orb with small blue cloud effects
+
+>>>Fixes
+Fixed the Minimum distance between anomalies. (was calculating from the wrong point)
+When an anomaly is too close to another it will recursively call the function to find a new position
+Because this kind of thing can cause a stackoverflow, implimented a exit iterator after a set number of attempts
+
+
+
+:::GameRoot:::
+Added a static MasterVolume in the GameRoot.  This value is set in the Constants.cs
+
+
+-----------Resource Use-------------
+>>>ShipResources.cs
+Monitors and controls the usage of the Fuel and Power for the ship
+MaxFuel and MaxPower are set in the Constants.cs
+Added functions to check fuel/power availability
+Added functions to use (drain) fuel/power
+Fuel cannot be refilled in game, and is only drained by using the Thruster (pressing "W" or "UpArrow")
+Power will recharge slowing over time (rate per second in Constants.cs)
+Rotating the craft (gyro rotation) will consume power
+Using certain tools will drain power
+
+>>>Resource UI
+Added UI elements attached to the Ship prefab
+UI elements slider bars (with labels) for Power/Fuel values
+Created custom sprite shaders for the value bars (Xenon purple/blue for Fuel, Yellow for power)
+
+
+

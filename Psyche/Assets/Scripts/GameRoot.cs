@@ -24,8 +24,7 @@ public class GameRoot : MonoBehaviour
     [HideInInspector]
     public static AudioListener UIAudioListener;
     public static AudioSource UIaudioSounds;
-    [Range(0.0f,1.0f)]
-    public static float masterVolume = 1.0f;
+    public static float masterVolume = Constants.masterVolume;
 
     //Scores
     [SerializeField] private int[] neutronScores;

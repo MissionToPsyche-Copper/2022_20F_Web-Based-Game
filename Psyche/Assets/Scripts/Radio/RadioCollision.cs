@@ -5,6 +5,8 @@ using MyBox;
 
 public class RadioCollision : MonoBehaviour
 {
+    public static RadioCollision instance;
+
     [ReadOnly]
     public int currentRing = 0;
 
@@ -56,9 +58,12 @@ public class RadioCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         audioEmitter = this.GetComponent<AudioSource>();
         ringOpacity /= 100.0f;
         effect.SetActive(false);
+        audioEmitter.volume = Constants.Radio.Sounds.ringVolume * GameRoot.masterVolume;
         currPitch = audioEmitter.pitch;
         initPitch = audioEmitter.pitch;
         currTime = 0.0f;

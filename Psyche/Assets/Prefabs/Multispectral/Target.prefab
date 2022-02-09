@@ -45,12 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9ccfc29f8aa6248bc8f72e98b5e858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTargetAngle: 60
+  currTargetAngle: 0
   lifespan: 3
-  lineEndWidth: 5
-  lineClrEnd: {r: 0, g: 0.9505663, b: 1, a: 1}
-  lineClrStart: {r: 0, g: 0.0064702034, b: 1, a: 1}
-  offAngleColor: {r: 1, g: 0, b: 0, a: 1}
+  scoreSizeMod: 0
+  clicked: 0
 --- !u!58 &8306717807546223071
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -106,9 +104,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5935856897293538947}
     m_Modifications:
+    - target: {fileID: 1026709319069898, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1653487616914306, guid: a34303283eae569419f28256bff64733, type: 3}
       propertyPath: m_Name
       value: AuraChargeBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920536326656516, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494143358562228, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494143358562228, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494143358562228, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494143358562228, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494143358562228, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494143358562228, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494143358562228, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4709814017024902, guid: a34303283eae569419f28256bff64733, type: 3}
       propertyPath: m_RootOrder
@@ -166,6 +200,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198382762565399812, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198382762565399812, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198382762565399812, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198382762565399812, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198382762565399812, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 198382762565399812, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 198382762565399812, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: InheritVelocityModule.m_Curve.scalar
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 198382762565399812, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198382762565399812, guid: a34303283eae569419f28256bff64733, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 198447139525799484, guid: a34303283eae569419f28256bff64733, type: 3}
       propertyPath: simulationSpeed
       value: 1
@@ -211,6 +281,10 @@ PrefabInstance:
     - target: {fileID: 1688082275626940, guid: 2c5943cdea4536f4490d51acff148ff4, type: 3}
       propertyPath: m_Name
       value: SwirlAuraBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688082275626940, guid: 2c5943cdea4536f4490d51acff148ff4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4173042621113542, guid: 2c5943cdea4536f4490d51acff148ff4, type: 3}
       propertyPath: m_RootOrder

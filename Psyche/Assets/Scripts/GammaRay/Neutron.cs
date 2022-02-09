@@ -5,6 +5,7 @@ using UnityTimer;
 
 public class Neutron : MonoBehaviour
 {
+    public GameObject particle;
     private int IDindex;
 
     private Timer destroyTimer;
@@ -18,7 +19,7 @@ public class Neutron : MonoBehaviour
     void Start()
     {
         audioEmitter = this.GetComponent<AudioSource>();
-        audioEmitter.volume *= GameRoot.masterVolume;
+        audioEmitter.volume = Constants.Spectrometer.Sounds.neutronEmitVolume * GameRoot.masterVolume;
         destroyTimer = Timer.Register(Constants.Spectrometer.Neutron.SelfDestTime, this.SelfDestruct, isLooped: false, useRealTime: false);
         turnToTrigger = Timer.Register(0.1f, this.ToggleTrigger, isLooped: false, useRealTime: false);
     }
@@ -30,14 +31,24 @@ public class Neutron : MonoBehaviour
             //Call some method in GameRoot/GameController to add this neutron to score
             GameRoot._Root.ScoreNeutron(IDindex, 1);
 
-            audioEmitter.clip = GammaRayController.neutronPickupFX;
-            audioEmitter.volume = 0.5f * GameRoot.masterVolume; ;
-            audioEmitter.Play();
+            audioEmitter.clip = GammaRayController.instance.neutronPickupFX[Random.Range(0, GammaRayController.instance.neutronPickupFX.Length)];
+            audioEmitter.loop = false;
+            audioEmitter.volume = Constants.Spectrometer.Sounds.neutronCollectVolume * GameRoot.masterVolume;
 
+            audioEmitter.Play();
+            particle.SetActive(false);
+            Destroy(this.gameObject, audioEmitter.clip.length);
             //Hide the object but don't destroy it yet.
             //We need the object to still exist until its soundFX has finished playing
-            this.SelfDestruct();
+ //           this.SelfDestruct();
         }
+    }
+
+    public void OnDestroy()
+    {
+        Timer.Cancel(this.destroyTimer);
+        Timer.Cancel(this.turnToTrigger);
+        audioEmitter.Stop();
     }
 
     // Update is called once per frame
@@ -53,8 +64,6 @@ public class Neutron : MonoBehaviour
 
     private void SelfDestruct()
     {
-        Timer.Cancel(this.destroyTimer);
-        Timer.Cancel(this.turnToTrigger);
         Destroy(this.gameObject);
     }
 

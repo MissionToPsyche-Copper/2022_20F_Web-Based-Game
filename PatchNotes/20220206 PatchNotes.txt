@@ -1,0 +1,84 @@
+-----------Major Changes in Brief-------------
+All branches and tools are now merged into one branch build.
+New WebGL build version now playable at github.io link
+Tools updated to keep score in GameRoot
+Select tools have had major overhauls
+Select tools have balancing features and sliders incorporated into the Unity Inspector
+Game now features the GammaRayNeutron, Magnetometer, RadioScience, Multispectral, and DeepSpace tools (though not all are active in the current scene at this moment).
+
+
+-----------Tool Changes-------------
+Most tools can by customized and tweaked directly in Unity Inspector rather than having to dig directly into the C# code.
+
+:::RadioScience:::
+Summary: RadioScience tool kit rewards the player for getting close orbits to the asteroid.  The tool kit is customizable with features to select how many ring levels, sizes and colors.
+>>RingControls
+NumOfRings : sets the number of rings to be generated.
+MinMaxRingSize : sets the size of the first and last ring radius
+RingSmoothScalar : Adjusts how smooth the rings are (lower numbers mean less line verticies which results in more jagged rings)
+RingOpacity : Adjust how translucent the rings appear to be
+Colors : Set the colors for the rings including the outer ring, middle ring, and inner ring.
+
+The script automatically generates the rings depending on these factors.  By setting a number of rings and the Radius's it will generated inbetween rings to evenly distribute fixed steps.  The colors are interpreted by created mixes of the colors above and below the current ring (this is a recursive function).
+
+>>Effect Controls
+MaxEffectSpeed : sets how fast the particle effect will play when the player is in the final ring (previous rings are a scaled factor of this speed depending on how many rings are generated)
+SoundVolume : Sets the overall volume of the soundFX playing when in a ring
+PitchVariance : Sets how high the pitch of the soundFX gets as the player gets to the final ring
+RateOfPitchChange : Sets how quickly the pitch shifts from one ring pitch to the next (currently not working, disregard for now)
+
+>>Score Controls
+ScoreRatePS : adjusts the maximum amount of points gained per second when the player is in the final ring.  All previous rings are a scaled factor of this value
+
+>>>Final Things of Note<<<
+The RadioScience tool is pretty true to the original concept with only game balancing and tweaking features added to the tool.  The Original SpriteCircle has been replaced with LineRenderer segments so that each ring does not overlap in opacities.  SoundFX have been added, and the score tracks in the GameRoot for final calculation.
+
+
+
+:::GammaRayNeutron:::
+Summary: GammaRayNeutron tool rewards the player for collecting "neutrons" that splash off the surface of the asteroid following a hit by an outside ray.
+
+No major changes for GammaRay.  GammaRay acting as previous programmed.  Though, the controls are not listed inside of the Unity Inspector box.  May need to update.  Currently, controls are accessed via the Constants file found under Constants.cs with the specific controls under Constants.Spectrometer
+
+
+
+:::Multispectral Imaging:::
+Summary: Multipspectral Imaging tool kit rewards the player for focusing on anomalies on the asteroid surface.  The player must point the ship in the direction of the anomally and click, hold and follow the anomally to score points.
+
+>>Spawning Target Controls
+SpawnChance : This MinMax slider adjusts the percentage chance that an anomally is spawned at the interval
+SpawnInterval : This MinMax slider adjusts the frequency in which an anomally may appear
+SpawnOffset : This slider moves anomallies further out from the surface if needed for tweaking
+DistBetweenTargets : Sets how close anomalies can be to eachother (currently not working as inteded, needs further attention)
+SpawnSizeRange : Sets the sizes of the anomalies which plays into the amount of points any anomally is worth (smaller anomalies are harder to click and follow, so they are worth more points)
+SpawnLifetime : Sets the range that any anomally may exists before disappearing.
+
+>>ScanLine Controls
+MaxTargetAngle : Sets the max angle the ship may be turned away from the anomally to be targeted (and score points).  Facing the ship directly at the anomally results in the best score
+LineEndWidth : Sets how wide the scanning beam will be when perfectly aimed at the anomally
+LineClrEnd: Sets the end of the beam color
+LineClrStart : Sets the color of the beam starting from the ship
+OffAngleColor : Sets the color the beam will shift towards as the player gets more off angle
+
+>>Audio Controls
+Volume : Sets the overal volume of the soundFX
+PitchShiftRange : Sets the MinMax values of the soundFX pitch.  The pitch shifts down (towards min) as the player gets more off angle), the pitch shifts up (to max) when the player is directly facing the anomally
+
+>>Misc Controls
+ScoreMod : final score tweaking modifier
+EasyMode : turns on/off easy mode.  Easy Mode will automatically turn the ship towards the clicked on anomally at a rate consistent with the ship turning rate.  Turning off EasyMode will require the player to perform the rotation themselves through keyboard controls (in the same way that they rotate the ship around for navigation).
+
+>>>Final Things of Note<<<
+The MultiSpectral tool had a major overhaul from the original scripts.  Some for better customization and tweaking, some for more better visual effects.  The original concept remains, but the end result is fairly transformed.  Targets are no longer just simple circles, but instead effect fields for visual appeal.  These effects required to know more than just the position of the target, but its "up" direction.  The "scanning beam" is a LineRenderer with some heavy modification and calculation about the player's direction to the clicked target.  This beam gives a visual to the player that they are (or aren't) being rewarded, and by how much.
+
+
+:::GameRoot:::
+Added features and variables for storing the scores of each tool added.  Also added accessors methods to add those scores.
+
+
+-----------Final Notes-------------
+This is a major update, with an included new build of the online playable version (not final).  Most of the core game is built now and all the mechanics are working as intended (with the exception of DeepSpace and MagneticField which require some very minimal additions).  The game still needs to have "Levels" (see: Scenes) built.  However, those levels can basically just copy the MainScene, rename the new scene, and turn on/off whatever tools are apart of that level.  EZ PZ.  
+Game still needs a "how to play", an Intro, a Main Menu (and pause menu), level complete menu (showing total score etc), and other small flourishes.  Plus, anything else, I have not thought of yet, or is set to be added, but not yet implimented as per Taiga.
+
+
+
