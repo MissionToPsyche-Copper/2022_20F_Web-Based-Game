@@ -8,7 +8,7 @@ public class OrbitalGravity : MonoBehaviour
     public GameObject body;
     public bool massFactor;
     [ConditionalField("massFactor")]
-    public int factor = 1;
+    public static int factor = 1;
     private Vector3 displacement;
     private Vector2 normalUnit;
     private float radius;
@@ -17,8 +17,6 @@ public class OrbitalGravity : MonoBehaviour
     public Vector2 force;
 
     public bool boostInitVelocity;
-
-
 
     //public void Awake()
     //{
@@ -51,6 +49,7 @@ public class OrbitalGravity : MonoBehaviour
         }
     }
 
+
     // Update is called once per frame
     public void FixedUpdate()
     {
@@ -59,5 +58,15 @@ public class OrbitalGravity : MonoBehaviour
         radius = displacement.magnitude;
         force = -normalUnit * (Constants.Space.gravityConstant * (float)(massByMass / Mathf.Pow(radius, 2)));
         this.GetComponent<Rigidbody2D>().AddForce(force);
+    }
+
+    public static Vector3 GravityVelocity(Vector3 objPos, Vector3 bodyPos, float mass)
+    {
+        Vector3 tempDisp = objPos - bodyPos;
+        Vector2 tempNorm = new Vector2(tempDisp.x, tempDisp.y).normalized;
+        float tempRad = tempDisp.magnitude;
+        Vector2 tempForce = -tempNorm * (Constants.Space.gravityConstant * (float)(mass / Mathf.Pow(tempRad, 2)));
+
+        return tempForce;
     }
 }

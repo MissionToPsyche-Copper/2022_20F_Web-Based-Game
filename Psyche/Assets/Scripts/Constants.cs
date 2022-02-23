@@ -13,27 +13,27 @@ public class Constants : MonoBehaviour
 {
     public const float masterVolume = 1.0f;
 
-
     /// <summary>
     ///  Ship Properties
     /// </summary>
     public static class Ship
     {
-        public const float Thrust = 2.75f;
-        public const float RotateSpeed = 1.25f;
+        public const float Thrust = 3.0f;
+        public const float RotateSpeed = 1.65f;
 
         public static class Resources
         {
             public const float MaxFuel = 500.0f;
             public const float BurnRatePS = 50.0f;
             public const float MaxPower = 500.0f;
-            public const float PowerRechargePS = 4.0f;
+            public const float PowerRechargePS = 40.0f;
 
             public static class PowerUse
             {
-                public const float GyroRotate = 10.0f;
-                public const float GammaRay = 25.0f;
-                public const float Multispectral = 25.0f;
+                public const float GyroRotate = 50.0f;
+                public const float GammaRay = 100.0f;
+                public const float Multispectral = 60.0f;
+                public const float Magnetometer = 15.0f;
             }
 
         }

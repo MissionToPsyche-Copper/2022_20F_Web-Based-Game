@@ -58,6 +58,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scripts\GammaRay\Neutron.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledRangeOptions.cs" />
+    <Compile Include="Assets\Scripts\Misc\MessageAni.cs" />
     <Compile Include="Assets\Scripts\OrbitalGravity.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Scripts\BGSpaceTrigger.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BLayersEnumAttribute.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Multispectral\Target.cs" />
+    <Compile Include="Assets\Scripts\GammaRay\TractorBeam.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledMessage.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonProjectileScript.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeSimpleAttribute.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Misc\OrbitLines.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
@@ -108,11 +111,14 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\ShipControl.cs" />
     <Compile Include="Assets\Scripts\Radio\RingTrigger.cs" />
+    <Compile Include="Assets\Scripts\Misc\PopMessageUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Scripts\ShipResources.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledEditor\HideScriptField.cs" />
     <Compile Include="Assets\Scripts\DeepSpace\DragAndDrop.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
+    <Compile Include="Assets\Scripts\Misc\ShipPopUI.cs" />
     <Compile Include="Assets\Scripts\ShipPop.cs" />
     <Compile Include="Assets\Scripts\GammaRay\NeutronEmitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
@@ -131,8 +137,13 @@
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeOptionsAttribute.cs" />
-    <Compile Include="Assets\Scripts\ShipResources.cs" />
-    <Compile Include="Assets\Scripts\GammaRay\TractorBeam.cs" />
+    <Compile Include="Assets\Scripts\Magnetometer\Magnetometer.cs" />
+    <Compile Include="Assets\Scripts\Magnetometer\MagnetTrigger.cs" />
+    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusConstants.cs" />
+    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusObject.cs" />
+    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusType.cs" />
+    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusMaterial.cs" />
+    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusMeshes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -141,6 +152,7 @@
     <None Include="Assets\_Addons\BOXOPHOBIC\Utils\Resources\Dummy Shader.shader" />
     <None Include="Assets\_Addons\BOXOPHOBIC\Utils\Shaders\Unlit Prototype Ground.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\PrimitivePlus\Documentation\ReadMe.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
@@ -865,6 +877,10 @@
       <Project>{214D2A4A-1AE3-BDC1-1ABD-42110F0B057E}</Project>
       <Name>Unity.ShaderGraph.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
+      <Project>{11C727B3-6E51-B84F-BF52-6CCB09B76A90}</Project>
+      <Name>AllIn1SpriteShaderAssembly</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
       <Project>{A2A3227D-CCBC-2C33-C64F-569FC41DAFA5}</Project>
       <Name>Unity.RenderPipelines.Universal.Editor</Name>
@@ -920,10 +936,6 @@
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
       <Project>{540C4DBB-3C3C-ACE3-574A-7BA7AE840C1A}</Project>
       <Name>Unity.2D.SpriteShape.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
-      <Project>{11C727B3-6E51-B84F-BF52-6CCB09B76A90}</Project>
-      <Name>AllIn1SpriteShaderAssembly</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

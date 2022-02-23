@@ -78,6 +78,8 @@
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\Editor\BCategoryDrawer.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\Editor\BInteractiveDrawer.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\Editor\StyledRangeOptionsDrawer.cs" />
+    <Compile Include="Assets\PrimitivePlus\Editor\PrimitivePlusMaterialEditor.cs" />
+    <Compile Include="Assets\PrimitivePlus\Editor\PrimitivePlusMenuItems.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -828,6 +830,10 @@
       <Project>{214D2A4A-1AE3-BDC1-1ABD-42110F0B057E}</Project>
       <Name>Unity.ShaderGraph.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
+      <Project>{11C727B3-6E51-B84F-BF52-6CCB09B76A90}</Project>
+      <Name>AllIn1SpriteShaderAssembly</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
       <Project>{A2A3227D-CCBC-2C33-C64F-569FC41DAFA5}</Project>
       <Name>Unity.RenderPipelines.Universal.Editor</Name>
@@ -883,10 +889,6 @@
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
       <Project>{540C4DBB-3C3C-ACE3-574A-7BA7AE840C1A}</Project>
       <Name>Unity.2D.SpriteShape.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
-      <Project>{11C727B3-6E51-B84F-BF52-6CCB09B76A90}</Project>
-      <Name>AllIn1SpriteShaderAssembly</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

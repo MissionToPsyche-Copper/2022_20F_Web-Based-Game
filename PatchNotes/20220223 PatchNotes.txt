@@ -1,0 +1,68 @@
+-----------Major Changes in Brief-------------
+Magnetometer revamped and integrated into gameplay
+Orbit trajectory line predicting player path
+Auto magnifier for ship when far from asteroid
+Togglable minimap with togglable focus
+Popup notifications
+Score trackers in UI and misc UI addons
+
+
+-----------Tool Changes-------------
+:::Magnetometer:::
+>>>Revamp
+Changed magnetometer ring from a circular orbit to an elliptical
+Elliptical orbits require calculation for the length of both axises
+Changed shape from "pipe" to "torus"
+colliders consist of two "cylinders" acting as outer and inner edges of torus
+Collider cylinders stretch with the Torus when fitting to elliptical orbit
+Effect plays when player is in ring
+Scoring for Magnetometer is based on consecutive time in the ring
+- Score ramps up in multiplier (to a cap) based on time in ring
+
+
+-----------Resource Use-------------
+>>>ShipResources.cs
+Magnetometer consumes some power (less than charge) while active in ring
+
+>>>Resource UI
+Changed the "animated" sprites of the UI bars to a static bar
+- the shader invovled in those bars had issues with 3D objects in the gamefield
+
+
+-----------Orbit Lines-------------
+>>>OrbitLines.cs
+Created a script the creates a predictive path of the player orbit
+the script takes the players current velocity and gravity force to the asteroid
+It samples 1 second incriments of that data to draw a LineRenderer
+If the orbit will end up with a collision the line stop (though sometimes goes haywire)
+if the orbit will be too wide (flying off into space) the line will not loop
+Line can be toggled On/Off by pressing 'Spacebar'
+
+
+-----------UI Updates-------------
+>>>Magnifier
+A "minimap" sized popup appears in the top right corner
+this popup occurs if the player is too far from the asteroid
+this is to assist seeing the attitude of the spacecraft while the MainCamera is zoomed out
+This popup is NOT toggleable.  (it appears when it is needed automatically)
+
+>>>MiniMap
+Toggle minimap On/Off by pressing 'Q'
+Toggle minimap focus by pressing 'E'
+Minimap appears in the top left corner
+Default minimap focus is directed as a whole picture of the asteroid
+the alternate focus is a zoomed out look which shows the whole Magnetometer orbit
+
+>>>PopUp Notifications
+Small text notifications popup on screen at certain events
+the text fades in, displays a notification for (default) 8secs then fades out
+If a popup occurs while another is already displaying it will move old messages upwards
+Popups can be called from any script using:
+ PopMessageUI.PopUpMessage("your message text") for the default 8 second timer
+or
+ PopMessageUI.PopUpMessage("your message text", time) for a custom time (in seconds)
+
+>>>Scores Information
+Score information is now displayed at the top of the screen
+Only score information for tools that are active in the scene (at scene load) will display
+The scores pulled from the GameRoot scene scores information (not total game scores)
