@@ -27,7 +27,7 @@ public class ShipPopUI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {

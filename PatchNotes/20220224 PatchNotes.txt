@@ -1,0 +1,48 @@
+-----------Minor Update-------------
+Optimizations of Update Methods across all scripts
+Fixes to Resource bars min values displaying
+Fix to active "PowerUse" on GUI
+Implimentation of "Power Outage" game mechanic
+
+
+-----------Tool Changes-------------
+:::ALL TOOLS:::
+>>>Updates
+Moved many processes out of "Update()" where possible
+Prioritized putting low value items into "FixedUpdate()"
+Slightly higher priority but not real time items moved to "LateUpdate()"
+Some items moved to OnGUI() methods
+
+The goal is to remove as many processes as possible from running in Update()
+Update can be called many times PER FRAME, which means a lot of congestion if
+some updates are doing a lot of work or updating things that don't need real
+time updates.
+This fix should better optimize the code, hopefully to run smoother on WebGL.
+
+
+
+-----------Resource Use-------------
+>>>GUI bars
+Minor fix to how the Resource bars are displayed
+The old version didn't visually show the bar "depleted" there was still some
+gap room displayed
+This fix removes that.  Now when the Resource is empty, so is the bar
+
+>>>Power Use
+Implimented a few static bools across the various tools to check if the tool is active
+the OnGUI of Resources now checks which tools are active and adds their powerdraw value
+to the displayed value.
+If the ship cannot use any power (such as an outage, see below) the value is 0
+
+>>>Power Outage
+Implimented a mechanic when the player has exceeded the power available.
+When the player draws all the power out, the system will "Reboot" until at least 50% of the
+power is recharged
+During this Reboot time, no power use is available, no tools, no rotations.
+A popup message displays when this happens alerting the player
+The popup message lasts as long as the system takes to restore to 50%
+
+
+-----------WebGL Misc-------------
+Changed player size to 1300x800
+Some of the GUI was overlapping from the previous size ratio, hopefully this fixes that

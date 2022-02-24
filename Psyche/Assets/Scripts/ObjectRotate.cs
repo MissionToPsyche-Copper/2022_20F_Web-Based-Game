@@ -14,7 +14,7 @@ public class ObjectRotate : MonoBehaviour
         rotationSpeed = Constants.Space.objRotateSpeed;
     }
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if(rotationAxis != Vector3.zero)
             this.transform.Rotate(rotationAxis.normalized, rotationSpeed);

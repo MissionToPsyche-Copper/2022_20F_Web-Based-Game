@@ -73,7 +73,7 @@ public class RadioCollision : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (currentRing > 0)
         {

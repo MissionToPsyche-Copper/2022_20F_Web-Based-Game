@@ -20,7 +20,7 @@ public class RingTrigger : MonoBehaviour
         inRing = false;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (waitTime > maxTime)
             return;

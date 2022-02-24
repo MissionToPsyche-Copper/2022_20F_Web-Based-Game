@@ -29,6 +29,8 @@ public class Magnetometer : MonoBehaviour
 
     [ReadOnly]
     [SerializeField] private bool inRing = false;
+    public static bool toolActive = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +52,7 @@ public class Magnetometer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(inRing)
         {

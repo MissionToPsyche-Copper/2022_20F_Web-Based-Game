@@ -14,6 +14,8 @@ public class ShipControl : MonoBehaviour
     public GameObject thrustTrail;
     public static Transform shipAnt;
     public static ShipResources resources;
+    public static bool gyroActive = false;
+
 
     public void Awake()
     {
@@ -43,21 +45,23 @@ public class ShipControl : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && resources.CanUsePower())
         {
-            if(hardMode)
+            if (hardMode)
                 this.GetComponent<Rigidbody2D>().angularVelocity += Constants.Ship.RotateSpeed;
             else
                 this.transform.Rotate(Vector3.forward, Constants.Ship.RotateSpeed);
             resources.UsePower(Constants.Ship.Resources.PowerUse.GyroRotate * Time.deltaTime);
+            gyroActive = true;
         }
-
-
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && resources.CanUsePower())
+        else if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && resources.CanUsePower())
         {
-            if(hardMode)
-               this.GetComponent<Rigidbody2D>().angularVelocity += -Constants.Ship.RotateSpeed;
+            if (hardMode)
+                this.GetComponent<Rigidbody2D>().angularVelocity += -Constants.Ship.RotateSpeed;
             else
-               this.transform.Rotate(Vector3.forward, -Constants.Ship.RotateSpeed);
+                this.transform.Rotate(Vector3.forward, -Constants.Ship.RotateSpeed);
             resources.UsePower(Constants.Ship.Resources.PowerUse.GyroRotate * Time.deltaTime);
+            gyroActive = true;
         }
+        else
+            gyroActive = false;
     }
 }

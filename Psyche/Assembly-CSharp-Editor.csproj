@@ -66,6 +66,7 @@
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\Editor\StyledBannerDrawer.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\Editor\BBannerDrawer.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\Editor\BCategoryAttributeDrawer.cs" />
+    <Compile Include="Assets\PrimitivePlus\Editor\PrimitivePlusMaterialEditor.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\Editor\StyledMessageDrawer.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledMaterial\Editor\StyledBannerDrawer.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Editor\BEditorUtils.cs" />
@@ -75,11 +76,10 @@
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\Editor\BMessageAttributeDrawer.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\Editor\StyledSpaceDrawer.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\Utils\Editor\ShaderUtils.cs" />
+    <Compile Include="Assets\PrimitivePlus\Editor\PrimitivePlusMenuItems.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\Editor\BCategoryDrawer.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\Editor\BInteractiveDrawer.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\Editor\StyledRangeOptionsDrawer.cs" />
-    <Compile Include="Assets\PrimitivePlus\Editor\PrimitivePlusMaterialEditor.cs" />
-    <Compile Include="Assets\PrimitivePlus\Editor\PrimitivePlusMenuItems.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

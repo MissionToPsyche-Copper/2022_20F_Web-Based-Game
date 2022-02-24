@@ -31,8 +31,11 @@ public class Target : MonoBehaviour
     public void OnMouseDown()
     {
         clicked = true;
+
         if (CheckShipAngle() < maxTargetAngle)
         {
+            MultiSpectController.toolActive = true;
+
             mainController.ToggleLine(true);
             mainController.GetAudio().Play();
         }
@@ -40,6 +43,8 @@ public class Target : MonoBehaviour
 
     public void OnMouseUp()
     {
+        MultiSpectController.toolActive = false;
+
         if (clicked)
             clicked = false;
         mainController.ToggleLine(false);
@@ -54,6 +59,7 @@ public class Target : MonoBehaviour
             if (!ShipControl.resources.CanUsePower())
             {
                 clicked = false;
+                MultiSpectController.toolActive = false;
                 mainController.ToggleLine(false);
                 mainController.GetAudio().Stop();
                 return;
@@ -66,6 +72,8 @@ public class Target : MonoBehaviour
 
             if (currTargetAngle < maxTargetAngle)
             {
+                MultiSpectController.toolActive = true;
+
                 ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.Multispectral * Time.deltaTime);
                 anglePercent = currTargetAngle / maxTargetAngle;
                 mainController.ToggleLine(true);
@@ -81,12 +89,15 @@ public class Target : MonoBehaviour
                 if(!ezMode)
                     clicked = false;
 
+                MultiSpectController.toolActive = false;
+
                 mainController.ToggleLine(false);
             }
         }
     }
     public void OnMouseExit()
     {
+        MultiSpectController.toolActive = false;
         clicked = false;
         mainController.ToggleLine(false);
         mainController.GetAudio().Stop();

@@ -67,6 +67,9 @@ public class MultiSpectController : MonoBehaviour
     private CircleCollider2D asteroid;
     private AudioSource audioEmitter;
 
+    public static bool toolActive = false;
+
+
     void Start()
     {
         instance = this;    
@@ -114,7 +117,7 @@ public class MultiSpectController : MonoBehaviour
         return quatRotate;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         currentTime += Time.deltaTime;
         if(currentTime > intervalVal)

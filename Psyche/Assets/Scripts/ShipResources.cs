@@ -12,6 +12,7 @@ public class ShipResources : MonoBehaviour
     public TextMeshProUGUI power;
     private float alt = 0.0f;
     private float powerDraw = 0.0f;
+    private bool powerOutage = false;
 
 
     // Start is called before the first frame update
@@ -24,14 +25,11 @@ public class ShipResources : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //add a method  for recharging the power when in the sunlight;
         //
         alt = GameRoot.player.transform.position.magnitude - (GameRoot.mainAsteroid.GetComponent<CircleCollider2D>().radius * GameRoot.mainAsteroid.transform.localScale.x);
-        altitude.text = alt.ToString("0.00") + " :Altitude";
-
-        power.text = "Power Use: " + powerDraw.ToString("0.00");
 
         if (powerSlider.value >= powerSlider.maxValue)
         {
@@ -44,6 +42,14 @@ public class ShipResources : MonoBehaviour
         }
     }
 
+    private void OnGUI()
+    {
+        altitude.text = alt.ToString("0.00") + " :Altitude";
+        powerDraw = CalcActivePowerUse();
+
+        power.text = "Power Use: " + powerDraw.ToString("0.0") + "w/s";
+    }
+
     public void UseFuel(float val)
     {
         fuelSlider.value -= val;
@@ -52,11 +58,18 @@ public class ShipResources : MonoBehaviour
     public void UsePower(float val)
     {
         powerSlider.value -= val;
+        if (powerSlider.value < Constants.Ship.Resources.PowerRechargePS / 2.0f)
+        {
+            powerOutage = true;
+            PopMessageUI.PopUpMessage("!Power Outage : Rebooting Systems!", (powerSlider.maxValue / 2.0f) / Constants.Ship.Resources.PowerRechargePS);
+        }
     }
 
     public void RechargePower(float val)
     {
         powerSlider.value += val;
+        if (powerOutage && powerSlider.value > powerSlider.maxValue / 2.0f)
+            powerOutage = false;
     }
 
     public bool CanUseFuel()
@@ -69,10 +82,28 @@ public class ShipResources : MonoBehaviour
 
     public bool CanUsePower()
     {
-        if (powerSlider.value > Constants.Ship.Resources.PowerRechargePS * 1.25)
+        if (!powerOutage && powerSlider.value > Constants.Ship.Resources.PowerRechargePS / 2.0f)
             return true;
         else
             return false;
+    }
+
+    private float CalcActivePowerUse()
+    {
+        float totalUse = 0.0f;
+        if (powerOutage)
+            return totalUse;
+        if (GammaRayController.toolActive)
+            totalUse += Constants.Ship.Resources.PowerUse.GammaRay;
+        if (Magnetometer.toolActive)
+            totalUse += Constants.Ship.Resources.PowerUse.Magnetometer;
+        if (MultiSpectController.toolActive)
+            totalUse += Constants.Ship.Resources.PowerUse.Multispectral;
+        if (ShipControl.gyroActive)
+            totalUse += Constants.Ship.Resources.PowerUse.GyroRotate;
+
+
+        return totalUse;
     }
 
 }

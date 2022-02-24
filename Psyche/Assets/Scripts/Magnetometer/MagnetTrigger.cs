@@ -15,7 +15,7 @@ public class MagnetTrigger : MonoBehaviour
         magController = control;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (messgWait > messgMax)
             return;
@@ -32,6 +32,7 @@ public class MagnetTrigger : MonoBehaviour
                 magController.SetRingStatus(false);
                 if (messgWait >= messgMax)
                 {
+                    Magnetometer.toolActive = false;
                     PopMessageUI.PopUpMessage("Exiting Magnetometer Orbit", 4.0f);
                     messgWait = 0.0f;
                 }
@@ -41,6 +42,7 @@ public class MagnetTrigger : MonoBehaviour
                 magController.SetRingStatus(true);
                 if (messgWait >= messgMax)
                 {
+                    Magnetometer.toolActive = true;
                     PopMessageUI.PopUpMessage("Entering Magnetometer Orbit", 4.0f);
                     messgWait = 0.0f;
                 }
@@ -58,6 +60,7 @@ public class MagnetTrigger : MonoBehaviour
                 magController.SetRingStatus(true);
                 if (messgWait >= messgMax)
                 {
+                    Magnetometer.toolActive = true;
                     PopMessageUI.PopUpMessage("Entering Magnetometer Orbit", 4.0f);
                     messgWait = 0.0f;
                 }
@@ -67,6 +70,7 @@ public class MagnetTrigger : MonoBehaviour
                 magController.SetRingStatus(false);
                 if (messgWait >= messgMax)
                 {
+                    Magnetometer.toolActive = false;
                     PopMessageUI.PopUpMessage("Exiting Magnetometer Orbit", 4.0f);
                     messgWait = 0.0f;
                 }

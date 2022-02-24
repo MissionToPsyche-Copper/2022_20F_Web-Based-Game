@@ -24,6 +24,8 @@ public class GammaRayController : MonoBehaviour
     public CircleCollider2D TractorCollector;
     private AudioSource tractorAudioFX;
 
+    public static bool toolActive = false;
+
     private void Awake()
     {
         instance = this;
@@ -49,10 +51,11 @@ public class GammaRayController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (Input.GetMouseButtonDown(1) && ShipControl.resources.CanUsePower())
         {
+            toolActive = true;
             collector.SetActive(true);
             tractorAudioFX.Play();
         }
@@ -74,6 +77,7 @@ public class GammaRayController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(1))
         {
+            toolActive = false;
             collector.SetActive(false);
             tractorAudioFX.Stop();
         }

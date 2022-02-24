@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update()
+    public void LateUpdate()
     {
         displacement = shipTarget.transform.position - body.transform.position;
         currDistace = displacement.magnitude;
