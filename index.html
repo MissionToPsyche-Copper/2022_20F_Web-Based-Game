@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1300 height=900></canvas>
+      <canvas id="unity-canvas" width=1300 height=800></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -35,7 +35,7 @@
         streamingAssetsUrl: "StreamingAssets",
         companyName: "20F",
         productName: "Psyche",
-        productVersion: "2.8",
+        productVersion: "2.85",
       };
 
       var container = document.querySelector("#unity-container");
@@ -63,7 +63,7 @@
         }, 5000);
       } else {
         canvas.style.width = "1300px";
-        canvas.style.height = "900px";
+        canvas.style.height = "800px";
       }
       loadingBar.style.display = "block";
 
