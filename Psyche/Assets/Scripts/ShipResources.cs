@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShipResources : MonoBehaviour
 {
     public Slider fuelSlider;
     public Slider powerSlider;
+    public TextMeshProUGUI altitude;
+    public TextMeshProUGUI power;
+    private float alt = 0.0f;
+    private float powerDraw = 0.0f;
 
 
     // Start is called before the first frame update
@@ -23,7 +28,12 @@ public class ShipResources : MonoBehaviour
     {
         //add a method  for recharging the power when in the sunlight;
         //
-        if(powerSlider.value >= powerSlider.maxValue)
+        alt = GameRoot.player.transform.position.magnitude - (GameRoot.mainAsteroid.GetComponent<CircleCollider2D>().radius * GameRoot.mainAsteroid.transform.localScale.x);
+        altitude.text = alt.ToString("0.00") + " :Altitude";
+
+        power.text = "Power Use: " + powerDraw.ToString("0.00");
+
+        if (powerSlider.value >= powerSlider.maxValue)
         {
             powerSlider.value = powerSlider.maxValue;
             return;
