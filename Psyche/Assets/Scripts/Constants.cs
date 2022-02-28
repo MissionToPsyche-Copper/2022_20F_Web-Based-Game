@@ -137,6 +137,24 @@ public class Constants : MonoBehaviour
             public const string pickupFX3 = "/Audio/GammaRay/zapsplat_multimedia_game_sound_collect_treasure_coin_003_40561.wav";
         }
 
+        public static class Music
+        {
+            //gameplay tracks
+            public const string BlazingStars = "/Audio/Music/Gameplay/Blazing-Stars_Looping.mp3";
+            public const string ColdMoon = "/Audio/Music/Gameplay/Cold-Moon_Looping.mp3";
+            public const string CyberREM = "/Audio/Music/Gameplay/Cyber-REM_Looping.mp3";
+            public const string RetroSciFiPlanet = "/Audio/Music/Gameplay/Retro-Sci-Fi-Planet_Looping.mp3";
+            public const string SciFiClose2 = "/Audio/Music/Gameplay/Sci-Fi-Close-2_Looping.mp3";
+            public const string StarLight = "/Audio/Music/Gameplay/Star-Light_Looping.mp3";
+            public const string TerraformingBegins = "/Audio/Music/Gameplay/Terraforming-Begins_Looping.mp3";
+            public const string TroubleOnMercury = "/Audio/Music/Gameplay/Trouble-on-Mercury_Looping.mp3";
+
+            //menu tracks
+            public const string CosmicSwitchboard = "/Audio/Music/Menu/Cosmic-Switchboard.mp3";
+            public const string CyberStreets = "/Audio/Music/Menu/Cyber-Streets.mp3";
+            public const string DystopicTechnology = "/Audio/Music/Menu/Dystopic-Technology.mp3";
+            public const string OminousSciFiMenu = "/Audio/Music/Menu/Ominous-Sci-Fi-Menu.mp3";
+        }
     }
 }
 
