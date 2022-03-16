@@ -1,0 +1,13 @@
+measuring anomalies in the same location
+trying to find the same anomaly many times in the same place vs background noise
+
+measure from as many alt as possible
+
+thrusting messes with magnetometer
+
+
+passive turn on/off at location
+
+
+
+radio science at any distance but magnetometer needs to be in bubble
