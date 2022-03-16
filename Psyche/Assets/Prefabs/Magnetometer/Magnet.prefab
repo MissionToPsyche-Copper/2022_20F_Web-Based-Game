@@ -7030,7 +7030,8 @@ MonoBehaviour:
   effect: {fileID: 910051330292182631}
   pivotDistance: 10
   orbitRadius: 60
-  ScoreMod: 1
+  scoreRampUpTime: 5
+  scoreModAtRamp: 1
   inRing: 0
 --- !u!1 &910051328757864031
 GameObject:

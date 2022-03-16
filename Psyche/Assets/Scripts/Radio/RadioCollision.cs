@@ -75,18 +75,21 @@ public class RadioCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentRing > 0)
+        if (currentRing > 0 && ShipControl.resources.CanUsePower())
         {
+            effect.SetActive(true);
             effect.transform.position = GameRoot.player.transform.position;
-            GameRoot._Root.ScoreRadio(scoreRatePS * ((float)currentRing/ (float)ringList.Count) * Time.deltaTime);
-            
-            if(audioEmitter.isPlaying)
+            GameRoot._Root.ScoreRadio(scoreRatePS * ((float)currentRing / (float)ringList.Count) * Time.deltaTime);
+
+            if (audioEmitter.isPlaying)
             {
                 currPitch = (((float)currentRing / (float)ringList.Count) * pitchVariance) + initPitch;
 
                 audioEmitter.pitch = currPitch;
             }
-        }   
+        }
+        else
+            effect.SetActive(false);
     }
 
     private void AdjustAudioSettings()
