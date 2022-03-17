@@ -26,11 +26,14 @@ public class Target : MonoBehaviour
         mainController.RemoveFromTargetList(this.gameObject);
         mainController.ToggleLine(false);
         mainController.GetAudio().Stop();
+        MultiSpectController.toolActive = false;
+
     }
 
     public void OnMouseDown()
     {
         clicked = true;
+        MultiSpectController.toolActive = true;
         if (CheckShipAngle() < maxTargetAngle)
         {
             mainController.ToggleLine(true);
@@ -42,6 +45,8 @@ public class Target : MonoBehaviour
     {
         if (clicked)
             clicked = false;
+        MultiSpectController.toolActive = false;
+
         mainController.ToggleLine(false);
         mainController.GetAudio().Stop();
     }
@@ -56,6 +61,8 @@ public class Target : MonoBehaviour
                 clicked = false;
                 mainController.ToggleLine(false);
                 mainController.GetAudio().Stop();
+                MultiSpectController.toolActive = false;
+
                 return;
             }
 
@@ -66,6 +73,7 @@ public class Target : MonoBehaviour
 
             if (currTargetAngle < maxTargetAngle)
             {
+                MultiSpectController.toolActive = true;
                 ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.Multispectral * Time.deltaTime);
                 anglePercent = currTargetAngle / maxTargetAngle;
                 mainController.ToggleLine(true);
@@ -80,6 +88,7 @@ public class Target : MonoBehaviour
             {
                 if(!ezMode)
                     clicked = false;
+                MultiSpectController.toolActive = false;
 
                 mainController.ToggleLine(false);
             }
@@ -90,6 +99,8 @@ public class Target : MonoBehaviour
         clicked = false;
         mainController.ToggleLine(false);
         mainController.GetAudio().Stop();
+        MultiSpectController.toolActive = false;
+
     }
 
     private float CheckShipAngle()
@@ -110,16 +121,22 @@ public class Target : MonoBehaviour
             return;
 
         if (angle2target == 0)
+        {
+            ShipControl.gyroActive = false;
             return;
-        else if(angle2target < 0)
+        }
+        else if (angle2target < 0)
         {
             GameRoot.player.transform.Rotate(Vector3.forward, Constants.Ship.RotateSpeed);
             ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.GyroRotate * Time.deltaTime);
+            ShipControl.gyroActive = true;
+
         }
         else
         {
             GameRoot.player.transform.Rotate(Vector3.forward, -Constants.Ship.RotateSpeed);
             ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.GyroRotate * Time.deltaTime);
+            ShipControl.gyroActive = true;
         }
     }
 

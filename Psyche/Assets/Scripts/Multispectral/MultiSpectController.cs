@@ -67,6 +67,8 @@ public class MultiSpectController : MonoBehaviour
     private CircleCollider2D asteroid;
     private AudioSource audioEmitter;
 
+	public static bool toolActive = false;
+
     void Start()
     {
         instance = this;    

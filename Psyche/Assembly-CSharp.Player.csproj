@@ -59,14 +59,12 @@
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Polyverse Skies\Core\Scripts\PolyverseSkies.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-<<<<<<< Updated upstream
-=======
     <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusObject.cs" />
     <Compile Include="Assets\Scripts\Magnetometer\MagneticField.cs" />
->>>>>>> Stashed changes
     <Compile Include="Assets\Scripts\GammaRay\Neutron.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledRangeOptions.cs" />
     <Compile Include="Assets\Scripts\Misc\MessageAni.cs" />
+    <Compile Include="Assets\Scripts\Magnetometer\Magnetometer.cs" />
     <Compile Include="Assets\Scripts\OrbitalGravity.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Scripts\BGSpaceTrigger.cs" />
@@ -103,7 +101,9 @@
     <Compile Include="Assets\Scripts\GammaRay\GammaRayController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Scripts\Magnetometer\MagnetTrigger.cs" />
     <Compile Include="Assets\Scripts\FaceObject.cs" />
+    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusMeshes.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
@@ -125,6 +125,7 @@
     <Compile Include="Assets\Scripts\ShipResources.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledEditor\HideScriptField.cs" />
+    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusConstants.cs" />
     <Compile Include="Assets\Scripts\DeepSpace\DragAndDrop.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\Scripts\Misc\ShipPopUI.cs" />
@@ -139,20 +140,15 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
+    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusMaterial.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonOrbit.cs" />
     <Compile Include="Assets\Scripts\GameRoot.cs" />
+    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusType.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Scripts\PolygonRotation.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeOptionsAttribute.cs" />
-    <Compile Include="Assets\Scripts\Magnetometer\Magnetometer.cs" />
-    <Compile Include="Assets\Scripts\Magnetometer\MagnetTrigger.cs" />
-    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusConstants.cs" />
-    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusObject.cs" />
-    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusType.cs" />
-    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusMaterial.cs" />
-    <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusMeshes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

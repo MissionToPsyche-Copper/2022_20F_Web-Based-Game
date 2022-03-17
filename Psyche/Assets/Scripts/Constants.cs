@@ -48,6 +48,9 @@ public class Constants : MonoBehaviour
             public const float BurnRatePS = 50.0f;
             public const float MaxPower = 500.0f;
             public const float PowerRechargePS = 40.0f;
+            public const float PowerOutagePercent = 0.01f;
+            public const float RebootPercent = 0.5f;
+            public const float RebootDelayTime = 2.0f;
 
             public static class PowerUse
             {
@@ -74,6 +77,7 @@ public class Constants : MonoBehaviour
     {
         public static float gravityConstant = 6.6743f * Mathf.Pow(10, -2.5f);
         public const float objRotateSpeed = 0.3f;
+        public const float AltitudeFactorAdjust = 3.777f;
 
         public static class Sounds
         {
@@ -158,24 +162,6 @@ public class Constants : MonoBehaviour
             public const string pickupFX3 = "/Audio/GammaRay/zapsplat_multimedia_game_sound_collect_treasure_coin_003_40561.wav";
         }
 
-        public static class Music
-        {
-            //gameplay tracks
-            public const string BlazingStars = "/Audio/Music/Gameplay/Blazing-Stars_Looping.mp3";
-            public const string ColdMoon = "/Audio/Music/Gameplay/Cold-Moon_Looping.mp3";
-            public const string CyberREM = "/Audio/Music/Gameplay/Cyber-REM_Looping.mp3";
-            public const string RetroSciFiPlanet = "/Audio/Music/Gameplay/Retro-Sci-Fi-Planet_Looping.mp3";
-            public const string SciFiClose2 = "/Audio/Music/Gameplay/Sci-Fi-Close-2_Looping.mp3";
-            public const string StarLight = "/Audio/Music/Gameplay/Star-Light_Looping.mp3";
-            public const string TerraformingBegins = "/Audio/Music/Gameplay/Terraforming-Begins_Looping.mp3";
-            public const string TroubleOnMercury = "/Audio/Music/Gameplay/Trouble-on-Mercury_Looping.mp3";
-
-            //menu tracks
-            public const string CosmicSwitchboard = "/Audio/Music/Menu/Cosmic-Switchboard.mp3";
-            public const string CyberStreets = "/Audio/Music/Menu/Cyber-Streets.mp3";
-            public const string DystopicTechnology = "/Audio/Music/Menu/Dystopic-Technology.mp3";
-            public const string OminousSciFiMenu = "/Audio/Music/Menu/Ominous-Sci-Fi-Menu.mp3";
-        }
     }
 }
 

@@ -28,7 +28,7 @@ public class ShipPopUI : MonoBehaviour
 
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if(showMiniMap && !toggleMapPos)
         {
