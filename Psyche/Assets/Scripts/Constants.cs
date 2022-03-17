@@ -11,28 +11,7 @@ using UnityEngine;
 /// </summary>
 public class Constants : MonoBehaviour
 {
-    public static float masterVolume = 1.0f;
-    public static float bgmVolume = 0.05f;
-
-    public static class Music
-    {
-        //gameplay tracks
-        public const string BlazingStars = "/Audio/Music/Gameplay/Blazing-Stars_Looping.mp3";
-        public const string ColdMoon = "/Audio/Music/Gameplay/Cold-Moon_Looping.mp3";
-        public const string CyberREM = "/Audio/Music/Gameplay/Cyber-REM_Looping.mp3";
-        public const string RetroSciFiPlanet = "/Audio/Music/Gameplay/Retro-Sci-Fi-Planet_Looping.mp3";
-        public const string SciFiClose2 = "/Audio/Music/Gameplay/Sci-Fi-Close-2_Looping.mp3";
-        public const string StarLight = "/Audio/Music/Gameplay/Star-Light_Looping.mp3";
-        public const string TerraformingBegins = "/Audio/Music/Gameplay/Terraforming-Begins_Looping.mp3";
-        public const string TroubleOnMercury = "/Audio/Music/Gameplay/Trouble-on-Mercury_Looping.mp3";
-
-        //menu tracks
-        public const string CosmicSwitchboard = "/Audio/Music/Menu/Cosmic-Switchboard.mp3";
-        public const string CyberStreets = "/Audio/Music/Menu/Cyber-Streets.mp3";
-        public const string DystopicTechnology = "/Audio/Music/Menu/Dystopic-Technology.mp3";
-        public const string OminousSciFiMenu = "/Audio/Music/Menu/Ominous-Sci-Fi-Menu.mp3";
-    }
-
+    public const float masterVolume = 1.0f;
 
     /// <summary>
     ///  Ship Properties
@@ -54,7 +33,7 @@ public class Constants : MonoBehaviour
                 public const float GyroRotate = 50.0f;
                 public const float GammaRay = 100.0f;
                 public const float Multispectral = 60.0f;
-                public const float Magnetometer = 45.0f;
+                public const float Magnetometer = 15.0f;
             }
 
         }

@@ -75,24 +75,6 @@ public class ShipResources : MonoBehaviour
             return false;
     }
 
-    private float CalcActivePowerUse()
-    {
-        float totalUse = 0.0f;
-        if (powerOutage)
-            return totalUse;
-        if (GammaRayController.toolActive)
-            totalUse += Constants.Ship.Resources.PowerUse.GammaRay;
-        if (MagnetometerController.toolActive)
-            totalUse += Constants.Ship.Resources.PowerUse.Magnetometer;
-        if (MultiSpectController.toolActive)
-            totalUse += Constants.Ship.Resources.PowerUse.Multispectral;
-        if (ShipControl.gyroActive)
-            totalUse += Constants.Ship.Resources.PowerUse.GyroRotate;
-
-
-        return totalUse;
-    }
-
 }
 
 

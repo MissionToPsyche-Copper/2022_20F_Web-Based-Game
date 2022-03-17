@@ -346,8 +346,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Graphs\Vector3ShaderProperty.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Nodes\Artistic\Adjustment\ReplaceColorNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Generation\Data\ConditionalField.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Nodes\Math\Basic\DivideNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Nodes\Math\Advanced\AbsoluteNode.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Nodes\Math\Basic\DivideNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Nodes\Math\Vector\SphereMaskNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Drawing\Controls\CubemapControl.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Drawing\Inspector\PropertyDrawers\GraphDataPropertyDrawer.cs" />
@@ -444,8 +444,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Graphs\BooleanShaderProperty.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Nodes\GuidEncoder.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Importers\ShaderSubGraphImporter.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Util\ValueUtilities.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Util\CreateSerializableGraph.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Util\ValueUtilities.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Interfaces\Graph\IOnAssetEnabled.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Nodes\Utility\KeywordNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.6.0\Editor\Data\Util\KeywordCollector.cs" />

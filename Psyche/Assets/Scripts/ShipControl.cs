@@ -14,8 +14,6 @@ public class ShipControl : MonoBehaviour
     public GameObject thrustTrail;
     public static Transform shipAnt;
     public static ShipResources resources;
-    public static bool gyroActive = false;
-    public static bool isThrusting = false;
 
     public void Awake()
     {
@@ -39,13 +37,9 @@ public class ShipControl : MonoBehaviour
             this.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * Constants.Ship.Thrust);
             resources.UseFuel(Constants.Ship.Resources.BurnRatePS * Time.deltaTime);
             thrustTrail.SetActive(true);
-            isThrusting = true;
         }
         else
-        {
             thrustTrail.SetActive(false);
-            isThrusting = false;
-        }
 
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && resources.CanUsePower())
         {

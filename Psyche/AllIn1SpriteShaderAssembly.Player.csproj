@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,29 +53,26 @@
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\DemoRepositionExpositor.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\SetGlobalTimeNew.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\All1TextureOffsetOverTime.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\All1ShaderDemoController.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\AllIn1Shader.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\DemoItem.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\DemoCamera.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Editor\AllIn1ShaderGradientDrawer.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\Demo2AutoScroll.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\All1CreateUnifiedOutline.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\DemoRandomColorSwap.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Editor\AllIn1SpriteShaderUiMaskMaterialInspector.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\AllIn1ScrollProperty.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\SetAtlasUvs.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\AllIn1ShaderWindow.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Editor\AllIn1ShaderScriptEditor.cs" />
     <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\RandomSeed.cs" />
-    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\DemoCircleExpositor.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\DemoItem.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\SetAtlasUvs.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Editor\AllIn1ShaderGradientDrawer.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Editor\AllIn1SpriteShaderUiMaskMaterialInspector.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Editor\AllIn1ShaderScriptEditor.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\SetGlobalTimeNew.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\DemoRepositionExpositor.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\AllIn1ShaderWindow.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\All1ShaderDemoController.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\All1CreateUnifiedOutline.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\All1TextureOffsetOverTime.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\DemoRandomColorSwap.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\DemoCamera.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\Demo2AutoScroll.cs" />
     <Compile Include="Assets\_Addons\AllIn1SpriteShader\Editor\AllIn1SpriteShaderMaterialInspector.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\DemoCircleExpositor.cs" />
     <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\SetGlobalTimeUnity2018.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Scripts\AllIn1Shader.cs" />
+    <Compile Include="Assets\_Addons\AllIn1SpriteShader\Demo\Scripts\AllIn1ScrollProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_Addons\AllIn1SpriteShader\!Start_Here.txt" />
