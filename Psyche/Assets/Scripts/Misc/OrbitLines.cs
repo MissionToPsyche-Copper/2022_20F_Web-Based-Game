@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using MyBox;
 
+
 public class OrbitLines : MonoBehaviour
 {
     private LineRenderer line;
@@ -47,15 +48,18 @@ public class OrbitLines : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        { 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             display = !display;
             line.enabled = display;
         }
+    }
 
+    // Update is called once per frame
+    void FixedUpdate()
+    {
         if (display)
             SimulateOrbit(GameRoot.player);
     }
