@@ -6,10 +6,10 @@ using MyBox;
 public class ObjectRotate : MonoBehaviour
 {
     public Vector3 rotationAxis = Vector3.forward;
-    [ReadOnly]
+
     public float rotationSpeed = Constants.Space.objRotateSpeed;
 
-    private void Start()
+    private void Awake()
     {
         rotationSpeed = Constants.Space.objRotateSpeed;
     }
