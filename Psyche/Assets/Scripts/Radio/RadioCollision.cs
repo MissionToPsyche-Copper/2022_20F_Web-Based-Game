@@ -63,7 +63,7 @@ public class RadioCollision : MonoBehaviour
         audioEmitter = this.GetComponent<AudioSource>();
         ringOpacity /= 100.0f;
         effect.SetActive(false);
-        audioEmitter.volume = Constants.Radio.Sounds.ringVolume * GameRoot.masterVolume;
+        audioEmitter.volume = Constants.Radio.Sounds.ringVolume * Constants.Audio.masterVolume;
         currPitch = audioEmitter.pitch;
         initPitch = audioEmitter.pitch;
         currTime = 0.0f;

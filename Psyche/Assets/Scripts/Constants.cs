@@ -11,26 +11,47 @@ using UnityEngine;
 /// </summary>
 public class Constants : MonoBehaviour
 {
-    public static float masterVolume = 1.0f;
-    public static float bgmVolume = 0.05f;
 
-    public static class Music
+    public static class Audio
     {
-        //gameplay tracks
-        public const string BlazingStars = "/Audio/Music/Gameplay/Blazing-Stars_Looping.mp3";
-        public const string ColdMoon = "/Audio/Music/Gameplay/Cold-Moon_Looping.mp3";
-        public const string CyberREM = "/Audio/Music/Gameplay/Cyber-REM_Looping.mp3";
-        public const string RetroSciFiPlanet = "/Audio/Music/Gameplay/Retro-Sci-Fi-Planet_Looping.mp3";
-        public const string SciFiClose2 = "/Audio/Music/Gameplay/Sci-Fi-Close-2_Looping.mp3";
-        public const string StarLight = "/Audio/Music/Gameplay/Star-Light_Looping.mp3";
-        public const string TerraformingBegins = "/Audio/Music/Gameplay/Terraforming-Begins_Looping.mp3";
-        public const string TroubleOnMercury = "/Audio/Music/Gameplay/Trouble-on-Mercury_Looping.mp3";
+        public const float masterVolume = 1.0f;
+        public const float bgmVolume = 0.05f;
+        public const float uiVolume = 0.5f;
+        public const float fxVolume = 0.5f;
 
-        //menu tracks
-        public const string CosmicSwitchboard = "/Audio/Music/Menu/Cosmic-Switchboard.mp3";
-        public const string CyberStreets = "/Audio/Music/Menu/Cyber-Streets.mp3";
-        public const string DystopicTechnology = "/Audio/Music/Menu/Dystopic-Technology.mp3";
-        public const string OminousSciFiMenu = "/Audio/Music/Menu/Ominous-Sci-Fi-Menu.mp3";
+        public static class Gameplay
+        {
+            //gameplay tracks
+            public const string BlazingStars = "/Audio/Music/Gameplay/Blazing-Stars_Looping.mp3";
+            public const string ColdMoon = "/Audio/Music/Gameplay/Cold-Moon_Looping.mp3";
+            public const string CyberREM = "/Audio/Music/Gameplay/Cyber-REM_Looping.mp3";
+            public const string RetroSciFiPlanet = "/Audio/Music/Gameplay/Retro-Sci-Fi-Planet_Looping.mp3";
+            public const string SciFiClose2 = "/Audio/Music/Gameplay/Sci-Fi-Close-2_Looping.mp3";
+            public const string StarLight = "/Audio/Music/Gameplay/Star-Light_Looping.mp3";
+            public const string TerraformingBegins = "/Audio/Music/Gameplay/Terraforming-Begins_Looping.mp3";
+            public const string TroubleOnMercury = "/Audio/Music/Gameplay/Trouble-on-Mercury_Looping.mp3";
+        }
+
+        public static class Menu
+        {
+            //menu tracks
+            public const string CosmicSwitchboard = "/Audio/Music/Menu/Cosmic-Switchboard.mp3";
+            public const string CyberStreets = "/Audio/Music/Menu/Cyber-Streets.mp3";
+            public const string DystopicTechnology = "/Audio/Music/Menu/Dystopic-Technology.mp3";
+            public const string OminousSciFiMenu = "/Audio/Music/Menu/Ominous-Sci-Fi-Menu.mp3";
+        }
+    }
+
+    public static class Scenes
+    {
+        public const string intro = "/Scenes/IntroScene";
+        public const string tutorial = "/Scenes/Tutorial";
+        public const string level1 = "/Scenes/MainScene";
+        public const string level2 = "/Scenes/Level2";
+        public const string level3 = "/Scenes/Level3";
+        public const string level4 = "/Scenes/Level4";
+        public const string endOfLevel = "/Scenes/EOL";
+        public const string Credits = "/Scenes/Credits";
     }
 
 

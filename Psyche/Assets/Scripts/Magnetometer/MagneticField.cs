@@ -18,6 +18,7 @@ public class MagneticField : MonoBehaviour
     public float fieldScoreMod { private get; set; }
     public float alpha { private get; set; }
     public Vector3 angle2sun { private get; set; }
+
     private float currLife = 0.0f;
     
 

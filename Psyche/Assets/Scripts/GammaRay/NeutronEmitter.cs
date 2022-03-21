@@ -18,7 +18,7 @@ public class NeutronEmitter : MonoBehaviour
     {
 
         audioEmitter = this.GetComponent<AudioSource>();
-        audioEmitter.volume *= GameRoot.masterVolume;
+        audioEmitter.volume *= Constants.Audio.masterVolume;
         audioEmitter.clip = GammaRayController.rayShootFX;
     }
 
@@ -57,7 +57,7 @@ public class NeutronEmitter : MonoBehaviour
 
         audioEmitter.clip = GammaRayController.rayCollideFX;
         audioEmitter.loop = false;
-        audioEmitter.volume = 0.25f * GameRoot.masterVolume; ;
+        audioEmitter.volume = 0.25f * Constants.Audio.masterVolume;
         audioEmitter.Play();
 
         for (int i = 0; i < emitNum; i++)
