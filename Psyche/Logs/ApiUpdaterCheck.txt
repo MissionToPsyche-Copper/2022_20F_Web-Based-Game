@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 [api-updater (non-obsolete-error-filter)] 1/17/2022 3:22:58 PM : Starting /Applications/Unity/Unity.app/Contents/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
 [api-updater (non-obsolete-error-filter)] 
@@ -118,6 +119,10 @@ console write time    : 0ms
 
 [api-updater (non-obsolete-error-filter)] 3/16/2022 6:14:28 PM : Starting C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
 [api-updater (non-obsolete-error-filter)] Exception caught while loading types from G:\UnityProjects\Psyche\Psyche\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll (some types may not be loaded)
+=======
+[api-updater (non-obsolete-error-filter)] 2/9/2022 3:31:47 PM : Starting C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] Exception caught while loading types from C:\Users\Serena\Desktop\RealPsyche\Psyche\Psyche\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll (some types may not be loaded)
+>>>>>>> Stashed changes
 	Exception of type 'System.Reflection.ReflectionTypeLoadException' was thrown.
 	  at (wrapper managed-to-native) System.Reflection.Assembly.GetTypes(System.Reflection.Assembly,bool)
   at System.Reflection.Assembly.GetTypes () [0x00000] in <695d1cc93cca45069c528c15c9fdd749>:0 
@@ -126,10 +131,18 @@ console write time    : 0ms
 
 [api-updater (non-obsolete-error-filter)] 
 ----------------------------------
+<<<<<<< Updated upstream
 jit/startup time      : 141.9997ms
 moved types parse time: 75ms
 candidates parse time : 1ms
 C# parse time         : 384ms
 candidates check time : 47ms
+=======
+jit/startup time      : 751.9891ms
+moved types parse time: 53ms
+candidates parse time : 1ms
+C# parse time         : 296ms
+candidates check time : 107ms
+>>>>>>> Stashed changes
 console write time    : 0ms
 
