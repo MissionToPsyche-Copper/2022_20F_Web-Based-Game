@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 /// <summary>
 /// This is the Motherbrain of the game.  There should only ever be one instance
@@ -11,7 +12,6 @@ using UnityEngine.Audio;
 /// referenced in this class.  
 /// The UIRoot (when it's completed) should be referenced in this class so that any
 /// class can access their UI elements via this Root to the UIRoot.
-/// 
 /// </summary>
 public class GameRoot : MonoBehaviour
 {
@@ -23,18 +23,13 @@ public class GameRoot : MonoBehaviour
     [HideInInspector]
     public static GameObject mainAsteroid;
 
-    public GameObject BGMsource;
+    public static ResourceService resourceService;
 
 
     //AUDIO ROOT SETTINGS
-    [HideInInspector]
-    public static AudioListener UIAudioListener;
-    public static AudioSource UIaudioSounds;
-    public static AudioSource BGM;
-    public static float masterVolume = Constants.masterVolume;
-    public static float bgmVolume = Constants.bgmVolume;
+    public AudioService audioService;
 
-    [Header("=========== Tools ===========")]
+    [Header("=========== Game Tools ===========")]
     //Tools
     public GameObject neutron;
     public GameObject radio;
@@ -64,22 +59,16 @@ public class GameRoot : MonoBehaviour
     [SerializeField] private float tot_multispectScore;
 
 
-
-    /// <summary>
-    /// Trashy stuff
-    /// </summary>
-    /// 
-    int musicindex = 0;
-    List<AudioClip> clips;
-    AudioClip currBGMclip;
+    public bool isPause = false;
 
     private void Awake()
     {
         _Root = this;
         player = GameObject.FindGameObjectWithTag("Player");
         mainAsteroid = GameObject.FindGameObjectWithTag("asteroid");
-        UIAudioListener = this.GetComponent<AudioListener>();
-        UIaudioSounds = this.GetComponent<AudioSource>();
+        resourceService = this.GetComponent<ResourceService>();
+        audioService = GetComponentInChildren<AudioService>();
+        OnGameStart();
         DontDestroyOnLoad(this);
         Time.timeScale = 2.0f;
     }
@@ -87,13 +76,26 @@ public class GameRoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        OnSceneLoad();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+
+    public void OnGameStart()
+    {
         neutronScores = new int[5];
         tot_neutronScores = new int[5];
         for (int i = 0; i < neutronScores.Length; i++)
         {
             neutronScores[i] = 0;
             tot_neutronScores[i] = 0;
-        }  
+        }
 
         radioScore = 0;
         magnetometerScore = 0;
@@ -101,45 +103,40 @@ public class GameRoot : MonoBehaviour
         tot_radioScore = 0;
         tot_magnetometerScore = 0;
         tot_multispectScore = 0;
-        OnSceneLoad();
 
-        clips = new List<AudioClip>();
-        clips.Add(Resources.Load<AudioClip>(Constants.Spectrometer.Sounds.pickupFX1));
-        clips.Add(Resources.Load<AudioClip>(Constants.Spectrometer.Sounds.pickupFX2));
-        clips.Add(Resources.Load<AudioClip>(Constants.Spectrometer.Sounds.pickupFX3));
-        clips.Add(Resources.Load<AudioClip>(Constants.Spectrometer.Sounds.PickupSoundFX));
-        clips.Add(Resources.Load<AudioClip>(Constants.Spectrometer.Sounds.RayShootFX));
-
-        Debug.Log("Root: " + Application.dataPath);
-        Debug.Log("Music: " + Constants.Music.BlazingStars);
-        Debug.Log("Full: " + Application.dataPath + Constants.Music.BlazingStars);
-        currBGMclip = Resources.Load(Application.dataPath + Constants.Music.BlazingStars) as AudioClip;
-        BGM = BGMsource.GetComponent<AudioSource>();
-        //BGM.clip = currBGMclip;
-        BGM.volume = Constants.bgmVolume * Constants.masterVolume;
-        BGM.loop = true;
-        BGM.Play();
+        LoadAudioFiles();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void LoadAudioFiles()
     {
-        if(Input.GetKeyDown(KeyCode.M))
-        {
-            musicindex++;
-            if (musicindex > clips.Count)
-                musicindex = 0;
-            BGM.clip = clips[musicindex];
-            BGM.Play();
-        }
+        resourceService.LoadAudio(Constants.Audio.Gameplay.BlazingStars, true);
+        resourceService.LoadAudio(Constants.Audio.Gameplay.ColdMoon, true);
+        resourceService.LoadAudio(Constants.Audio.Gameplay.CyberREM, true);
+        resourceService.LoadAudio(Constants.Audio.Gameplay.RetroSciFiPlanet, true);
+        resourceService.LoadAudio(Constants.Audio.Gameplay.SciFiClose2, true);
+        resourceService.LoadAudio(Constants.Audio.Gameplay.StarLight, true);
+        resourceService.LoadAudio(Constants.Audio.Gameplay.TerraformingBegins, true);
     }
+
 
     public void OnSceneLoad()
     {
+        for (int i = 0; i < neutronScores.Length; i++)
+        {
+            neutronScores[i] = 0;
+        }
+
+        radioScore = 0;
+        magnetometerScore = 0;
+        multispectScore = 0;
+
         ui_neutron.gameObject.SetActive(neutron.activeInHierarchy);
         ui_radio.gameObject.SetActive(radio.activeInHierarchy);
         ui_magnet.gameObject.SetActive(magnet.activeInHierarchy);
         ui_multispect.gameObject.SetActive(multispect.activeInHierarchy);
+        audioService.PlayBgMusic(Constants.Audio.Gameplay.BlazingStars, true);
+
     }
 
     public void ScoreNeutron(int index, int score)

@@ -46,7 +46,7 @@ public class GammaRayController : MonoBehaviour
         pivotTimer = Timer.Register(Random.Range(1f, Constants.Spectrometer.Rotation.MaxTimeChange), this.ChangePivotSpeed, isLooped: false, useRealTime: false);
 
         tractorAudioFX = collector.GetComponent<AudioSource>();
-        tractorAudioFX.volume = Constants.Spectrometer.Sounds.tractorBeamVolume * GameRoot.masterVolume;
+        tractorAudioFX.volume = Constants.Spectrometer.Sounds.tractorBeamVolume * Constants.Audio.masterVolume;
         InitTractorBeam();
     }
 

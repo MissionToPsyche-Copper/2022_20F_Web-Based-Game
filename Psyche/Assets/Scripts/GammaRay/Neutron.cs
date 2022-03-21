@@ -19,7 +19,7 @@ public class Neutron : MonoBehaviour
     void Start()
     {
         audioEmitter = this.GetComponent<AudioSource>();
-        audioEmitter.volume = Constants.Spectrometer.Sounds.neutronEmitVolume * GameRoot.masterVolume;
+        audioEmitter.volume = Constants.Spectrometer.Sounds.neutronEmitVolume * Constants.Audio.masterVolume;
         destroyTimer = Timer.Register(Constants.Spectrometer.Neutron.SelfDestTime, this.SelfDestruct, isLooped: false, useRealTime: false);
         turnToTrigger = Timer.Register(0.1f, this.ToggleTrigger, isLooped: false, useRealTime: false);
     }
@@ -33,7 +33,7 @@ public class Neutron : MonoBehaviour
 
             audioEmitter.clip = GammaRayController.instance.neutronPickupFX[Random.Range(0, GammaRayController.instance.neutronPickupFX.Length)];
             audioEmitter.loop = false;
-            audioEmitter.volume = Constants.Spectrometer.Sounds.neutronCollectVolume * GameRoot.masterVolume;
+            audioEmitter.volume = Constants.Spectrometer.Sounds.neutronCollectVolume * Constants.Audio.masterVolume;
 
             audioEmitter.Play();
             particle.SetActive(false);

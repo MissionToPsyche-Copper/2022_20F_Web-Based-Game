@@ -79,7 +79,7 @@ public class MultiSpectController : MonoBehaviour
         intervalVal = Random.Range(spawnInterval.Min, spawnInterval.Max);
         scanLine = this.GetComponent<LineRenderer>();
         audioEmitter = shipAntenna.GetComponent<AudioSource>();
-        audioEmitter.volume = Constants.Multispectral.Sounds.beamVolume * GameRoot.masterVolume;
+        audioEmitter.volume = Constants.Multispectral.Sounds.beamVolume * Constants.Audio.masterVolume;
         antennaPoint = shipAntenna.transform.Find("AntennaPoint").gameObject;
         shipAntenna.transform.position = GameRoot.player.transform.position;
         shipAntenna.transform.parent = GameRoot.player.transform;
