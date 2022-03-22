@@ -70,6 +70,7 @@
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonFireProjectile.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledSpace.cs" />
     <Compile Include="Assets\Scripts\Multispectral\MultiSpectController.cs" />
+    <Compile Include="Assets\Scripts\Misc\ResourceService.cs" />
     <Compile Include="Assets\Scripts\Magnetometer\MagnetometerScore.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledTexturePreview.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonProjectileScript.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeSimpleAttribute.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Misc\AudioService.cs" />
     <Compile Include="Assets\Scripts\Misc\OrbitLines.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -120,6 +122,7 @@
     <Compile Include="Assets\Scripts\Misc\PopMessageUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\ShipResources.cs" />
+    <Compile Include="Assets\Scripts\Misc\SceneChanger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledEditor\HideScriptField.cs" />
     <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusConstants.cs" />
@@ -131,6 +134,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\ObjectRotate.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BInteractiveAttribute.cs" />
+    <Compile Include="Assets\Scripts\Misc\AsteroidCollision.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BMessageAttribute.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonButtonScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -146,10 +150,7 @@
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeOptionsAttribute.cs" />
-    <Compile Include="Assets\Scripts\Misc\AsteroidCollision.cs" />
-    <Compile Include="Assets\Scripts\Misc\SceneChanger.cs" />
-    <Compile Include="Assets\Scripts\Misc\ResourceService.cs" />
-    <Compile Include="Assets\Scripts\Misc\AudioService.cs" />
+    <Compile Include="Assets\Scripts\Misc\AudioLibrary.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

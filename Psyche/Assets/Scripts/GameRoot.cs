@@ -131,10 +131,10 @@ public class GameRoot : MonoBehaviour
         magnetometerScore = 0;
         multispectScore = 0;
 
-        ui_neutron.gameObject.SetActive(neutron.activeInHierarchy);
-        ui_radio.gameObject.SetActive(radio.activeInHierarchy);
-        ui_magnet.gameObject.SetActive(magnet.activeInHierarchy);
-        ui_multispect.gameObject.SetActive(multispect.activeInHierarchy);
+        //ui_neutron.gameObject.SetActive(neutron.activeInHierarchy);
+        //ui_radio.gameObject.SetActive(radio.activeInHierarchy);
+        //ui_magnet.gameObject.SetActive(magnet.activeInHierarchy);
+        //ui_multispect.gameObject.SetActive(multispect.activeInHierarchy);
         audioService.PlayBgMusic(Constants.Audio.Gameplay.BlazingStars, true);
 
     }
