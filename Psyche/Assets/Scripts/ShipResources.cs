@@ -37,7 +37,7 @@ public class ShipResources : MonoBehaviour
     {
         //add a method  for recharging the power when in the sunlight;
         //
-        alt = GameRoot.player.transform.position.magnitude - (GameRoot.mainAsteroid.GetComponent<CircleCollider2D>().radius * GameRoot.mainAsteroid.transform.localScale.x);
+        alt = SceneController.player.transform.position.magnitude - (SceneController.mainAsteroid.GetComponent<CircleCollider2D>().radius * SceneController.mainAsteroid.transform.localScale.x);
         alt *= Constants.Space.AltitudeFactorAdjust;
         altitude.text = "Altitude:\n" + alt.ToString("0.0") + "km";
         powerDraw = CalcActivePowerUse();
@@ -89,10 +89,7 @@ public class ShipResources : MonoBehaviour
 
     public bool CanUseFuel()
     {
-        if (fuelSlider.value > 0)
-            return true;
-        else
-            return false;
+        return fuelSlider.value > 0;
     }
 
     public bool CanUsePower()

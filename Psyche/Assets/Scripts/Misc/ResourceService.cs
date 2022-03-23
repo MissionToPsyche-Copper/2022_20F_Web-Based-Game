@@ -26,14 +26,14 @@ public class ResourceService : MonoBehaviour
         AsyncOperation sceneAsync = SceneManager.LoadSceneAsync(sceneName);
 
         //Active the loading window
- //       GameRoot3D.instance.loadingWindow.SetWindowState(true);
+        GameRoot._Root.windowsController.loadingWindow.gameObject.SetActive(true);
 
         //Action needs to be update during loading
         percentageCB = () =>
         {
             float percentage = sceneAsync.progress;
-   //         GameRoot3D.instance.loadingWindow.SetProgress(percentage);
-
+            //         GameRoot3D.instance.loadingWindow.SetProgress(percentage);
+            GameRoot._Root.windowsController.loadingWindow.SetProgress(percentage);
             //Async loading is finished
             if (percentage == 1)
             {
@@ -44,7 +44,7 @@ public class ResourceService : MonoBehaviour
                 }
 
                 //Inactive the loading window and clean relative values;
-   //             GameRoot3D.instance.loadingWindow.SetWindowState(false);
+                GameRoot._Root.windowsController.loadingWindow.gameObject.SetActive(false);
                 sceneAsync = null;
                 percentageCB = null;
             }

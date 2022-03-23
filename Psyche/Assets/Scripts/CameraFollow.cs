@@ -17,8 +17,12 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initDistance = (shipTarget.transform.position - body.transform.position).magnitude;
-        initCamSize = this.GetComponent<Camera>().orthographicSize;
+        displacement = shipTarget.transform.position - body.transform.position;
+
+        initDistance = displacement.magnitude;
+        currDistace = displacement.magnitude;
+
+        initCamSize = currDistace / 2.0f;
     }
 
     // Update is called once per frame

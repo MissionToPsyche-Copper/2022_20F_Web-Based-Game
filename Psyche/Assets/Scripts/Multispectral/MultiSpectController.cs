@@ -73,7 +73,7 @@ public class MultiSpectController : MonoBehaviour
     {
         instance = this;    
 
-        asteroid = GameRoot.mainAsteroid.GetComponent<CircleCollider2D>();
+        asteroid = SceneController.mainAsteroid.GetComponent<CircleCollider2D>();
         targetList = new List<GameObject>();
         pivot.GetComponent<ObjectRotate>().SetAxis(asteroid.gameObject.GetComponent<ObjectRotate>().rotationAxis);
         intervalVal = Random.Range(spawnInterval.Min, spawnInterval.Max);
@@ -81,8 +81,8 @@ public class MultiSpectController : MonoBehaviour
         audioEmitter = shipAntenna.GetComponent<AudioSource>();
         audioEmitter.volume = Constants.Multispectral.Sounds.beamVolume * Constants.Audio.masterVolume;
         antennaPoint = shipAntenna.transform.Find("AntennaPoint").gameObject;
-        shipAntenna.transform.position = GameRoot.player.transform.position;
-        shipAntenna.transform.parent = GameRoot.player.transform;
+        shipAntenna.transform.position = SceneController.player.transform.position;
+        shipAntenna.transform.parent = SceneController.player.transform;
     }
 
     private Vector3 GenerateTargetPosition(int iteration)
@@ -213,7 +213,7 @@ public class MultiSpectController : MonoBehaviour
     /// <param name="anglePercent">percentage of current ship direction vs the maximum angle</param>
     public void AddScore(float anglePercent, float targSizeMod, float time)
     {
-        GameRoot._Root.ScoreMultispect(scoreMod * targSizeMod * time * (1.0f - anglePercent));
+        SceneController.sceneRoot.ScoreMultispect(scoreMod * targSizeMod * time * (1.0f - anglePercent));
     }
 
 }
