@@ -8,10 +8,13 @@ public class RandomShipMove : MonoBehaviour
     public Transform camera;
     public GameObject light1;
     public GameObject light2;
+    private float initLineWidth;
 
     // Start is called before the first frame update
     void Start()
     {
+        initLineWidth = ship.GetComponentInChildren<TrailRenderer>().startWidth;
+
         RandomShip();
     }
 
@@ -26,6 +29,7 @@ public class RandomShipMove : MonoBehaviour
     public void Update()
     {
         ship.transform.localScale = Vector3.one * (500 - (ship.transform.position - camera.localPosition).magnitude) / 50.0f;
+        ship.GetComponentInChildren<TrailRenderer>().startWidth = initLineWidth * (500 - (ship.transform.position - camera.localPosition).magnitude) / 50.0f;
         if (Random.value < 0.01f)
             light1.SetActive(!light1.activeInHierarchy);
         if (Random.value < 0.001f)

@@ -48,28 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d0f93bb6878c842bbcc7b7c45fb05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  windowsController: {fileID: 264703445817268768}
   sceneChanger: {fileID: 0}
   prevScene: 0
   currScene: 0
   nextScene: 3
   audioService: {fileID: 0}
-  magnetometerOn: 0
-  magnetGoalScore: 50
-  multipspectralOn: 0
-  multipspectralGoalScore: 50
-  radioOn: 0
-  radioGoalScore: 50
-  spectrometerOn: 0
-  spectrometerGoalScore: 50
-  neutron: {fileID: 0}
-  radio: {fileID: 0}
-  magnet: {fileID: 0}
-  multispect: {fileID: 0}
-  windowsController: {fileID: 264703445817268768}
-  neutronScores: 
-  radioScore: 0
-  magnetometerScore: 0
-  multispectScore: 0
   tot_neutronScores: 
   tot_radioScore: 0
   tot_magnetometerScore: 0
@@ -748,6 +732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8269721977812571935}
   - component: {fileID: 2683369023170211743}
+  - component: {fileID: 3169709411405172253}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -791,6 +776,29 @@ MonoBehaviour:
   bgVolume: 0
   UIVolume: 0
   FXVolume: 0
+--- !u!114 &3169709411405172253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227135507869728059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ad62b3046a761488284698e714f6f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGMS:
+  - {fileID: 8300000, guid: f726f04bee4184d42bab5cdc6fc4e504, type: 3}
+  - {fileID: 8300000, guid: b902bedc4571ea54f8238e229a909208, type: 3}
+  - {fileID: 8300000, guid: 32b4f206f0c1f6c48889aae2d6fd3329, type: 3}
+  - {fileID: 8300000, guid: bd3cdfb654a50424ca1335b252b55dc9, type: 3}
+  - {fileID: 8300000, guid: 50c197660bff8744bbb8301367f2de3f, type: 3}
+  - {fileID: 8300000, guid: 012a85024fbaa2247b0b3ab902d339d9, type: 3}
+  - {fileID: 8300000, guid: bd52a37ec2dfc614c963f043a8d2c636, type: 3}
+  - {fileID: 8300000, guid: 3edec7270d94165458deccd4c296c28b, type: 3}
+  UI: []
+  FX: []
 --- !u!1 &6710928695015100304
 GameObject:
   m_ObjectHideFlags: 0

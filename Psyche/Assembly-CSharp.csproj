@@ -55,14 +55,17 @@
   <ItemGroup>
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Polyverse Skies\Core\Scripts\PolyverseSkies.cs" />
     <Compile Include="Assets\Scripts\Windows\UIWindowsController.cs" />
+    <Compile Include="Assets\Scripts\SceneController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusObject.cs" />
+    <Compile Include="Assets\Scripts\DeepSpace\RandomShipMove.cs" />
     <Compile Include="Assets\Scripts\Magnetometer\MagneticField.cs" />
     <Compile Include="Assets\Scripts\Windows\LoadingWindow.cs" />
     <Compile Include="Assets\Scripts\GammaRay\Neutron.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledRangeOptions.cs" />
     <Compile Include="Assets\Scripts\Misc\MessageAni.cs" />
+    <Compile Include="Assets\Scripts\Windows\ScoresPanel.cs" />
     <Compile Include="Assets\Scripts\Magnetometer\Magnetometer.cs" />
     <Compile Include="Assets\Scripts\OrbitalGravity.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -71,6 +74,7 @@
     <Compile Include="Assets\_Addons\PolygonArsenal\Scripts\PolygonLightFade.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonFireProjectile.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledSpace.cs" />
+    <Compile Include="Assets\Scripts\DeepSpace\DSOCcontroller.cs" />
     <Compile Include="Assets\Scripts\Multispectral\MultiSpectController.cs" />
     <Compile Include="Assets\Scripts\Misc\ResourceService.cs" />
     <Compile Include="Assets\Scripts\Magnetometer\MagnetometerScore.cs" />
@@ -118,6 +122,7 @@
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonSceneSelect.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Windows\GoodEndWindow.cs" />
     <Compile Include="Assets\Scripts\Misc\AudioLibrary.cs" />
     <Compile Include="Assets\Scripts\DeepSpace\SlotScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
@@ -143,6 +148,7 @@
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BMessageAttribute.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonButtonScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
+    <Compile Include="Assets\Scripts\DeepSpace\DSOC_Questions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
@@ -155,12 +161,8 @@
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeOptionsAttribute.cs" />
-    <Compile Include="Assets\Scripts\Windows\GoodEndWindow.cs" />
-    <Compile Include="Assets\Scripts\Windows\ScoresPanel.cs" />
-    <Compile Include="Assets\Scripts\SceneController.cs" />
-    <Compile Include="Assets\Scripts\DeepSpace\DSOCcontroller.cs" />
-    <Compile Include="Assets\Scripts\DeepSpace\DSOC_Questions.cs" />
-    <Compile Include="Assets\Scripts\DeepSpace\RandomShipMove.cs" />
+    <Compile Include="Assets\Scripts\Misc\CreditsController.cs" />
+    <Compile Include="Assets\Scripts\Misc\SpectrometerScoresPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

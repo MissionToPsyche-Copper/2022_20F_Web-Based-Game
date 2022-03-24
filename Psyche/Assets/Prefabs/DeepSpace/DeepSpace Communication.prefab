@@ -225,8 +225,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCanvas: {fileID: 1448264581233116840}
   canvasGroup: {fileID: 0}
+  inSlot: {fileID: 0}
   UIText: {fileID: 0}
   id: 1
+  interactable: 0
 --- !u!225 &7745996991371501207
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -816,13 +818,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.05
+  m_fontSize: 21.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 16
   m_fontSizeMax: 26
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1005,6 +1007,7 @@ MonoBehaviour:
   - {fileID: 8120082805191146401}
   - {fileID: 5179094688029106191}
   - {fileID: 4541643438498835635}
+  caught: 0
 --- !u!1 &1448264581312137982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
+  correct: 0
 --- !u!1 &1448264581634977511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,6 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
+  correct: 0
 --- !u!1 &1448264581716930485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,6 +1353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 5
+  correct: 0
 --- !u!1 &1448264581745492133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,6 +1455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
+  correct: 0
 --- !u!1 &1448264582387828349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  correct: 0
 --- !u!1 &2076000062784864317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1926,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 16
   m_fontSizeMax: 26
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2058,8 +2066,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCanvas: {fileID: 1448264581233116840}
   canvasGroup: {fileID: 0}
+  inSlot: {fileID: 0}
   UIText: {fileID: 0}
   id: 1
+  interactable: 0
 --- !u!225 &2427548964802464140
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2171,7 +2181,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 16
   m_fontSizeMax: 26
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2318,7 +2328,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 16
   m_fontSizeMax: 26
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2458,8 +2468,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCanvas: {fileID: 1448264581233116840}
   canvasGroup: {fileID: 0}
+  inSlot: {fileID: 0}
   UIText: {fileID: 0}
   id: 1
+  interactable: 0
 --- !u!225 &8018435520106133772
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2565,13 +2577,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.9
+  m_fontSize: 19.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 16
   m_fontSizeMax: 26
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2845,8 +2857,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCanvas: {fileID: 1448264581233116840}
   canvasGroup: {fileID: 0}
+  inSlot: {fileID: 0}
   UIText: {fileID: 0}
   id: 1
+  interactable: 0
 --- !u!225 &2479272472961799293
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2951,8 +2965,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCanvas: {fileID: 1448264581233116840}
   canvasGroup: {fileID: 0}
+  inSlot: {fileID: 0}
   UIText: {fileID: 0}
   id: 1
+  interactable: 0
 --- !u!225 &2986479730915728547
 CanvasGroup:
   m_ObjectHideFlags: 0
