@@ -29,12 +29,12 @@ public class Neutron : MonoBehaviour
         if(collision.tag == "Player")
         {
             //Call some method in GameRoot/GameController to add this neutron to score
-            GameRoot._Root.ScoreNeutron(IDindex, 1);
+            SceneController.sceneRoot.ScoreNeutron(IDindex, 1);
 
             audioEmitter.clip = GammaRayController.instance.neutronPickupFX[Random.Range(0, GammaRayController.instance.neutronPickupFX.Length)];
             audioEmitter.loop = false;
             audioEmitter.volume = Constants.Spectrometer.Sounds.neutronCollectVolume * Constants.Audio.masterVolume;
-
+            GetComponent<CircleCollider2D>().enabled = false;
             audioEmitter.Play();
             particle.SetActive(false);
             Destroy(this.gameObject, audioEmitter.clip.length);
@@ -49,12 +49,6 @@ public class Neutron : MonoBehaviour
         Timer.Cancel(this.destroyTimer);
         Timer.Cancel(this.turnToTrigger);
         audioEmitter.Stop();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetID(int val)

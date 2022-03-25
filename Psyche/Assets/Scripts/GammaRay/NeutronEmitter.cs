@@ -68,10 +68,25 @@ public class NeutronEmitter : MonoBehaviour
             temp.transform.position = this.transform.position;
             temp.transform.parent = mainController.neutronsList.transform;
             temp.GetComponent<Neutron>().SetID(id);
-            temp.GetComponent<Rigidbody2D>().velocity = this.GetComponent<Rigidbody2D>().velocity * Random.Range(0.2f, 1.0f);
+            //temp.GetComponent<Rigidbody2D>().velocity = this.GetComponent<Rigidbody2D>().velocity ;
+            temp.GetComponent<Rigidbody2D>().velocity = -RandomReflect(this.GetComponent<Rigidbody2D>().velocity).normalized * Random.Range(1.0f, 7.0f);
         }
 
         Destroy(this.gameObject);
     }
 
+
+    private Vector3 RandomReflect(Vector3 vector)
+    {
+        vector = vector.normalized;
+        float randTheta = Random.Range(-90.0f, 90.0f) * Mathf.Deg2Rad;
+        Vector3 reflect;
+
+        reflect.x = vector.x * Mathf.Cos(randTheta) - vector.y * Mathf.Sin(randTheta);
+        reflect.y = vector.x * Mathf.Sin(randTheta) + vector.y * Mathf.Cos(randTheta);
+        reflect.z = 0.0f;
+
+        return vector;
+
+    }
 }

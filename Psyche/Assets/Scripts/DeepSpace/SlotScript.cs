@@ -6,19 +6,25 @@ using UnityEngine.EventSystems;
 public class SlotScript : MonoBehaviour, IDropHandler
 {
     public int id;
+    public bool correct = false;
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("Item Dropped");
         if (eventData.pointerDrag != null)
         {
-            if(eventData.pointerDrag.GetComponent<DragAndDrop>().id == id)
+            eventData.pointerDrag.GetComponent<RectTransform>().position = this.GetComponent<RectTransform>().position;
+            eventData.pointerDrag.GetComponent<DragAndDrop>().inSlot = this;
+            DSOCcontroller.dsocRoot.caught = true;
+
+
+            if (eventData.pointerDrag.GetComponent<DragAndDrop>().id == id)
             {
-                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = this.GetComponent<RectTransform>().anchoredPosition;
+                correct = true;
+                DSOCcontroller.dsocRoot.CheckAnswers();
             }
             else
             {
-                eventData.pointerDrag.GetComponent<DragAndDrop>().ResetPosition();
-
+                correct = false;
             }
         }
     }

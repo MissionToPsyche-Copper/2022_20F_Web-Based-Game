@@ -18,7 +18,8 @@ public class ShipPopUI : MonoBehaviour
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera");
-        chaseCam.transform.parent = GameRoot.player.transform;
+        chaseCam.transform.position = new Vector3(SceneController.player.transform.position.x, SceneController.player.transform.position.y, -10);
+        chaseCam.transform.parent = SceneController.player.transform;
 
         shipPointer.SetActive(false);
         shipPopUp.SetActive(false);
@@ -32,7 +33,7 @@ public class ShipPopUI : MonoBehaviour
     {
         if(showMiniMap && !toggleMapPos)
         {
-            shipPointer.transform.position = GameRoot.player.transform.position + Vector3.forward * -60.0f;
+            shipPointer.transform.position = SceneController.player.transform.position + Vector3.forward * -60.0f;
         }
     }
 
@@ -43,12 +44,12 @@ public class ShipPopUI : MonoBehaviour
         {
             ToggleMiniMap();
         }
-        if(Input.GetKeyDown(KeyCode.E) && GameRoot._Root.magnet.activeInHierarchy)
+        if(Input.GetKeyDown(KeyCode.E) && SceneController.sceneRoot.magnet.activeInHierarchy)
         {
             ToggleMapFocus();
         }
 
-        if (GameRoot.player.transform.position.magnitude > turnOnRange)
+        if (SceneController.player.transform.position.magnitude > turnOnRange)
         {
             chaseCam.transform.rotation = mainCam.transform.rotation;
  //           asteroidCam.transform.rotation = mainCam.transform.rotation;
@@ -60,6 +61,13 @@ public class ShipPopUI : MonoBehaviour
         {
             shipPopUp.SetActive(false);
             chaseCam.enabled = false;
+        }
+
+        if(showMiniMap && !toggleMapPos && 
+            SceneController.player.transform.position.magnitude > SceneController.sceneRoot.magnet.GetComponent<MagnetometerController>().GetRingSize())
+        {
+            asteroidCam.orthographicSize = SceneController.player.transform.position.magnitude;
+            asteroidCam.orthographicSize *= 1.25f;
         }
     }
 
@@ -77,15 +85,21 @@ public class ShipPopUI : MonoBehaviour
 
         if (toggleMapPos)
         {
-            asteroidCam.transform.position = GameRoot.mainAsteroid.transform.position + Vector3.back * 80;
+            asteroidCam.transform.position = SceneController.mainAsteroid.transform.position + Vector3.back * 80;
             asteroidCam.orthographicSize = 50;
             shipPointer.SetActive(false);
         }
         else
         {
             shipPointer.SetActive(true);
-            asteroidCam.transform.position = GameRoot._Root.magnet.GetComponent<MagnetometerController>().GetRingCenter() + Vector3.back * 100;
-            asteroidCam.orthographicSize = GameRoot._Root.magnet.GetComponent<MagnetometerController>().GetRingSize();
+            asteroidCam.transform.position = SceneController.sceneRoot.magnet.GetComponent<MagnetometerController>().GetRingCenter() + Vector3.back * 100;
+
+            if (SceneController.player.transform.position.magnitude > SceneController.sceneRoot.magnet.GetComponent<MagnetometerController>().GetRingSize())
+                asteroidCam.orthographicSize = SceneController.player.transform.position.magnitude;
+            else
+                asteroidCam.orthographicSize = SceneController.sceneRoot.magnet.GetComponent<MagnetometerController>().GetRingSize();
+
+
             shipPointer.transform.localScale = new Vector3(asteroidCam.orthographicSize * 0.5f, asteroidCam.orthographicSize * 0.5f, 1);
             asteroidCam.orthographicSize *= 1.25f;
         }

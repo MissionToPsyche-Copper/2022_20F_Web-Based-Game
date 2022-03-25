@@ -31,7 +31,7 @@ public class RingTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            float alt = this.GetComponent<CircleCollider2D>().radius - (GameRoot.mainAsteroid.GetComponent<CircleCollider2D>().radius * GameRoot.mainAsteroid.transform.localScale.x);
+            float alt = this.GetComponent<CircleCollider2D>().radius - (SceneController.mainAsteroid.GetComponent<CircleCollider2D>().radius * SceneController.mainAsteroid.transform.localScale.x);
             manager.CurrentRing(ringID);
             if (waitTime >= maxTime)
             {

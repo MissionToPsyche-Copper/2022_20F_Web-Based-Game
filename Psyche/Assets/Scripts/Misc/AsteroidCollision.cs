@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipEndCollision : MonoBehaviour
+public class AsteroidCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject explosion;
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.tag == "Player" && !SceneController.gameEnd)
+        {
+            //badend
+            Time.timeScale = 0.3f;
+            GameObject explode = Instantiate(explosion);
+            explode.transform.position = SceneController.player.transform.position;
+            explode.transform.localScale *= 25.0f;
+            explode.transform.SetParent(SceneController.mainAsteroid.transform);
+            explode.SetActive(true);
+            SceneController.sceneRoot.BadEnd(false);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

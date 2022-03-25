@@ -21,6 +21,7 @@ public class Constants : MonoBehaviour
 
         public static class Gameplay
         {
+            public const string directory = "/Audio/Music/Gameplay/";
             //gameplay tracks
             public const string BlazingStars = "/Audio/Music/Gameplay/Blazing-Stars_Looping.mp3";
             public const string ColdMoon = "/Audio/Music/Gameplay/Cold-Moon_Looping.mp3";
@@ -34,6 +35,8 @@ public class Constants : MonoBehaviour
 
         public static class Menu
         {
+            public const string directory = "/Audio/Music/Menu/";
+
             //menu tracks
             public const string CosmicSwitchboard = "/Audio/Music/Menu/Cosmic-Switchboard.mp3";
             public const string CyberStreets = "/Audio/Music/Menu/Cyber-Streets.mp3";
@@ -44,14 +47,16 @@ public class Constants : MonoBehaviour
 
     public static class Scenes
     {
-        public const string intro = "/Scenes/IntroScene";
-        public const string tutorial = "/Scenes/Tutorial";
-        public const string level1 = "/Scenes/MainScene";
-        public const string level2 = "/Scenes/Level2";
-        public const string level3 = "/Scenes/Level3";
-        public const string level4 = "/Scenes/Level4";
-        public const string endOfLevel = "/Scenes/EOL";
-        public const string Credits = "/Scenes/Credits";
+        public const string directory = "/Scenes/";
+
+        public const string intro = "IntroScene";
+        public const string tutorial = "Tutorial";
+        public const string level1 = "Level1";
+        public const string level2 = "Level2";
+        public const string level3 = "Level3";
+        public const string level4 = "Level4";
+        public const string endOfLevel = "EOL";
+        public const string Credits = "Credits";
     }
 
 
@@ -98,7 +103,7 @@ public class Constants : MonoBehaviour
     {
         public static float gravityConstant = 6.6743f * Mathf.Pow(10, -2.5f);
         public const float objRotateSpeed = 0.3f;
-        public const float AltitudeFactorAdjust = 3.777f;
+        public const float AltitudeFactorAdjust = 3.0f;
 
         public static class Sounds
         {
@@ -163,8 +168,8 @@ public class Constants : MonoBehaviour
 
         public static class Neutron
         {
-            public const int emitMax = 4;  // the max random range of neutrons emitted upon ray impact
-            public const float SelfDestTime = 10.0f;  //the life span of time for a neutron to exist
+            public const int emitMax = 3;  // the max random range of neutrons emitted upon ray impact
+            public const float SelfDestTime = 5.0f;  //the life span of time for a neutron to exist
         }
 
         public static class Sounds

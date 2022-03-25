@@ -6,10 +6,16 @@ public class AudioService : MonoBehaviour
     public AudioSource audioBg;
     public AudioSource audioUI;
     public AudioSource audioFX;
+    private AudioLibrary library;
     public float MasterVolume;
     public float bgVolume;
     public float UIVolume;
     public float FXVolume;
+
+    public void Awake()
+    {
+        library = this.GetComponent<AudioLibrary>();
+    }
 
     public void Start()
     {
@@ -22,7 +28,9 @@ public class AudioService : MonoBehaviour
     public void PlayBgMusic(string audioName, bool isLoop)
     {
         //Get the audio clip by the resource service
-        AudioClip audioClip = GameRoot.resourceService.LoadAudio(audioName, true);     
+        AudioClip audioClip = GameRoot.resourceService.LoadAudio(audioName, true);
+
+        audioClip = library.BGMS[0];
 
         //Check if the background audio clip whether is null or next audio clip name matches the current audio clip
         if (audioBg.clip == null || audioBg.clip.name != audioClip.name)

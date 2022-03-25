@@ -65,12 +65,12 @@ public class MagnetometerController : MonoBehaviour
         mainFieldsHolder = transform.Find("MainFields");
 
         //Send target object to the player object
-        target.transform.position = GameRoot.player.transform.position;
-        target.transform.parent = GameRoot.player.transform;
+        target.transform.position = SceneController.player.transform.position;
+        target.transform.parent = SceneController.player.transform;
         fieldObject.SetActive(false);
 
         //Send anomalies holder to asteroid
-        anomaliesHolder.parent = GameRoot.mainAsteroid.transform;
+        anomaliesHolder.parent = SceneController.mainAsteroid.transform;
 
         CreateMainFields();
         intervalVal = Random.Range(spawnInterval.Min, spawnInterval.Max);
@@ -111,7 +111,7 @@ public class MagnetometerController : MonoBehaviour
             }
             else if (inField)
             {
-                GameRoot._Root.ScoreMagnetometer(Time.deltaTime * (baseScoreMod + bonusScoreMod));
+                SceneController.sceneRoot.ScoreMagnetometer(Time.deltaTime * (baseScoreMod + bonusScoreMod));
                 ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.Magnetometer * Time.deltaTime);
             }
         }
@@ -144,7 +144,7 @@ public class MagnetometerController : MonoBehaviour
         rotSpeed *= Random.value > 0.5f ? 1.0f : -1.0f;
         anomallyField.ChangeRotateSpeed(rotSpeed);
         anomallyField.Focus = Vector3.zero;
-        anomallyField.Center = Random.insideUnitCircle.normalized * ((GameRoot.mainAsteroid.GetComponent<CircleCollider2D>().radius * GameRoot.mainAsteroid.transform.localScale.x) + major / 4.0f);
+        anomallyField.Center = Random.insideUnitCircle.normalized * ((SceneController.mainAsteroid.GetComponent<CircleCollider2D>().radius * SceneController.mainAsteroid.transform.localScale.x) + major / 4.0f);
         if (major > minor)
         {
             anomallyField.MinorAxis = minor + orbitRadius / 2.0f;
