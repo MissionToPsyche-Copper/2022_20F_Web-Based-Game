@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using MyBox;
 
 public class DSOCcontroller : MonoBehaviour
 {
+    [SerializeField] private bool test;
+    [ConditionalField(nameof(test))]
+    [SerializeField] private SceneChanger.scenes testScene;
+
+
     public static DSOCcontroller dsocRoot;
     public Button btn_Continue;
 
@@ -23,6 +29,11 @@ public class DSOCcontroller : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         dsocRoot = this;
+        if (GameRoot._Root.nextScene == SceneChanger.scenes.credits)
+            btn_Continue.GetComponentInChildren<TextMeshProUGUI>().text = "Credits";
+        else
+            btn_Continue.GetComponentInChildren<TextMeshProUGUI>().text = "Start Next Mission";
+
         btn_Continue.interactable = false;
         GenerateQuestions();
     }
@@ -32,31 +43,29 @@ public class DSOCcontroller : MonoBehaviour
         List<DSOC_Questions.Questions> initList = new List<DSOC_Questions.Questions>();
         List<DSOC_Questions.Questions> finalList = new List<DSOC_Questions.Questions>();
 
-
-        for (int i = 0; i < DSOC_Questions.Level1Questions.Length; i++)
-            initList.Add(DSOC_Questions.Level1Questions[i]);
-
+        if (test)
+            GameRoot._Root.prevScene = testScene;
 
         //Create a scrabable list from the master lists
-        //switch (GameRoot._Root.prevScene)
-        //{
-        //    case SceneChanger.scenes.level1:
-        //        for (int i = 0; i < DSOC_Questions.Level1Questions.Length; i++)
-        //            initList.Add(DSOC_Questions.Level1Questions[i]);
-        //        break;
-        //    case SceneChanger.scenes.level2:
-        //        for (int i = 0; i < DSOC_Questions.Level2Questions.Length; i++)
-        //            initList.Add(DSOC_Questions.Level2Questions[i]);
-        //        break;
-        //    case SceneChanger.scenes.level3:
-        //        for (int i = 0; i < DSOC_Questions.Level3Questions.Length; i++)
-        //            initList.Add(DSOC_Questions.Level3Questions[i]);
-        //        break;
-        //    case SceneChanger.scenes.level4:
-        //        for (int i = 0; i < DSOC_Questions.Level4Questions.Length; i++)
-        //            initList.Add(DSOC_Questions.Level4Questions[i]);
-        //        break;
-        //}
+        switch (GameRoot._Root.prevScene)
+        {
+            case SceneChanger.scenes.level1:
+                for (int i = 0; i < DSOC_Questions.Level1Questions.Length; i++)
+                    initList.Add(DSOC_Questions.Level1Questions[i]);
+                break;
+            case SceneChanger.scenes.level2:
+                for (int i = 0; i < DSOC_Questions.Level2Questions.Length; i++)
+                    initList.Add(DSOC_Questions.Level2Questions[i]);
+                break;
+            case SceneChanger.scenes.level3:
+                for (int i = 0; i < DSOC_Questions.Level3Questions.Length; i++)
+                    initList.Add(DSOC_Questions.Level3Questions[i]);
+                break;
+            case SceneChanger.scenes.level4:
+                for (int i = 0; i < DSOC_Questions.Level4Questions.Length; i++)
+                    initList.Add(DSOC_Questions.Level4Questions[i]);
+                break;
+        }
 
         //Pick 5 random questions (remove questions already picked)
         int index;

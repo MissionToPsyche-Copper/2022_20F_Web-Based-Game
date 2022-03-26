@@ -78,8 +78,8 @@ public class RadioCollision : MonoBehaviour
         if (currentRing > 0 && ShipControl.resources.CanUsePower())
         {
             effect.SetActive(true);
-            effect.transform.position = SceneController.player.transform.position;
-            SceneController.sceneRoot.ScoreRadio(scoreRatePS * ((float)currentRing / (float)ringList.Count) * Time.deltaTime);
+            effect.transform.position = LevelController.player.transform.position;
+            LevelController.levelRoot.ScoreRadio(scoreRatePS * ((float)currentRing / (float)ringList.Count) * Time.deltaTime);
 
             if (audioEmitter.isPlaying)
             {
@@ -110,7 +110,7 @@ public class RadioCollision : MonoBehaviour
         currentRing = ringID;
         if(currentRing > 0)
         {
-            effect.transform.position = SceneController.player.transform.position;
+            effect.transform.position = LevelController.player.transform.position;
             var ps = effect.GetComponent<ParticleSystem>();
             ScaleEffect(ps, currentRing);
             effect.SetActive(true);

@@ -29,7 +29,7 @@ public class Neutron : MonoBehaviour
         if(collision.tag == "Player")
         {
             //Call some method in GameRoot/GameController to add this neutron to score
-            SceneController.sceneRoot.ScoreNeutron(IDindex, 1);
+            LevelController.levelRoot.ScoreNeutron(IDindex, 1);
 
             audioEmitter.clip = GammaRayController.instance.neutronPickupFX[Random.Range(0, GammaRayController.instance.neutronPickupFX.Length)];
             audioEmitter.loop = false;

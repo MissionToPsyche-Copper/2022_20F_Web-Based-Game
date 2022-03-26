@@ -16,12 +16,15 @@ public class CreditsController : MonoBehaviour
     [Range(0.001f, 0.1f)]
     public float scrollSpeed = 0.05f;
 
+    public bool generateDebugScores = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
         creditsScroll.verticalScrollbar.value = 1.0f;
 
-        if (true)
+        if (generateDebugScores)
             TestScores();
 
         float sumofallscores = 0;
@@ -35,7 +38,7 @@ public class CreditsController : MonoBehaviour
             totneutron += GameRoot._Root.tot_neutronScores[i];
         }
 
-        float mod = 2.5f;
+        float mod = 1.0f;
         finalScores.SetMagnetEndScore(true, GameRoot._Root.tot_magnetometerScore * mod, (int)sumofallscores);
         finalScores.SetMultiEndScore(true, GameRoot._Root.tot_multispectScore * mod, (int)sumofallscores);
         finalScores.SetRadioEndScore(true, GameRoot._Root.tot_radioScore * mod, (int)sumofallscores);

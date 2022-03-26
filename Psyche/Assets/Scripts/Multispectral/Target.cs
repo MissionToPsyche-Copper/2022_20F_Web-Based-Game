@@ -114,15 +114,15 @@ public class Target : MonoBehaviour
     private float CheckShipAngle()
     {
         Vector3 ant2target = (mainController.GetAntennaPos() - this.transform.position).normalized;
-        Vector3 ship2ant = (SceneController.player.transform.position - mainController.GetAntennaPos()).normalized;
+        Vector3 ship2ant = (LevelController.player.transform.position - mainController.GetAntennaPos()).normalized;
 
         return Mathf.Abs(Vector3.Angle(ant2target, ship2ant));
     }
 
     private void FaceShipToTarget()
     {
-        Vector3 targetDirection = (SceneController.player.transform.position - this.transform.position).normalized;
-        Vector3 shipDirection = (SceneController.player.transform.position - mainController.GetAntennaPos()).normalized;
+        Vector3 targetDirection = (LevelController.player.transform.position - this.transform.position).normalized;
+        Vector3 shipDirection = (LevelController.player.transform.position - mainController.GetAntennaPos()).normalized;
         float angle2target = Vector3.SignedAngle(targetDirection, shipDirection, Vector3.forward);
 
         if (!ShipControl.resources.CanUsePower())
@@ -135,14 +135,14 @@ public class Target : MonoBehaviour
         }
         else if (angle2target < 0)
         {
-            SceneController.player.transform.Rotate(Vector3.forward, Constants.Ship.RotateSpeed);
+            LevelController.player.transform.Rotate(Vector3.forward, Constants.Ship.RotateSpeed);
             ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.GyroRotate * Time.deltaTime);
             ShipControl.gyroActive = true;
 
         }
         else
         {
-            SceneController.player.transform.Rotate(Vector3.forward, -Constants.Ship.RotateSpeed);
+            LevelController.player.transform.Rotate(Vector3.forward, -Constants.Ship.RotateSpeed);
             ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.GyroRotate * Time.deltaTime);
             ShipControl.gyroActive = true;
         }

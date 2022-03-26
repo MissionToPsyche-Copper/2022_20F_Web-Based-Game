@@ -3178,7 +3178,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3204,7 +3204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529870041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -210}
+  m_LocalPosition: {x: 0, y: 0, z: -300}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4171,7 +4171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3858.351}
+  m_AnchoredPosition: {x: 0, y: 4300.0015}
   m_SizeDelta: {x: 20, y: 4900}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &719318997
@@ -6498,8 +6498,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1432267568}
   m_HandleRect: {fileID: 1432267567}
   m_Direction: 2
-  m_Value: 0.102709055
-  m_Size: 0.12244898
+  m_Value: -0.00000034066133
+  m_Size: 0.117097616
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10549,6 +10549,7 @@ MonoBehaviour:
   spectromScores: {fileID: 1838695613}
   delayTime: 4
   scrollSpeed: 0.01
+  generateDebugScores: 0
 --- !u!4 &2144462840
 Transform:
   m_ObjectHideFlags: 0

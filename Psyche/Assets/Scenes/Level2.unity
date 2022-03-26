@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6332544116671721988, guid: 038e1601aa398344193146569cd9959d, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6332544116671721988, guid: 038e1601aa398344193146569cd9959d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -900,7 +900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4137926865676906459, guid: 321738cad91943a4b87c104cc16bcb2c, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4221120688639705163, guid: 321738cad91943a4b87c104cc16bcb2c, type: 3}
       propertyPath: m_IsActive
@@ -1489,7 +1489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1315779576805614587, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1315779576805614587, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1735,7 +1735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 405939554145399233, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_Name
-      value: SceneController
+      value: LevelController
       objectReference: {fileID: 0}
     - target: {fileID: 720520298052348525, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1748,6 +1748,54 @@ PrefabInstance:
     - target: {fileID: 1555333195807677170, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: radio
+      value: 
+      objectReference: {fileID: 289984192}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: magnet
+      value: 
+      objectReference: {fileID: 982337936}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: currScene
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: nextScene
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: multispect
+      value: 
+      objectReference: {fileID: 1830409052}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: spectrometer
+      value: 
+      objectReference: {fileID: 370918735}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: magnetometerOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: multipspectralOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: magnetGoalminMax.Max
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: magnetGoalminMax.Min
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: multipspectralGoalminMax.Max
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: multipspectralGoalminMax.Min
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3628459922234661860, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1799,6 +1847,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3857778223571911962, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252460768051157746, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5401458441189631667, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
@@ -2006,17 +2058,21 @@ PrefabInstance:
       propertyPath: massFactor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8573021527906223817, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
+      propertyPath: boostPercentage
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 9139015071804179966, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9139015071804179966, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 122
       objectReference: {fileID: 0}
     - target: {fileID: 9139015071804179966, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 122
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9139015071804179966, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2109,7 +2165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994512850781554019, guid: f83a9787c5501f247b1050366663a1cd, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8994512850781554019, guid: f83a9787c5501f247b1050366663a1cd, type: 3}
       propertyPath: m_LocalPosition.x

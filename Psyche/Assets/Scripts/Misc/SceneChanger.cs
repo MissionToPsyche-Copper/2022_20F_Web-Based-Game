@@ -20,6 +20,7 @@ public class SceneChanger : MonoBehaviour
 
     public void ChangeScene(scenes scene)
     {
+
         GameRoot.resourceService.AsynLoadScene(TranslateSceneEnum(scene), () =>
         {
           //  CloseAllWindow();

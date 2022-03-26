@@ -55,7 +55,6 @@
   <ItemGroup>
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Polyverse Skies\Core\Scripts\PolyverseSkies.cs" />
     <Compile Include="Assets\Scripts\Windows\UIWindowsController.cs" />
-    <Compile Include="Assets\Scripts\SceneController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\PrimitivePlus\Scripts\PrimitivePlusObject.cs" />
@@ -94,6 +93,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\Scripts\Misc\SpectrometerScoresPanel.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Scripts\PolygonLightFlicker.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonProjectileScript.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeSimpleAttribute.cs" />
@@ -160,9 +160,9 @@
     <Compile Include="Assets\_Addons\PolygonArsenal\Scripts\PolygonRotation.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeOptionsAttribute.cs" />
     <Compile Include="Assets\Scripts\Misc\CreditsController.cs" />
-    <Compile Include="Assets\Scripts\Misc\SpectrometerScoresPanel.cs" />
+    <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeOptionsAttribute.cs" />
+    <Compile Include="Assets\Scripts\LevelController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

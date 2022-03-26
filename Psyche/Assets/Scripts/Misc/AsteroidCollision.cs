@@ -8,16 +8,16 @@ public class AsteroidCollision : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player" && !SceneController.gameEnd)
+        if(collision.tag == "Player" && !LevelController.gameEnd)
         {
             //badend
             Time.timeScale = 0.3f;
             GameObject explode = Instantiate(explosion);
-            explode.transform.position = SceneController.player.transform.position;
+            explode.transform.position = LevelController.player.transform.position;
             explode.transform.localScale *= 25.0f;
-            explode.transform.SetParent(SceneController.mainAsteroid.transform);
+            explode.transform.SetParent(LevelController.mainAsteroid.transform);
             explode.SetActive(true);
-            SceneController.sceneRoot.BadEnd(false);
+            LevelController.levelRoot.BadEnd(false, "Probe Destroyed");
         }
     }
 

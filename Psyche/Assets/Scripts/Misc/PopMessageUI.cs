@@ -51,6 +51,11 @@ public class PopMessageUI : MonoBehaviour
     }
     public static void PopUpMessage(string text, float time)
     {
+        //check that this message isn't already up
+        foreach (GameObject message in messages)
+            if (text.Equals(message.GetComponent<TextMeshProUGUI>().text))
+                return;
+
         GameObject popup = Instantiate(PopMessg);
         popup.transform.parent = MessgCanvas;
         popup.transform.position = PopMessg.transform.position;
@@ -65,6 +70,12 @@ public class PopMessageUI : MonoBehaviour
         popup.SetActive(true);
 
         messages.Add(popup);
+    }
+
+    public static void ClearMessages()
+    {
+        for (int i = 0; i < messages.Count; i++)
+            RemovePop(messages[i]);
     }
 
     public static void RemovePop(GameObject messg)

@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6332544116671721988, guid: 038e1601aa398344193146569cd9959d, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6332544116671721988, guid: 038e1601aa398344193146569cd9959d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -900,7 +900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4137926865676906459, guid: 321738cad91943a4b87c104cc16bcb2c, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4221120688639705163, guid: 321738cad91943a4b87c104cc16bcb2c, type: 3}
       propertyPath: m_IsActive
@@ -1489,7 +1489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1315779576805614587, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1315779576805614587, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1735,7 +1735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 405939554145399233, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_Name
-      value: SceneController
+      value: LevelController
       objectReference: {fileID: 0}
     - target: {fileID: 720520298052348525, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1748,6 +1748,94 @@ PrefabInstance:
     - target: {fileID: 1555333195807677170, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: radio
+      value: 
+      objectReference: {fileID: 289984192}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: magnet
+      value: 
+      objectReference: {fileID: 982337936}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: radioOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: currScene
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: nextScene
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: multispect
+      value: 
+      objectReference: {fileID: 1830409052}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: spectrometer
+      value: 
+      objectReference: {fileID: 370918735}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: magnetometerOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: radioGoalScore
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: spectrometerOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: magnetGoalScore
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: multipspectralOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: radioGoalminMax.Max
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: radioGoalminMax.Min
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: magnetGoalminMax.Max
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: magnetGoalminMax.Min
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: spectrometerGoalScore
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: multipspectralGoalScore
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: spectrometerGoalminMax.Max
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: spectrometerGoalminMax.Min
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: multipspectralGoalminMax.Max
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: multipspectralGoalminMax.Min
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3628459922234661860, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2117,7 +2205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994512850781554019, guid: f83a9787c5501f247b1050366663a1cd, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8994512850781554019, guid: f83a9787c5501f247b1050366663a1cd, type: 3}
       propertyPath: m_LocalPosition.x

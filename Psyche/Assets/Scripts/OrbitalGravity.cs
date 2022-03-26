@@ -17,6 +17,8 @@ public class OrbitalGravity : MonoBehaviour
     public Vector2 force;
 
     public bool boostInitVelocity;
+    [ConditionalField(nameof(boostInitVelocity))]
+    public float boostPercentage = 1.0f;
 
     //public void Awake()
     //{
@@ -41,11 +43,11 @@ public class OrbitalGravity : MonoBehaviour
             float initRadius = initDisplace.magnitude;
             float initVel = Mathf.Sqrt((Constants.Space.gravityConstant * (float)massByMass) / initRadius);
 
-            Vector3 shipDirect = Vector3.Cross(initDisplace, Vector3.left).normalized;
-
+            Vector3 shipDirect = Vector3.Cross(initDisplace.normalized, Vector3.back).normalized;
+            shipDirect.z = 0.0f;
  //           this.transform.rotation = Quaternion.LookRotation(shipDirect);
 
-            this.GetComponent<Rigidbody2D>().AddForce(Vector2.right * initVel, ForceMode2D.Impulse);
+            this.GetComponent<Rigidbody2D>().AddForce(shipDirect * initVel * boostPercentage, ForceMode2D.Impulse);
         }
     }
 

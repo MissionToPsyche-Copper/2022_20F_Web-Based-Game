@@ -15,6 +15,9 @@ public class MagnetometerController : MonoBehaviour
     [Range(30, 200)]
     public float orbitRadius; //periapsis distance also called r1
     private Transform mainFieldsHolder;
+    private MagneticField mField;
+    private MagneticField fField;
+    private MagneticField bField;
 
     [Header("======= Anomalies =========")]
     [MinMaxRange(0, 100, order = 1)]
@@ -65,12 +68,12 @@ public class MagnetometerController : MonoBehaviour
         mainFieldsHolder = transform.Find("MainFields");
 
         //Send target object to the player object
-        target.transform.position = SceneController.player.transform.position;
-        target.transform.parent = SceneController.player.transform;
+        target.transform.position = LevelController.player.transform.position;
+        target.transform.parent = LevelController.player.transform;
         fieldObject.SetActive(false);
 
         //Send anomalies holder to asteroid
-        anomaliesHolder.parent = SceneController.mainAsteroid.transform;
+        anomaliesHolder.parent = LevelController.mainAsteroid.transform;
 
         CreateMainFields();
         intervalVal = Random.Range(spawnInterval.Min, spawnInterval.Max);
@@ -111,7 +114,7 @@ public class MagnetometerController : MonoBehaviour
             }
             else if (inField)
             {
-                SceneController.sceneRoot.ScoreMagnetometer(Time.deltaTime * (baseScoreMod + bonusScoreMod));
+                LevelController.levelRoot.ScoreMagnetometer(Time.deltaTime * (baseScoreMod + bonusScoreMod));
                 ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.Magnetometer * Time.deltaTime);
             }
         }
@@ -144,7 +147,7 @@ public class MagnetometerController : MonoBehaviour
         rotSpeed *= Random.value > 0.5f ? 1.0f : -1.0f;
         anomallyField.ChangeRotateSpeed(rotSpeed);
         anomallyField.Focus = Vector3.zero;
-        anomallyField.Center = Random.insideUnitCircle.normalized * ((SceneController.mainAsteroid.GetComponent<CircleCollider2D>().radius * SceneController.mainAsteroid.transform.localScale.x) + major / 4.0f);
+        anomallyField.Center = Random.insideUnitCircle.normalized * ((LevelController.mainAsteroid.GetComponent<CircleCollider2D>().radius * LevelController.mainAsteroid.transform.localScale.x) + major / 4.0f);
         if (major > minor)
         {
             anomallyField.MinorAxis = minor + orbitRadius / 2.0f;
@@ -195,6 +198,7 @@ public class MagnetometerController : MonoBehaviour
         mainField.InitializeFlux();
         mainField.ChangeAlpha(0.2f);
         FitEllipse(mainField);
+        mField = mainField;
 
         //FrontField===========
         frontField.name = "FrontField";
@@ -218,7 +222,7 @@ public class MagnetometerController : MonoBehaviour
         sideFields.ChangeAlpha(0.3f);
 
         FitEllipse(sideFields);
-
+        fField = sideFields;
 
         //BackField==============
         backField.name = "BackField";
@@ -242,6 +246,7 @@ public class MagnetometerController : MonoBehaviour
         sideFields.ChangeAlpha(0.3f);
         sideFields.MinorAxis += mainField.MinorAxis * 0.1f;
         FitEllipse(sideFields);
+        bField = sideFields;
     }
 
     public void SetRingStatus(bool val)

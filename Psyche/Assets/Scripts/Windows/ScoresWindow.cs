@@ -43,23 +43,27 @@ public class ScoresWindow : MonoBehaviour
     public void ScoreNeutron(int score)
     {
         ui_spectrometer.text = "Spectrometer:\n" + score.ToString();
-        spectrometerSlider.value = score;
+        if(score <= spectrometerSlider.maxValue)
+            spectrometerSlider.value = score;
     }
 
     public void ScoreRadio(float score)
     {
         ui_radio.text = "Radio:\n" + score.ToString("0.00");
-        radioSlider.value = score;
+        if (score <= radioSlider.maxValue)
+            radioSlider.value = score;
     }
 
     public void ScoreMultispect(float score)
     {
         ui_multispect.text = "Multispectral:\n" + score.ToString("0.00");
-        multispectSlider.value = score;
+        if (score <= multispectSlider.maxValue)
+            multispectSlider.value = score;
     }
     public void ScoreMagnetometer(float score)
     {
         ui_magnet.text = "Magnetometer:\n" + score.ToString("0.00");
-        magnetSlider.value = score;
+        if (score <= magnetSlider.maxValue)
+            magnetSlider.value = score;
     }
 }

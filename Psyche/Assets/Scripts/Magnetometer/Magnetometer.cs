@@ -33,8 +33,8 @@ public class Magnetometer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target.transform.position = SceneController.player.transform.position;
-        target.transform.parent = SceneController.player.transform;
+        target.transform.position = LevelController.player.transform.position;
+        target.transform.parent = LevelController.player.transform;
         for(int i = 0; i < ring.Length; i++)
         {
             ring[i].SetActive(false);
@@ -58,7 +58,7 @@ public class Magnetometer : MonoBehaviour
             {
                 if(currRampTime < scoreRampUpTime)
                     currRampTime += Time.deltaTime;
-                SceneController.sceneRoot.ScoreMagnetometer(Time.deltaTime * (scoreModAtRamp * (currRampTime / scoreRampUpTime)));
+                LevelController.levelRoot.ScoreMagnetometer(Time.deltaTime * (scoreModAtRamp * (currRampTime / scoreRampUpTime)));
                 ShipControl.resources.UsePower(Constants.Ship.Resources.PowerUse.Magnetometer * Time.deltaTime);
             }
         }

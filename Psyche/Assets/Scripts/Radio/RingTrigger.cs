@@ -11,8 +11,7 @@ public class RingTrigger : MonoBehaviour
     public  int ringID = 0;
     [ReadOnly]
     public bool inRing;
-    private float waitTime = 0.0f;
-    private float maxTime = 2.0f;
+
 
     public void Start()
     {
@@ -20,24 +19,14 @@ public class RingTrigger : MonoBehaviour
         inRing = false;
     }
 
-    public void Update()
-    {
-        if (waitTime > maxTime)
-            return;
-        waitTime += Time.deltaTime;
-    }
-
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            float alt = this.GetComponent<CircleCollider2D>().radius - (SceneController.mainAsteroid.GetComponent<CircleCollider2D>().radius * SceneController.mainAsteroid.transform.localScale.x);
+            float alt = this.GetComponent<CircleCollider2D>().radius - (LevelController.mainAsteroid.GetComponent<CircleCollider2D>().radius * LevelController.mainAsteroid.transform.localScale.x);
+            
             manager.CurrentRing(ringID);
-            if (waitTime >= maxTime)
-            {
-                PopMessageUI.PopUpMessage("Radio Science Altitude: " + alt.ToString("0.0"), 4.0f);
-                waitTime = 0.0f;
-            }
+            PopMessageUI.PopUpMessage("Radio Science Altitude: " + (alt * Constants.Space.AltitudeFactorAdjust).ToString("0.0"), 4.0f);
             inRing = true;
         }
     }

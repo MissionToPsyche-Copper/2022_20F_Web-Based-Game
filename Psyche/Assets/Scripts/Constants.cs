@@ -168,8 +168,8 @@ public class Constants : MonoBehaviour
 
         public static class Neutron
         {
-            public const int emitMax = 3;  // the max random range of neutrons emitted upon ray impact
-            public const float SelfDestTime = 5.0f;  //the life span of time for a neutron to exist
+            public const int emitMax = 4;  // the max random range of neutrons emitted upon ray impact
+            public const float SelfDestTime = 10.0f;  //the life span of time for a neutron to exist
         }
 
         public static class Sounds

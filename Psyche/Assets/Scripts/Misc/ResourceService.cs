@@ -35,7 +35,7 @@ public class ResourceService : MonoBehaviour
             //         GameRoot3D.instance.loadingWindow.SetProgress(percentage);
             GameRoot._Root.windowsController.loadingWindow.SetProgress(percentage);
             //Async loading is finished
-            if (percentage == 1)
+            if (percentage >= 0.90f)
             {
                 //If there is a window need to be actived, do the action
                 if (loaded != null)

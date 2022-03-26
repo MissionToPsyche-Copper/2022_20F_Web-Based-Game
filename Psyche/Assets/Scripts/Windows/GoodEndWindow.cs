@@ -15,7 +15,8 @@ public class GoodEndWindow : MonoBehaviour
     public void Click_NextOrbit()
     {
         this.gameObject.SetActive(false);
-        SceneController.sceneRoot.OnSceneChange();
+        PopMessageUI.ClearMessages();
+        LevelController.levelRoot.OnSceneChange();
         GameRoot._Root.sceneChanger.ChangeScene(SceneChanger.scenes.endoflevel);
     }
 

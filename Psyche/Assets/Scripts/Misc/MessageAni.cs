@@ -60,7 +60,7 @@ public class MessageAni : MonoBehaviour
     public void ShiftY(float dist)
     {
         if (moveUP)
-            moveDist = dist;
+            moveDist += dist;
         else
             moveDist = dist;
 

@@ -43,8 +43,8 @@ public class OrbitLines : MonoBehaviour
     void Start()
     {
         line = this.GetComponent<LineRenderer>();
-        mass = OrbitalGravity.factor * SceneController.player.GetComponent<Rigidbody2D>().mass * SceneController.mainAsteroid.GetComponent<Rigidbody2D>().mass;
-        asteroidRad = (SceneController.mainAsteroid.GetComponent<CircleCollider2D>().radius * SceneController.mainAsteroid.transform.localScale.x) * radBuffer;
+        mass = OrbitalGravity.factor * LevelController.player.GetComponent<Rigidbody2D>().mass * LevelController.mainAsteroid.GetComponent<Rigidbody2D>().mass;
+        asteroidRad = (LevelController.mainAsteroid.GetComponent<CircleCollider2D>().radius * LevelController.mainAsteroid.transform.localScale.x) * radBuffer;
 
     }
 
@@ -61,17 +61,17 @@ public class OrbitLines : MonoBehaviour
     void FixedUpdate()
     {
         if (display)
-            SimulateOrbit(SceneController.player);
+            SimulateOrbit(LevelController.player);
     }
 
     public void SimulateOrbit(GameObject ship)
     {
         Vector3 physicsStep;
-        asteroidRad = (SceneController.mainAsteroid.GetComponent<CircleCollider2D>().radius * SceneController.mainAsteroid.transform.localScale.x) * radBuffer;
+        asteroidRad = (LevelController.mainAsteroid.GetComponent<CircleCollider2D>().radius * LevelController.mainAsteroid.transform.localScale.x) * radBuffer;
 
         obj.pos = ship.transform.position;
         obj.vel = ship.GetComponent<Rigidbody2D>().velocity;
-        obj.grav = OrbitalGravity.GravityVelocity(obj.pos, SceneController.mainAsteroid.transform.position, mass);
+        obj.grav = OrbitalGravity.GravityVelocity(obj.pos, LevelController.mainAsteroid.transform.position, mass);
 
         line.positionCount = iterations;
 
@@ -81,7 +81,7 @@ public class OrbitLines : MonoBehaviour
             physicsStep = ((obj.vel * resolution) + (obj.grav * resolution));
             obj.vel = physicsStep;
             obj.pos += physicsStep;
-            obj.grav = OrbitalGravity.GravityVelocity(obj.pos, SceneController.mainAsteroid.transform.position, mass);
+            obj.grav = OrbitalGravity.GravityVelocity(obj.pos, LevelController.mainAsteroid.transform.position, mass);
 
             if (obj.pos.x < xMin)
                 xMin = obj.pos.x;

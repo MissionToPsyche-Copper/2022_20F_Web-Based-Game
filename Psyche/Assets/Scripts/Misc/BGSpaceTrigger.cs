@@ -10,16 +10,16 @@ public class BGSpaceTrigger : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !SceneController.gameEnd)
+        if (collision.tag == "Player" && !LevelController.gameEnd)
         {
             //Call GameOver conditions
             //player too far out of bounds (lost gravity contact with asteroid)
-            SceneController.player.GetComponent<ShipControl>().enabled = false;
-            SceneController.player.GetComponent<OrbitalGravity>().enabled = false;
-            lostPosition = new Vector3(SceneController.player.transform.position.x, SceneController.player.transform.position.y, SceneController.player.transform.position.z);
+            LevelController.player.GetComponent<ShipControl>().enabled = false;
+            LevelController.player.GetComponent<OrbitalGravity>().enabled = false;
+            lostPosition = new Vector3(LevelController.player.transform.position.x, LevelController.player.transform.position.y, LevelController.player.transform.position.z);
             playerInSpace = false;
             mainCamera.GetComponent<Camera>().orthographic = false;
-            SceneController.sceneRoot.BadEnd(true);
+            LevelController.levelRoot.BadEnd(true, "Lost Orbit with Asteroid");
         }
     }
 
@@ -41,7 +41,7 @@ public class BGSpaceTrigger : MonoBehaviour
         if(!playerInSpace)
         {
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, lostPosition, 0.0001f * Time.deltaTime);
-            mainCamera.transform.LookAt(SceneController.player.transform, Vector3.Cross(mainCamera.transform.forward, SceneController.player.transform.right));
+            mainCamera.transform.LookAt(LevelController.player.transform, Vector3.Cross(mainCamera.transform.forward, LevelController.player.transform.right));
         }
     }
 }
