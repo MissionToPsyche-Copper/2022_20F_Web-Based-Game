@@ -1,0 +1,2 @@
+G:\UnityProjects\Psyche\Psyche\obj\Debug\Unity.RenderPipelines.Core.Runtime.csproj.AssemblyReference.cache
+G:\UnityProjects\Psyche\Psyche\obj\Debug\Unity.RenderPipelines.Core.Runtime.csproj.CoreCompileInputs.cache

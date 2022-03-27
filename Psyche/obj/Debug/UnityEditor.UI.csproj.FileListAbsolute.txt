@@ -1,0 +1,2 @@
+G:\UnityProjects\Psyche\Psyche\obj\Debug\UnityEditor.UI.csproj.AssemblyReference.cache
+G:\UnityProjects\Psyche\Psyche\obj\Debug\UnityEditor.UI.csproj.CoreCompileInputs.cache
