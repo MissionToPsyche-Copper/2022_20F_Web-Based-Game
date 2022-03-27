@@ -84,7 +84,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Multispectral\Target.cs" />
     <Compile Include="Assets\Scripts\GammaRay\TractorBeam.cs" />
-    <Compile Include="Assets\IntroScreen.cs" />
+    <Compile Include="Assets\Scripts\Misc\IntroScreen.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledMessage.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\Magnetometer\MagnetometerController.cs" />
@@ -107,7 +107,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Scripts\GammaRay\GammaRayController.cs" />
-    <Compile Include="Assets\IntroController.cs" />
+    <Compile Include="Assets\Scripts\Misc\IntroController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Magnetometer\MagnetTrigger.cs" />
@@ -133,7 +133,7 @@
     <Compile Include="Assets\Scripts\Radio\RingTrigger.cs" />
     <Compile Include="Assets\Scripts\Misc\PopMessageUI.cs" />
     <Compile Include="Assets\Scripts\Windows\ScoresWindow.cs" />
-    <Compile Include="Assets\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Misc\MainMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\ShipResources.cs" />
     <Compile Include="Assets\Scripts\Misc\SceneChanger.cs" />
