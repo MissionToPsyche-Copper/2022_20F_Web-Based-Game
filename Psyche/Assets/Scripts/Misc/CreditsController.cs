@@ -19,6 +19,8 @@ public class CreditsController : MonoBehaviour
     public bool generateDebugScores = false;
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,5 +86,19 @@ public class CreditsController : MonoBehaviour
         {
             GameRoot._Root.tot_neutronScores[i] = Random.Range(10, 30);
         }
+    }
+
+
+    public void Click_PsycheButton()
+    {
+        Application.OpenURL("https://psyche.asu.edu/");
+    }
+    public void Click_NASAButton()
+    {
+        Application.OpenURL("https://solarsystem.nasa.gov/missions/psyche/overview/");
+    }
+    public void Click_JPLButton()
+    {
+        Application.OpenURL("https://www.jpl.nasa.gov/missions/psyche");
     }
 }

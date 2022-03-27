@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\GammaRay\GammaGenerator.cs" />
     <Compile Include="Assets\_Addons\PolygonArsenal\Scripts\PolygonSoundSpawn.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\Scripts\LevelController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\Misc\SpectrometerScoresPanel.cs" />
@@ -162,7 +163,9 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Misc\CreditsController.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeOptionsAttribute.cs" />
-    <Compile Include="Assets\Scripts\LevelController.cs" />
+    <Compile Include="Assets\IntroScreen.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
+    <Compile Include="Assets\IntroController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
