@@ -82,6 +82,7 @@ public class LevelController : MonoBehaviour
         gameEnd = true;
         player.GetComponent<ShipControl>().enabled = false;
 
+
         windowsController.goodEndWindow.gameObject.SetActive(true);
 
         windowsController.badEndWindow.gameObject.SetActive(false);
@@ -257,6 +258,10 @@ public class LevelController : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         GameRoot._Root.prevScene = currScene;
+
+        if (magnetometerOn)
+            magnet.GetComponent<MagnetometerController>().EndOfLevel();
+
 
         for (int i = 0; i < neutronScores.Length; i++)
         {

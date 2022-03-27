@@ -1522,7 +1522,12 @@ PrefabInstance:
       propertyPath: m_Emitting
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3165462191456291960, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9134594528678982723, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
 --- !u!108 &2641876179469122220
 Light:

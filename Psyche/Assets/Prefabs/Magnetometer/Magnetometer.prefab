@@ -459,6 +459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MagField
       objectReference: {fileID: 0}
+    - target: {fileID: 4156661491436648039, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
+      propertyPath: m_Color.a
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5039607217748820895, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.88

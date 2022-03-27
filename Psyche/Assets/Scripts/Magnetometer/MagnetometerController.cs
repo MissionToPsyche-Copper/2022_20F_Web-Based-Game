@@ -15,9 +15,7 @@ public class MagnetometerController : MonoBehaviour
     [Range(30, 200)]
     public float orbitRadius; //periapsis distance also called r1
     private Transform mainFieldsHolder;
-    private MagneticField mField;
-    private MagneticField fField;
-    private MagneticField bField;
+    private List<MagneticField> mainFields;
 
     [Header("======= Anomalies =========")]
     [MinMaxRange(0, 100, order = 1)]
@@ -43,6 +41,7 @@ public class MagnetometerController : MonoBehaviour
 
     private float intervalVal;
     private Transform anomaliesHolder;
+    private List<MagneticField> anomallies;
 
 
     [Header("======= Scoring =========")]
@@ -66,6 +65,8 @@ public class MagnetometerController : MonoBehaviour
     {
         anomaliesHolder = transform.Find("Anomalies");
         mainFieldsHolder = transform.Find("MainFields");
+        anomallies = new List<MagneticField>();
+        mainFields = new List<MagneticField>();
 
         //Send target object to the player object
         target.transform.position = LevelController.player.transform.position;
@@ -169,7 +170,7 @@ public class MagnetometerController : MonoBehaviour
 //        anomallyField.ChangeAlpha(0.0f);
 
         FitEllipse(anomallyField);
-
+        anomallies.Add(anomallyField);
     }
 
     private void CreateMainFields()
@@ -198,7 +199,7 @@ public class MagnetometerController : MonoBehaviour
         mainField.InitializeFlux();
         mainField.ChangeAlpha(0.2f);
         FitEllipse(mainField);
-        mField = mainField;
+        mainFields.Add(mainField);
 
         //FrontField===========
         frontField.name = "FrontField";
@@ -222,7 +223,7 @@ public class MagnetometerController : MonoBehaviour
         sideFields.ChangeAlpha(0.3f);
 
         FitEllipse(sideFields);
-        fField = sideFields;
+        mainFields.Add(sideFields);
 
         //BackField==============
         backField.name = "BackField";
@@ -246,7 +247,7 @@ public class MagnetometerController : MonoBehaviour
         sideFields.ChangeAlpha(0.3f);
         sideFields.MinorAxis += mainField.MinorAxis * 0.1f;
         FitEllipse(sideFields);
-        bField = sideFields;
+        mainFields.Add(sideFields);
     }
 
     public void SetRingStatus(bool val)
@@ -287,6 +288,25 @@ public class MagnetometerController : MonoBehaviour
     public float GetRingSize()
     {
         return mainFieldsHolder.Find("MainField").GetComponent<MagneticField>().MajorAxis * 0.4f;
+    }
+
+    public List<MagneticField> GetAnomalliesList()
+    {
+        return anomallies;
+    }
+
+    public void EndOfLevel()
+    {
+        foreach(MagneticField anomally in  anomallies)
+        {
+            anomallies.Remove(anomally);
+            Destroy(anomally.gameObject);
+        }
+        foreach (MagneticField fields in mainFields)
+        {
+            mainFields.Remove(fields);
+            Destroy(fields.gameObject);
+        }
     }
 
 }
