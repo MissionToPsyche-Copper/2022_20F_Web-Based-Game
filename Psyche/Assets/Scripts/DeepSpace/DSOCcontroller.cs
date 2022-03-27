@@ -13,6 +13,7 @@ public class DSOCcontroller : MonoBehaviour
 
 
     public static DSOCcontroller dsocRoot;
+    public static DSOC_Questions dsoc_questions;
     public Button btn_Continue;
 
 
@@ -22,6 +23,7 @@ public class DSOCcontroller : MonoBehaviour
 
     public List<DragAndDrop> answers;
 
+    [HideInInspector]
     public bool caught = false;
 
     // Start is called before the first frame update
@@ -29,6 +31,8 @@ public class DSOCcontroller : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         dsocRoot = this;
+        dsoc_questions = GetComponent<DSOC_Questions>();
+        dsoc_questions.Awake(); //is this hacky? meh.
         if (GameRoot._Root.nextScene == SceneChanger.scenes.credits)
             btn_Continue.GetComponentInChildren<TextMeshProUGUI>().text = "Credits";
         else
@@ -50,20 +54,16 @@ public class DSOCcontroller : MonoBehaviour
         switch (GameRoot._Root.prevScene)
         {
             case SceneChanger.scenes.level1:
-                for (int i = 0; i < DSOC_Questions.Level1Questions.Length; i++)
-                    initList.Add(DSOC_Questions.Level1Questions[i]);
+                initList = DSOC_Questions.Level1Questions;
                 break;
             case SceneChanger.scenes.level2:
-                for (int i = 0; i < DSOC_Questions.Level2Questions.Length; i++)
-                    initList.Add(DSOC_Questions.Level2Questions[i]);
+                initList = DSOC_Questions.Level2Questions;
                 break;
             case SceneChanger.scenes.level3:
-                for (int i = 0; i < DSOC_Questions.Level3Questions.Length; i++)
-                    initList.Add(DSOC_Questions.Level3Questions[i]);
+                initList = DSOC_Questions.Level3Questions;
                 break;
             case SceneChanger.scenes.level4:
-                for (int i = 0; i < DSOC_Questions.Level4Questions.Length; i++)
-                    initList.Add(DSOC_Questions.Level4Questions[i]);
+                initList = DSOC_Questions.Level4Questions;
                 break;
         }
 

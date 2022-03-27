@@ -885,6 +885,7 @@ GameObject:
   - component: {fileID: 1448264581233116855}
   - component: {fileID: 1448264581233116854}
   - component: {fileID: 3925910929279928584}
+  - component: {fileID: 3164457240856055050}
   m_Layer: 5
   m_Name: DeepSpace Communication
   m_TagString: Untagged
@@ -988,6 +989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc6153bf7fefd440b4ffb58c26e1ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  test: 0
+  testScene: 0
   btn_Continue: {fileID: 121172933453535883}
   questions:
   - {fileID: 1448264582392581833}
@@ -1008,6 +1011,18 @@ MonoBehaviour:
   - {fileID: 5179094688029106191}
   - {fileID: 4541643438498835635}
   caught: 0
+--- !u!114 &3164457240856055050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448264581233116853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76ffaefd7ee2d24aa0426e6e375b02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1448264581312137982
 GameObject:
   m_ObjectHideFlags: 0
