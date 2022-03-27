@@ -21,6 +21,7 @@ public class IntroScreen : MonoBehaviour
         videoScreen = videoPanel.GetComponent<RawImage>();
         videoPlayer = videoPanel.GetComponent<VideoPlayer>();
         videoPlayer.SetDirectAudioVolume(ushort.MinValue, 1.0f);
+        videoPlayer.url = System.IO.Path.Combine(Application.dataPath, "Video/Psyche_Intro.mp4");
     }
 
     // Update is called once per frame
@@ -61,6 +62,7 @@ public class IntroScreen : MonoBehaviour
 
     public void ReplayIntro()
     {
+        videoPlayer.url = System.IO.Path.Combine(Application.dataPath, "Video/Psyche_Intro.mp4");
         skipping = false;
         retarting = true;
         videoScreen.color = new Color(1, 1, 1, 0);
