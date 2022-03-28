@@ -53,6 +53,9 @@ public class MagneticField : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (LevelController.gameEnd)
+            return;
+
         if (!isAnomally)
             return;
         else
@@ -82,15 +85,9 @@ public class MagneticField : MonoBehaviour
                 if (magController.bonusScoreMod < 0.0f)
                     magController.bonusScoreMod = 0.0f;
 
-                LevelController.levelRoot.magnet.GetComponent<MagnetometerController>().GetAnomalliesList().Remove(this);
-
                 Destroy(this.gameObject);
             }
         }
-
-        //if (messgWait > messgMax)
-        //    return;
-        //messgWait += Time.deltaTime;
     }
 
 
