@@ -1,0 +1,124 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.Video;
+using UnityEngine.Events;
+
+public class VideoController : MonoBehaviour
+{
+    public GameObject videoPanel;
+    private RawImage videoScreen;
+    private VideoPlayer videoPlayer;
+    public Button btn_Skip;
+    public Button btn_Pause;
+    public string videoName;
+    private bool pause = false;
+    private bool skipping = false;
+    private bool retarting = false;
+    public float fadeSpeed = 0.4f;
+    public Sprite playSprite;
+    public Sprite pauseSprite;
+    public UnityEvent videoEnd;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        videoScreen = videoPanel.GetComponent<RawImage>();
+        videoPlayer = videoPanel.GetComponent<VideoPlayer>();
+        videoPlayer.SetDirectAudioVolume(ushort.MinValue, 1.0f);
+        videoEnd = new UnityEvent();
+        Debug.Log(Application.streamingAssetsPath);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(skipping || videoPlayer.time > videoPlayer.length * 0.95f)
+        {
+            FadeOutVideo();
+        }
+        else if(retarting)
+        {
+            FadeInVideo();
+        }
+
+    }
+
+    private void FadeOutVideo()
+    {
+        videoScreen.color -= new Color(0, 0, 0, Time.deltaTime * fadeSpeed);
+        videoPlayer.SetDirectAudioVolume(ushort.MinValue, videoScreen.color.a);
+        if (videoScreen.color.a <= 0.001f)
+        {
+            videoEnd.Invoke();   
+            videoPlayer.Stop();
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    private void FadeInVideo()
+    {
+        videoScreen.color += new Color(0, 0, 0, Time.deltaTime * fadeSpeed);
+        videoPlayer.SetDirectAudioVolume(ushort.MinValue, videoScreen.color.a);
+        if (videoScreen.color.a >= 0.99f)
+        {
+            retarting = false;
+            videoScreen.color = new Color(1, 1, 1, 1);
+        }
+    }
+
+    public void StartVideo(string video)
+    {
+        videoName = video;
+        Debug.Log(Application.streamingAssetsPath + videoName);
+
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
+        skipping = false;
+        retarting = false;
+        videoScreen.color = new Color(1, 1, 1, 1);
+        videoPlayer.frame = 0;
+        videoPlayer.time = 0.0f;
+        videoPlayer.Play();
+        this.gameObject.SetActive(true);
+        btn_Skip.gameObject.SetActive(true);
+    }
+
+    public void RestartVideo(string video)
+    {
+        videoName = video;
+        Debug.Log(Application.streamingAssetsPath + videoName);
+
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
+        skipping = false;
+        retarting = true;
+        videoScreen.color = new Color(1, 1, 1, 0);
+        videoPlayer.frame = 0;
+        videoPlayer.time = 0.0f;        
+        videoPlayer.Play();
+        this.gameObject.SetActive(true);
+        btn_Skip.gameObject.SetActive(true);
+    }
+
+    public void Click_Pause()
+    {
+        pause = !pause;
+        if (pause)
+        {
+            btn_Pause.GetComponent<Image>().sprite = playSprite;
+            videoPlayer.playbackSpeed = 0.0f;
+        }
+        else
+        {
+            btn_Pause.GetComponent<Image>().sprite = pauseSprite;
+            videoPlayer.playbackSpeed = 1.0f;
+        }
+    }
+
+    public void Click_Skip()
+    {
+        btn_Skip.gameObject.SetActive(false);
+        skipping = true;
+    }
+}

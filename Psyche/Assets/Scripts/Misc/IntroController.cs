@@ -7,11 +7,12 @@ public class IntroController : MonoBehaviour
 {
     public static IntroController introRoot;
     public MainMenu MainMenu;
-    public IntroScreen IntroScreen;
+    public VideoController IntroScreen;
 
     public void Awake()
     {
         introRoot = this;
+        IntroScreen.videoName = Constants.Videos.intro;
 //        IntroScreen.gameObject.SetActive(true);
     }
 

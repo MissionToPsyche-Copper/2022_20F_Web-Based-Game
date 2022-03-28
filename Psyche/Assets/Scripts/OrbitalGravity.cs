@@ -37,18 +37,8 @@ public class OrbitalGravity : MonoBehaviour
         else
             massByMass = body.GetComponent<Rigidbody2D>().mass * this.GetComponent<Rigidbody2D>().mass;
 
-        if(boostInitVelocity)
-        {
-            Vector3 initDisplace = body.transform.position - this.transform.position;
-            float initRadius = initDisplace.magnitude;
-            float initVel = Mathf.Sqrt((Constants.Space.gravityConstant * (float)massByMass) / initRadius);
-
-            Vector3 shipDirect = Vector3.Cross(initDisplace.normalized, Vector3.back).normalized;
-            shipDirect.z = 0.0f;
- //           this.transform.rotation = Quaternion.LookRotation(shipDirect);
-
-            this.GetComponent<Rigidbody2D>().AddForce(shipDirect * initVel * boostPercentage, ForceMode2D.Impulse);
-        }
+        if (boostInitVelocity)
+            BoostVelocity();
     }
 
 
@@ -60,6 +50,19 @@ public class OrbitalGravity : MonoBehaviour
         radius = displacement.magnitude;
         force = -normalUnit * (Constants.Space.gravityConstant * (float)(massByMass / Mathf.Pow(radius, 2)));
         this.GetComponent<Rigidbody2D>().AddForce(force);
+    }
+
+    public void BoostVelocity()
+    {
+        Vector3 initDisplace = body.transform.position - this.transform.position;
+        float initRadius = initDisplace.magnitude;
+        float initVel = Mathf.Sqrt((Constants.Space.gravityConstant * (float)massByMass) / initRadius);
+
+        Vector3 shipDirect = Vector3.Cross(initDisplace.normalized, Vector3.back).normalized;
+        shipDirect.z = 0.0f;
+        //           this.transform.rotation = Quaternion.LookRotation(shipDirect);
+
+        this.GetComponent<Rigidbody2D>().AddForce(shipDirect * initVel * boostPercentage, ForceMode2D.Impulse);
     }
 
     public static Vector3 GravityVelocity(Vector3 objPos, Vector3 bodyPos, float mass)

@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public Button btn_Retart;
     public Button btn_Logos;
 
+
     public void Click_Start()
     {
         GameRoot._Root.prevScene = SceneChanger.scenes.intro;
@@ -20,6 +21,8 @@ public class MainMenu : MonoBehaviour
     }
     public void Click_Tutorial()
     {
+        GameRoot._Root.prevScene = SceneChanger.scenes.intro;
+        GameRoot._Root.sceneChanger.ChangeScene(SceneChanger.scenes.tutorial);
 
     }
     public void Click_Credits()
@@ -29,7 +32,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Click_Restart()
     {
-        IntroController.introRoot.IntroScreen.ReplayIntro();
+        IntroController.introRoot.IntroScreen.RestartVideo("Psyche_Intro.mp4");
     }
 
     public void Click_PsycheButton()
