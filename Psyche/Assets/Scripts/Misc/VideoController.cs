@@ -49,8 +49,11 @@ public class VideoController : MonoBehaviour
     private void FadeOutVideo()
     {
         videoScreen.color -= new Color(0, 0, 0, Time.deltaTime * fadeSpeed);
-        videoPlayer.SetDirectAudioVolume(ushort.MinValue, videoScreen.color.a);
-        if (videoScreen.color.a <= 0.001f)
+        
+        //there's a crash that happens in WebGL if the volume is negative
+        if(videoScreen.color.a >= 0.001f)
+            videoPlayer.SetDirectAudioVolume(ushort.MinValue, videoScreen.color.a);
+        else
         {
             videoEnd.Invoke();   
             videoPlayer.Stop();
@@ -61,8 +64,10 @@ public class VideoController : MonoBehaviour
     private void FadeInVideo()
     {
         videoScreen.color += new Color(0, 0, 0, Time.deltaTime * fadeSpeed);
-        videoPlayer.SetDirectAudioVolume(ushort.MinValue, videoScreen.color.a);
-        if (videoScreen.color.a >= 0.99f)
+        
+        if (videoScreen.color.a <= 0.99f)
+            videoPlayer.SetDirectAudioVolume(ushort.MinValue, videoScreen.color.a);
+        else
         {
             retarting = false;
             videoScreen.color = new Color(1, 1, 1, 1);
@@ -75,6 +80,7 @@ public class VideoController : MonoBehaviour
         Debug.Log(Application.streamingAssetsPath + videoName);
 
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
+        videoPlayer.SetDirectAudioVolume(ushort.MinValue, 1.0f);
         skipping = false;
         retarting = false;
         videoScreen.color = new Color(1, 1, 1, 1);

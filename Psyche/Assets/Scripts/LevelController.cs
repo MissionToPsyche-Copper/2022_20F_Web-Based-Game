@@ -160,6 +160,8 @@ public class LevelController : MonoBehaviour
 
     public void StageStart()
     {
+        gameEnd = false;
+
         Time.timeScale = 2.0f;
         player.GetComponent<ShipControl>().enabled = true;
         mainAsteroid.GetComponent<MeshRenderer>().enabled = true;
@@ -189,7 +191,7 @@ public class LevelController : MonoBehaviour
 
     public void OnSceneLoad()
     {
-        gameEnd = false;
+        gameEnd = true;
         GameRoot._Root.currScene = currScene;
         GameRoot._Root.nextScene = nextScene;
 
