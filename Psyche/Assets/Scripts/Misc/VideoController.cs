@@ -77,9 +77,15 @@ public class VideoController : MonoBehaviour
     public void StartVideo(string video)
     {
         videoName = video;
+
         Debug.Log(Application.streamingAssetsPath + videoName);
+        if (videoScreen == null)
+            videoScreen = videoPanel.GetComponent<RawImage>();
+        if (videoPlayer == null)
+            videoPlayer = videoPanel.GetComponent<VideoPlayer>();
 
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
+        videoPlayer.waitForFirstFrame = true;
         videoPlayer.SetDirectAudioVolume(ushort.MinValue, 1.0f);
         skipping = false;
         retarting = false;
@@ -94,7 +100,13 @@ public class VideoController : MonoBehaviour
     public void RestartVideo(string video)
     {
         videoName = video;
+
         Debug.Log(Application.streamingAssetsPath + videoName);
+        if (videoScreen == null)
+            videoScreen = videoPanel.GetComponent<RawImage>();
+        if (videoPlayer == null)
+            videoPlayer = videoPanel.GetComponent<VideoPlayer>();
+
 
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
         skipping = false;

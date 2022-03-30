@@ -34,8 +34,7 @@ public class BadEndWindow : MonoBehaviour
     public void Click_Quit()
     {
         this.gameObject.SetActive(false);
+        PopMessageUI.ClearMessages();
         GameRoot._Root.sceneChanger.ChangeScene(SceneChanger.scenes.intro);
-
     }
-
 }

@@ -1917,6 +1917,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: m_Url
+      value: file://G:/UnityProjects/Psyche/Psyche/Assets/StreamingAssets/radioscienceTutorial.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: e0624a861ec19414ea5a3bce5a8257e0, type: 2}
+    - target: {fileID: 7022051142307204075, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: e0624a861ec19414ea5a3bce5a8257e0, type: 2}
     - target: {fileID: 8662371737235593291, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

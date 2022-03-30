@@ -141,6 +141,11 @@ public class LevelController : MonoBehaviour
     private void SetTutVideo()
     {
         vidController.fadeSpeed = 1.2f;
+
+        if (vidController.videoEnd == null)
+            vidController.videoEnd = new UnityEngine.Events.UnityEvent();
+
+        vidController.videoEnd.AddListener(StageStart);
         switch (currScene)
         {
             case SceneChanger.scenes.level1:
@@ -195,7 +200,6 @@ public class LevelController : MonoBehaviour
         GameRoot._Root.currScene = currScene;
         GameRoot._Root.nextScene = nextScene;
 
-        vidController.videoEnd.AddListener(StageStart);
 
         windowsController.goodEndWindow.nextScene = nextScene;
         mainAsteroid.GetComponent<MeshRenderer>().enabled = false;
