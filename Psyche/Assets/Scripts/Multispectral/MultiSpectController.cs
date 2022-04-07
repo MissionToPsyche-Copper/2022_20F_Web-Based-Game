@@ -217,4 +217,8 @@ public class MultiSpectController : MonoBehaviour
         LevelController.levelRoot.ScoreMultispect(scoreMod * targSizeMod * time * (1.0f - anglePercent));
     }
 
+    public void EndOfLevel()
+    {
+        Destroy(shipAntenna);
+    }
 }

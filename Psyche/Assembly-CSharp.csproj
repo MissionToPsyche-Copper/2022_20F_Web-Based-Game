@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,6 +52,9 @@
     <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Polyverse Skies\Core\Scripts\PolyverseSkies.cs" />
     <Compile Include="Assets\Scripts\Windows\UIWindowsController.cs" />
@@ -167,6 +170,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Misc\CreditsController.cs" />
     <Compile Include="Assets\_Addons\BOXOPHOBIC\Utils\Legacy\Drawers\BRangeOptionsAttribute.cs" />
+    <Compile Include="Assets\Scripts\Magnetometer\FluxProperties.cs" />
+    <Compile Include="Assets\Scripts\Misc\VideoHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -899,10 +904,6 @@
     <ProjectReference Include="Unity.ShaderGraph.Editor.csproj">
       <Project>{214D2A4A-1AE3-BDC1-1ABD-42110F0B057E}</Project>
       <Name>Unity.ShaderGraph.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
-      <Project>{11C727B3-6E51-B84F-BF52-6CCB09B76A90}</Project>
-      <Name>AllIn1SpriteShaderAssembly</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
       <Project>{A2A3227D-CCBC-2C33-C64F-569FC41DAFA5}</Project>

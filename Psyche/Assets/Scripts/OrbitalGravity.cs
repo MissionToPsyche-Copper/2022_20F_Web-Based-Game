@@ -62,7 +62,7 @@ public class OrbitalGravity : MonoBehaviour
         shipDirect.z = 0.0f;
         //           this.transform.rotation = Quaternion.LookRotation(shipDirect);
 
-        this.GetComponent<Rigidbody2D>().AddForce(shipDirect * initVel * boostPercentage, ForceMode2D.Impulse);
+        this.GetComponent<Rigidbody2D>().AddForce(shipDirect * initVel * (boostPercentage * 0.5f), ForceMode2D.Impulse);
     }
 
     public static Vector3 GravityVelocity(Vector3 objPos, Vector3 bodyPos, float mass)

@@ -16,8 +16,12 @@ public class DSOC_Questions : MonoBehaviour
     public static List<Questions> Level3Questions;
     public static List<Questions> Level4Questions;
 
+    public DSOC_Questions()
+    {
+        Init();
+    }
 
-    public void Awake()
+    public void Init()
     {
         Level1Questions = new List<Questions>{
             new Questions() {id = 1,

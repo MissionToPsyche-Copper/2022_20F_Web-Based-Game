@@ -31,12 +31,12 @@ public class MagnetometerController : MonoBehaviour
     [MinMaxRange(10.0f, 50.0f)]
     [Tooltip("Adjusts the ranged of sizes that target anomallies will appear to be.\nThe size of the anomally also plays into how much points they are worth when scanned (smaller size = more points)")]
     public RangedFloat spawnSizeRange = new RangedFloat(3.0f, 6.0f);
-    [MinMaxRange(0.1f, 3.0f)]
+    [MinMaxRange(0.1f, 5.0f)]
     [Tooltip("Adjusts the speed that anomalies will spin at.")]
     public RangedFloat spawnRotSpeed = new RangedFloat(0.5f, 1.0f);
     [MinMaxRange(0.1f, 1.0f)]
     [Tooltip("Adjusts the alpha that anomalies will appear at.")]
-    public RangedFloat spawnAlpha = new RangedFloat(0.5f, 0.9f);
+    public RangedFloat spawnAlpha = new RangedFloat(0.01f, 0.9f);
 
     private float intervalVal;
     private Transform anomaliesHolder;
@@ -163,7 +163,7 @@ public class MagnetometerController : MonoBehaviour
         anomallyField.isAnomally = true;
         anomallyField.fieldScoreMod = score;
         anomallyField.lifeSpan = lifetime;
-        anomallyField.alpha = alpha;
+        anomallyField.fieldAlpha = alpha;
         anomallyField.angle2sun = GameObject.FindGameObjectWithTag("Sun").transform.position.normalized;
         anomallyField.InitializeFlux();
 //        anomallyField.ChangeAlpha(0.0f);
@@ -194,8 +194,8 @@ public class MagnetometerController : MonoBehaviour
         mainField.fieldScoreMod = 0.0f;
 
         DefineEllipse(mainField);
+        mainField.fieldAlpha = 0.2f;
         mainField.InitializeFlux();
-        mainField.ChangeAlpha(0.2f);
         FitEllipse(mainField);
 
         //FrontField===========
@@ -204,7 +204,7 @@ public class MagnetometerController : MonoBehaviour
         frontField.SetActive(true);
 
         sideFields.SetMagController(this);
-        sideFields.ChangeRotateSpeed(0.5f);
+        sideFields.ChangeRotateSpeed(1.5f);
         sideFields.Focus = Vector3.zero;
         sideFields.Center = GameObject.FindGameObjectWithTag("Sun").transform.position.normalized * (mainField.Eccentricity * 0.4f); //move towards sun
         //sideFields.Focus = sideFields.Center + Vector3.Cross(GameObject.FindGameObjectWithTag("Sun").transform.position, Vector3.forward).normalized * mainField.Eccentricity * 0.4f;
@@ -216,9 +216,8 @@ public class MagnetometerController : MonoBehaviour
         sideFields.fieldScoreMod = 0.0f;
 
         //DefineEllipse(sideFields);
+        sideFields.fieldAlpha = 0.3f;
         sideFields.InitializeFlux();
-        sideFields.ChangeAlpha(0.3f);
-
         FitEllipse(sideFields);
 
         //BackField==============
@@ -228,7 +227,7 @@ public class MagnetometerController : MonoBehaviour
 
         sideFields = backField.GetComponent<MagneticField>();
         sideFields.SetMagController(this);
-        sideFields.ChangeRotateSpeed(-1f);
+        sideFields.ChangeRotateSpeed(-1.5f);
         sideFields.Focus = -GameObject.FindGameObjectWithTag("Sun").transform.position.normalized * (mainField.Eccentricity * 0.4f);
         //sideFields.Center = -GameObject.FindGameObjectWithTag("Sun").transform.position.normalized * (((mainField.MajorAxis - 2 * mainField.Eccentricity) * 0.4f) / 2.0f);
         sideFields.Center = mainField.Center + mainField.Center.normalized * (mainField.Eccentricity * 0.5f);
@@ -239,8 +238,8 @@ public class MagnetometerController : MonoBehaviour
         sideFields.fieldScoreMod = 0.0f;
 
         DefineEllipse(sideFields);
+        sideFields.fieldAlpha = 0.3f;
         sideFields.InitializeFlux();
-        sideFields.ChangeAlpha(0.3f);
         sideFields.MinorAxis += mainField.MinorAxis * 0.1f;
         FitEllipse(sideFields);
     }
@@ -286,6 +285,8 @@ public class MagnetometerController : MonoBehaviour
     }
     public void EndOfLevel()
     {
+        Destroy(target);
+
         Destroy(mainFieldsHolder.gameObject);
         Destroy(anomaliesHolder.gameObject);
     }

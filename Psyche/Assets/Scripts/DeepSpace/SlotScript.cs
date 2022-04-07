@@ -19,13 +19,23 @@ public class SlotScript : MonoBehaviour, IDropHandler
 
             if (eventData.pointerDrag.GetComponent<DragAndDrop>().id == id)
             {
+                Debug.Log("Answer in Correct Slot");
                 correct = true;
                 DSOCcontroller.dsocRoot.CheckAnswers();
             }
             else
             {
+                Debug.Log("Answer in Wrong Slot");
                 correct = false;
             }
         }
+    }
+
+    public void SetID(int num)
+    {
+        Debug.Log("Incoming: " + this.gameObject.name  + "\nIDnum: " + num.ToString());
+        this.id = num;
+        Debug.Log("Saved: " + this.gameObject.name + "\nIDnum: " + this.id.ToString());
+
     }
 }

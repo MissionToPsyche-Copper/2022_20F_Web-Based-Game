@@ -16,11 +16,16 @@ public class MagneticField : MonoBehaviour
     public bool isAnomally { private get; set; }
     public float lifeSpan { private get; set; }
     public float fieldScoreMod { private get; set; }
-    public float alpha { private get; set; }
+    public float fieldAlpha { private get; set; }
     public Vector3 angle2sun { private get; set; }
 
+    [MinMaxRange(0.01f, 1.0f)]
+    public MinMaxFloat fluxAlpha;
+    [MinMaxRange(0.01f, 1.0f)]
+    public MinMaxFloat fluxWidth;
+
+
     private float currLife = 0.0f;
-    
 
     private MagnetometerController magController;
     public GameObject field;
@@ -38,7 +43,7 @@ public class MagneticField : MonoBehaviour
     public void ChangeAlpha(float val)
     {
         foreach (TrailRenderer line in fluxLines)
-            line.startColor = new Color(line.startColor.r, line.startColor.g, line.startColor.b, val);
+            line.startColor = new Color(line.startColor.r, line.startColor.g, line.startColor.b, val * fieldAlpha * line.gameObject.GetComponent<FluxProperties>().fluxAlpha);
     }
 
     public void ChangeRotateSpeed(float val)
@@ -63,13 +68,13 @@ public class MagneticField : MonoBehaviour
             currLife += Time.deltaTime;
             if (currLife < lifeSpan * 0.125f) //fadein
             {
-                float modalpha = alpha * (currLife / (lifeSpan * 0.125f));
+                float modalpha = fieldAlpha * (currLife / (lifeSpan * 0.125f));
                 ChangeAlpha(modalpha);
             }
 
             if (currLife > lifeSpan * 0.75f) //fadeout
             {
-                float modalpha = alpha * (1 - (currLife - lifeSpan * 0.75f) / (lifeSpan - lifeSpan * 0.75f));
+                float modalpha = fieldAlpha * (1 - (currLife - lifeSpan * 0.75f) / (lifeSpan - lifeSpan * 0.75f));
                 ChangeAlpha(modalpha);
             }
 
@@ -128,14 +133,15 @@ public class MagneticField : MonoBehaviour
         GameObject fluxLine;
         TrailRenderer fluxTrail;
         fluxLines = new List<TrailRenderer>();
-        int sizeMod = Mathf.CeilToInt( fluxArea / 1000.0f );
+        int sizeMod = Mathf.CeilToInt( fluxArea / 3000.0f );
  //       Debug.Log(this.gameObject.name +  " SizeMod: " + sizeMod.ToString());
         float timeSizeMod = Mathf.Pow(2, MinorAxis / MajorAxis); //bigger size means longer lasting
         float timeRotMod = 1.0f / Mathf.Abs(rotation.rotationSpeed); //faster rotation means shorter lasting
-        float timeBaseMax = 0.5f;
-        float timeModMulti = 1.2f;
+        float timeBaseMax = 1.5f;
+        float timeModMulti = 5.0f;
         float maxTime = timeBaseMax + (timeModMulti * timeRotMod * timeSizeMod);
-  //      Debug.Log(this.gameObject.name + " MaxTime: " + maxTime.ToString());
+        //      Debug.Log(this.gameObject.name + " MaxTime: " + maxTime.ToString());
+
 
 
         for (int i = 0; i < 10 + sizeMod; i++)
@@ -147,6 +153,7 @@ public class MagneticField : MonoBehaviour
             dir = Random.insideUnitCircle.normalized;
             fluxLine.transform.localPosition = dir * Random.Range(0.85f, 1.0f) * 2;
 
+            fluxLine.GetComponent<FluxProperties>().fluxAlpha = Random.Range(fluxAlpha.Min, fluxAlpha.Max);
             fluxTrail = fluxLine.GetComponent<TrailRenderer>();
             if (isAnomally)
             {
@@ -154,15 +161,15 @@ public class MagneticField : MonoBehaviour
                 switch(val)
                 {
                     case 0:
-                        fluxTrail.startColor = new Color(Random.Range(0.8f, 1.0f), 0, 0, 1);
+                        fluxTrail.startColor = new Color(Random.Range(0.8f, 1.0f), 0, 0, fieldAlpha * fluxLine.GetComponent<FluxProperties>().fluxAlpha);
                         fluxTrail.endColor = new Color(Random.Range(0.2f, 0.5f), 0, 0, 0);
                         break;
                     case 1:
-                        fluxTrail.startColor = new Color(0, Random.Range(0.8f, 1.0f), 0, 1);
+                        fluxTrail.startColor = new Color(0, Random.Range(0.8f, 1.0f), 0, fieldAlpha * fluxLine.GetComponent<FluxProperties>().fluxAlpha);
                         fluxTrail.endColor = new Color(0, Random.Range(0.2f, 0.5f), 0, 0);
                         break;
                     case 2:
-                        fluxTrail.startColor = new Color(0, 0, Random.Range(0.8f, 1.0f), 1);
+                        fluxTrail.startColor = new Color(0, 0, Random.Range(0.8f, 1.0f), fieldAlpha * fluxLine.GetComponent<FluxProperties>().fluxAlpha);
                         fluxTrail.endColor = new Color(0, 0, Random.Range(0.2f, 0.5f), 0);
                         break;
                     default:
@@ -171,12 +178,13 @@ public class MagneticField : MonoBehaviour
             }
             else
             {
-                fluxTrail.startColor = new Color(0, 1, 0, 1);
+                fluxTrail.startColor = new Color(0, 1, 0, fieldAlpha * fluxLine.GetComponent<FluxProperties>().fluxAlpha);
                 fluxTrail.endColor = new Color(0, Random.Range(0.5f, 1.0f), 0, 0);
 
             }
 
-            fluxTrail.startWidth = Random.Range(1.5f, 5.0f);
+            fluxTrail.startWidth = Random.Range(fluxWidth.Min, fluxWidth.Max);
+            fluxTrail.endWidth = 0.0f;
             fluxTrail.time = Random.Range(0.1f, timeBaseMax + (timeModMulti * timeRotMod * timeSizeMod));
 
             fluxLines.Add(fluxTrail);

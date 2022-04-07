@@ -146,6 +146,9 @@ public class LevelController : MonoBehaviour
             vidController.videoEnd = new UnityEngine.Events.UnityEvent();
 
         vidController.videoEnd.AddListener(StageStart);
+        vidController.gameObject.SetActive(true);
+        vidController.vidHolder.ChangeClip(0);
+
         switch (currScene)
         {
             case SceneChanger.scenes.level1:
@@ -166,12 +169,11 @@ public class LevelController : MonoBehaviour
     public void StageStart()
     {
         gameEnd = false;
-
-        Time.timeScale = 2.0f;
-        player.GetComponent<ShipControl>().enabled = true;
-        mainAsteroid.GetComponent<MeshRenderer>().enabled = true;
         player.SetActive(true);
+        mainAsteroid.GetComponent<MeshRenderer>().enabled = true;
+        player.GetComponent<ShipControl>().enabled = true;
         player.GetComponent<OrbitalGravity>().BoostVelocity();
+        Time.timeScale = 2.0f;
         PlayPopUpGoals();
 
         neutronScores = new int[5];
@@ -190,7 +192,6 @@ public class LevelController : MonoBehaviour
                                             radioOn ? radioGoalScore : 0,
                                             spectrometerOn ? spectrometerGoalScore : 0
                             );
-
         //start playing music here too
     }
 
@@ -199,7 +200,8 @@ public class LevelController : MonoBehaviour
         gameEnd = true;
         GameRoot._Root.currScene = currScene;
         GameRoot._Root.nextScene = nextScene;
-
+        player = GameObject.FindGameObjectWithTag("Player");
+        mainAsteroid = GameObject.FindGameObjectWithTag("asteroid");
 
         windowsController.goodEndWindow.nextScene = nextScene;
         mainAsteroid.GetComponent<MeshRenderer>().enabled = false;
@@ -207,6 +209,11 @@ public class LevelController : MonoBehaviour
         player.SetActive(false);
         Time.timeScale = 1.0f;
 
+        vidController.fadeSpeed = 1.2f;
+        if (vidController.videoEnd == null)
+            vidController.videoEnd = new UnityEngine.Events.UnityEvent();
+
+        vidController.videoEnd.AddListener(StageStart);
 
         //Win Condition Resets
         magnetGoalWon = false;
@@ -228,7 +235,6 @@ public class LevelController : MonoBehaviour
             radioGoalScore = Random.Range(radioGoalminMax.Min, radioGoalminMax.Max);
         if (spectrometerOn)
             spectrometerGoalScore = Random.Range(spectrometerGoalminMax.Min, spectrometerGoalminMax.Max);
-
 
         windowsController.shipPopWindow.gameObject.SetActive(true);
         windowsController.popUpMessages.gameObject.SetActive(true);
@@ -304,9 +310,14 @@ public class LevelController : MonoBehaviour
         Time.timeScale = 1.0f;
         GameRoot._Root.prevScene = currScene;
 
+
+
         if (magnetometerOn)
             magnet.GetComponent<MagnetometerController>().EndOfLevel();
+        if (multipspectralOn)
+            multispect.GetComponent<MultiSpectController>().EndOfLevel();
 
+  //      Destroy(player.gameObject);
 
         for (int i = 0; i < neutronScores.Length; i++)
         {

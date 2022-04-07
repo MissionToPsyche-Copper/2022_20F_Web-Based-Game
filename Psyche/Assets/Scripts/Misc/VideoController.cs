@@ -9,14 +9,16 @@ using UnityEngine.Events;
 public class VideoController : MonoBehaviour
 {
     public GameObject videoPanel;
-    private RawImage videoScreen;
-    private VideoPlayer videoPlayer;
+    private static RawImage videoScreen;
+    private static VideoPlayer videoPlayer;
+    public VideoHolder vidHolder;
+    public static VideoClip clip;
     public Button btn_Skip;
     public Button btn_Pause;
     public string videoName;
     private bool pause = false;
     private bool skipping = false;
-    private bool retarting = false;
+    public bool retarting = true;
     public float fadeSpeed = 0.4f;
     public Sprite playSprite;
     public Sprite pauseSprite;
@@ -28,6 +30,9 @@ public class VideoController : MonoBehaviour
         videoScreen = videoPanel.GetComponent<RawImage>();
         videoPlayer = videoPanel.GetComponent<VideoPlayer>();
         videoPlayer.SetDirectAudioVolume(ushort.MinValue, 1.0f);
+        vidHolder = GetComponentInChildren<VideoHolder>();
+        vidHolder.clipSelect = 0;
+        clip = vidHolder.videos[vidHolder.clipSelect];
         videoEnd = new UnityEvent();
         Debug.Log(Application.streamingAssetsPath);
     }
@@ -43,7 +48,6 @@ public class VideoController : MonoBehaviour
         {
             FadeInVideo();
         }
-
     }
 
     private void FadeOutVideo()
@@ -84,8 +88,12 @@ public class VideoController : MonoBehaviour
         if (videoPlayer == null)
             videoPlayer = videoPanel.GetComponent<VideoPlayer>();
 
+
+        videoPlayer.clip = clip;
+
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
         videoPlayer.waitForFirstFrame = true;
+        videoPlayer.Prepare();
         videoPlayer.SetDirectAudioVolume(ushort.MinValue, 1.0f);
         skipping = false;
         retarting = false;
@@ -101,19 +109,25 @@ public class VideoController : MonoBehaviour
     {
         videoName = video;
 
+        videoPlayer.clip = clip;
+
+
         Debug.Log(Application.streamingAssetsPath + videoName);
         if (videoScreen == null)
             videoScreen = videoPanel.GetComponent<RawImage>();
         if (videoPlayer == null)
             videoPlayer = videoPanel.GetComponent<VideoPlayer>();
 
-
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
+        videoPlayer.waitForFirstFrame = true;
+        videoPlayer.Prepare();
+        videoPlayer.SetDirectAudioVolume(ushort.MinValue, 1.0f);
+
         skipping = false;
         retarting = true;
         videoScreen.color = new Color(1, 1, 1, 0);
         videoPlayer.frame = 0;
-        videoPlayer.time = 0.0f;        
+        videoPlayer.time = 0.0f;
         videoPlayer.Play();
         this.gameObject.SetActive(true);
         btn_Skip.gameObject.SetActive(true);

@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Click_Restart()
     {
-        IntroController.introRoot.IntroScreen.RestartVideo("Psyche_Intro.mp4");
+        IntroController.introRoot.IntroScreen.RestartVideo(Constants.Videos.intro);
     }
 
     public void Click_PsycheButton()

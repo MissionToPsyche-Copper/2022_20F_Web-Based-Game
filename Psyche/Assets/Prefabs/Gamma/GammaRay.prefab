@@ -1097,9 +1097,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8994512849753293920}
+  - component: {fileID: 8994512849753293921}
   - component: {fileID: 8994512849753293923}
   - component: {fileID: 8994512849753293922}
-  - component: {fileID: 8994512849753293921}
   - component: {fileID: 5136441893629662147}
   m_Layer: 0
   m_Name: RayObject
@@ -1124,6 +1124,40 @@ Transform:
   m_Father: {fileID: 8994512850781554019}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8994512849753293921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994512849753293925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6b18b31d2d58348b183e9610b8bb8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainController: {fileID: 8994512850781554016}
+  neutrons:
+  - {fileID: 8994512850498635127}
+  - {fileID: 8994512850453911139}
+  - {fileID: 8994512850897886489}
+  - {fileID: 8994512849308250409}
+  - {fileID: 8994512849271621798}
+  element1chance:
+    Min: 0.6007818
+    Max: 1
+  element2chance:
+    Min: 0.6007818
+    Max: 0.900484
+  element3chance:
+    Min: 0.49758002
+    Max: 0.800968
+  element4chance:
+    Min: 0.19903201
+    Max: 0.49504855
+  element5chance:
+    Min: 0.051600892
+    Max: 0.2554729
 --- !u!58 &8994512849753293923
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1161,25 +1195,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8994512849753293921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8994512849753293925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b6b18b31d2d58348b183e9610b8bb8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainController: {fileID: 8994512850781554016}
-  neutrons:
-  - {fileID: 8994512850498635127}
-  - {fileID: 8994512850453911139}
-  - {fileID: 8994512850897886489}
-  - {fileID: 8994512849308250409}
-  - {fileID: 8994512849271621798}
 --- !u!82 &5136441893629662147
 AudioSource:
   m_ObjectHideFlags: 0

@@ -264,8 +264,8 @@ MonoBehaviour:
   fieldObject: {fileID: 4548926066002916268}
   target: {fileID: 1315779576162904821}
   effect: {fileID: 1315779575850779277}
-  pivotDistance: 89
-  orbitRadius: 60.9
+  pivotDistance: 120
+  orbitRadius: 95
   spawnChance:
     Min: 55
     Max: 80
@@ -279,11 +279,11 @@ MonoBehaviour:
     Min: 36.234436
     Max: 50
   spawnRotSpeed:
-    Min: 1.6581373
-    Max: 2.7998843
+    Min: 2.3955717
+    Max: 4.0053062
   spawnAlpha:
-    Min: 0.5037081
-    Max: 0.94617224
+    Min: 0.7997817
+    Max: 1
   baseScoreMod: 0.05
   bonusScoreAdjust: 1
   bonusScoreMod: 0
@@ -435,41 +435,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1315779576805614587}
     m_Modifications:
-    - target: {fileID: 324747086448900929, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
-      propertyPath: m_Parameters.widthMultiplier
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 336152995023820086, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.58274835
-      objectReference: {fileID: 0}
-    - target: {fileID: 336152995023820086, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.5827489
-      objectReference: {fileID: 0}
-    - target: {fileID: 336152995023820086, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.40050372
-      objectReference: {fileID: 0}
-    - target: {fileID: 336152995023820086, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.40050572
+    - target: {fileID: 1968290868166223344, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
+      propertyPath: fluxAlpha.Max
+      value: 0.8984436
       objectReference: {fileID: 0}
     - target: {fileID: 3270632207895529907, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
       propertyPath: m_Name
       value: MagField
-      objectReference: {fileID: 0}
-    - target: {fileID: 4156661491436648039, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
-      propertyPath: m_Color.a
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5039607217748820895, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5039607217748820895, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 13.27
       objectReference: {fileID: 0}
     - target: {fileID: 7461333646983097496, guid: 70ed6fee07a66bc4db0040d903a04d56, type: 3}
       propertyPath: m_RootOrder

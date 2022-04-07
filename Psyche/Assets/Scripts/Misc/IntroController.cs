@@ -16,5 +16,10 @@ public class IntroController : MonoBehaviour
 //        IntroScreen.gameObject.SetActive(true);
     }
 
+    public void Start()
+    {
+        IntroScreen.StartVideo(Constants.Videos.intro);
+    }
+
 
 }

@@ -51,6 +51,13 @@ public class ResourceService : MonoBehaviour
         };
     }
 
+    public void LoadScene(string sceneName)
+    {
+        //Async load the scene
+        SceneManager.LoadScene(sceneName);
+    }
+
+
     private Dictionary<string, AudioClip> audioDictionary = new Dictionary<string, AudioClip>();
     public AudioClip LoadAudio(string path, bool isCache)
     {

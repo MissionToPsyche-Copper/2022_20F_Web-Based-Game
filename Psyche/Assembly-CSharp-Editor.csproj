@@ -833,10 +833,6 @@
       <Project>{214D2A4A-1AE3-BDC1-1ABD-42110F0B057E}</Project>
       <Name>Unity.ShaderGraph.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
-      <Project>{11C727B3-6E51-B84F-BF52-6CCB09B76A90}</Project>
-      <Name>AllIn1SpriteShaderAssembly</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
       <Project>{A2A3227D-CCBC-2C33-C64F-569FC41DAFA5}</Project>
       <Name>Unity.RenderPipelines.Universal.Editor</Name>

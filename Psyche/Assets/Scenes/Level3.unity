@@ -1913,6 +1913,14 @@ PrefabInstance:
       propertyPath: multipspectralGoalScore
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5981066058422195794, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: videos.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981066058422195794, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: videos.Array.data[0]
+      value: 
+      objectReference: {fileID: 32900000, guid: 2e7d55c907013d447953fcf2184f23cd, type: 3}
     - target: {fileID: 6910752248903846739, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1920,6 +1928,14 @@ PrefabInstance:
     - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_Url
       value: file://G:/UnityProjects/Psyche/Psyche/Assets/StreamingAssets/radioscienceTutorial.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 2e7d55c907013d447953fcf2184f23cd, type: 3}
+    - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: m_DataSource
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_TargetTexture

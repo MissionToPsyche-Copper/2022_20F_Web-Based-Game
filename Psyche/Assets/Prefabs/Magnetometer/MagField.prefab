@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214397859756762645}
-  m_LocalRotation: {x: 0.7071044, y: -0.0018512013, z: 0.0018512012, w: 0.7071044}
+  m_LocalRotation: {x: 0.5827489, y: -0.40050372, z: 0.40050572, w: 0.58274835}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
@@ -102,6 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e25e88c64af7d4a8a8d74343c79d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fluxAlpha:
+    Min: 0.20661479
+    Max: 1
+  fluxWidth:
+    Min: 0.50027233
+    Max: 1
   field: {fileID: 1214397859756762645}
   rotation: {fileID: 3892584458807201419}
   fluxLineMaster: {fileID: 7017744747349767437}
@@ -186,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5039607217748820895}
   - component: {fileID: 324747086448900929}
+  - component: {fileID: 8917138804480456499}
   m_Layer: 0
   m_Name: fluxLine
   m_TagString: Untagged
@@ -201,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7017744747349767437}
   m_LocalRotation: {x: 0.7071044, y: -0.001851201, z: 0.001851201, w: 0.7071044}
-  m_LocalPosition: {x: 0.271, y: 0, z: 2.448}
+  m_LocalPosition: {x: -0.88, y: 0, z: 13.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7461333646983097496}
@@ -227,7 +234,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f19a927d3016f42418f8bbe388365c3e, type: 2}
+  - {fileID: 2100000, guid: c42047238c6a1ca4280abec89a518fb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -251,7 +258,7 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -278,7 +285,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9137255, g: 0, b: 0.07369052, a: 1}
+      key0: {r: 0, g: 1, b: 0.049153566, a: 0.5019608}
       key1: {r: 0, g: 0, b: 0, a: 0}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -314,3 +321,15 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 1
   m_Emitting: 1
+--- !u!114 &8917138804480456499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7017744747349767437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f675e59393d686e4ea5f1205c0a01708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

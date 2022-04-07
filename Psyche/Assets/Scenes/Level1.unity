@@ -296,7 +296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6332544116671721986, guid: 038e1601aa398344193146569cd9959d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6332544116671721987, guid: 038e1601aa398344193146569cd9959d, type: 3}
       propertyPath: easyMode
@@ -1396,21 +1396,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1315779576805614584, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
-      propertyPath: orbitRadius
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 1315779576805614584, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
-      propertyPath: pivotDistance
-      value: 102
-      objectReference: {fileID: 0}
     - target: {fileID: 1315779576805614586, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
       propertyPath: m_Name
       value: Magnetometer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1315779576805614586, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1315779576805614587, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
       propertyPath: m_RootOrder
@@ -1456,16 +1444,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1640204497335599454, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
-      propertyPath: m_Emitting
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165462191456291960, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9134594528678982723, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08050267c006aa40b4bf8131dc358ff, type: 3}
 --- !u!108 &2641876179469122220
 Light:
@@ -1765,11 +1744,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: magnetGoalminMax.Max
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3447811014701630725, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: magnetGoalminMax.Min
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3628459922234661860, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1883,6 +1862,14 @@ PrefabInstance:
       propertyPath: multipspectralGoalScore
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 5981066058422195794, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: videos.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981066058422195794, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: videos.Array.data[0]
+      value: 
+      objectReference: {fileID: 32900000, guid: f97b8f59dd4409a48a95ba2f23703a97, type: 3}
     - target: {fileID: 6028623065843227442, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1910,6 +1897,14 @@ PrefabInstance:
     - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_Url
       value: file://G:/UnityProjects/Psyche/Psyche/Assets/StreamingAssets/MagnetometerTutorial.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: f97b8f59dd4409a48a95ba2f23703a97, type: 3}
+    - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: m_DataSource
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_TargetTexture
@@ -2199,7 +2194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994512850781554018, guid: f83a9787c5501f247b1050366663a1cd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8994512850781554019, guid: f83a9787c5501f247b1050366663a1cd, type: 3}
       propertyPath: m_RootOrder

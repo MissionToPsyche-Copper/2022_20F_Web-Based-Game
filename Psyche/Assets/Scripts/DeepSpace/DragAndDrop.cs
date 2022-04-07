@@ -11,7 +11,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public Canvas myCanvas;
     public CanvasGroup canvasGroup;
     public SlotScript inSlot;
-    [HideInInspector]
     public TextMeshProUGUI UIText;
     public int id;
     public bool interactable;
@@ -24,7 +23,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
         rectTrans = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        UIText = GetComponentInChildren<TextMeshProUGUI>();
+        //UIText = GetComponentInChildren<TextMeshProUGUI>();
         inSlot = null;
         initPos = this.transform.position;
         interactable = true;
@@ -85,5 +84,20 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             this.transform.position = new Vector3(initPos.x, initPos.y, 0);
             reset = false;
         }
+    }
+
+    public void SetCardData(int num, string text)
+    {
+        Debug.Log("Incoming: " + this.gameObject.name + "\nIDnum: " + num.ToString());
+        this.id = num;
+        Debug.Log("Saved: " + this.gameObject.name + "\nIDnum: " + this.id.ToString());
+
+        if (UIText == null)
+            UIText = GetComponentInChildren<TextMeshProUGUI>();
+
+        Debug.Log("Incoming: " + this.gameObject.name + "\nAnswerText: " + text);
+        UIText.text = text;
+        Debug.Log("Incoming: " + this.gameObject.name + "\nAnswerText: " + UIText.text);
+
     }
 }

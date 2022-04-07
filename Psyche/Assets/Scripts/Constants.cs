@@ -48,7 +48,9 @@ public class Constants : MonoBehaviour
     public static class Videos
     {
         public const string intro = "Psyche_Intro.mp4";
-        public const string magnet = "MagnetometerTutorial.mp4";
+
+        public const string controls = "BasicControls.mp4";
+        public const string magnet = "MagnetometerTutorial2.mp4";
         public const string multispect = "multispecTutorial.mp4";
         public const string radio = "radioscienceTutorial.mp4";
         public const string spectrometer = "GammaRayTutorial.mp4";

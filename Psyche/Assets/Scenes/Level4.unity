@@ -1220,7 +1220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 91847685748873320, guid: a9138d0186e9a684882548966ebb8a5c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 91847685748873321, guid: a9138d0186e9a684882548966ebb8a5c, type: 3}
       propertyPath: m_RootOrder
@@ -1945,6 +1945,14 @@ PrefabInstance:
       propertyPath: multipspectralGoalScore
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5981066058422195794, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: videos.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981066058422195794, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: videos.Array.data[0]
+      value: 
+      objectReference: {fileID: 32900000, guid: 437c22185679ca2478eef1f0a9bbc960, type: 3}
     - target: {fileID: 6910752248903846739, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1952,6 +1960,10 @@ PrefabInstance:
     - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_Url
       value: file://G:/UnityProjects/Psyche/Psyche/Assets/StreamingAssets/GammaRayTutorial.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
+      propertyPath: m_DataSource
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7022051142307204069, guid: a8e668337a03acb48a7113afecc07f92, type: 3}
       propertyPath: m_TargetTexture
@@ -2112,6 +2124,10 @@ PrefabInstance:
       objectReference: {fileID: 9103326813247933530}
     - target: {fileID: 8573021527906223817, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
       propertyPath: massFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573021527906223817, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}
+      propertyPath: boostPercentage
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9139015071804179966, guid: 0d3fc672a5f980e48b6feccd82b2e77e, type: 3}

@@ -18,51 +18,52 @@ public class SceneChanger : MonoBehaviour
       credits
     };
 
+
     public void ChangeScene(scenes scene)
     {
+        GameRoot.resourceService.LoadScene(TranslateSceneEnum(scene));
+        //GameRoot.resourceService.AsynLoadScene(TranslateSceneEnum(scene), () =>
+        //{
+        //  //  CloseAllWindow();
+        //    switch (scene)
+        //    {
+        //        case scenes.none:
+        //            break;
+        //        case scenes.intro:
+        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.CosmicSwitchboard, true);
 
-        GameRoot.resourceService.AsynLoadScene(TranslateSceneEnum(scene), () =>
-        {
-          //  CloseAllWindow();
-            switch (scene)
-            {
-                case scenes.none:
-                    break;
-                case scenes.intro:
-                    GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.CosmicSwitchboard, true);
+        //            break;
+        //        case scenes.tutorial:
+        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.DystopicTechnology, true);
 
-                    break;
-                case scenes.tutorial:
-                    GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.DystopicTechnology, true);
+        //            break;
+        //        case scenes.level1:
+        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.BlazingStars, true);
 
-                    break;
-                case scenes.level1:
-                    GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.BlazingStars, true);
+        //            break;
+        //        case scenes.level2:
+        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.ColdMoon, true);
 
-                    break;
-                case scenes.level2:
-                    GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.ColdMoon, true);
+        //            break;
+        //        case scenes.level3:
+        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.CyberREM, true);
 
-                    break;
-                case scenes.level3:
-                    GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.CyberREM, true);
+        //            break;
+        //        case scenes.level4:
+        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.RetroSciFiPlanet, true);
 
-                    break;
-                case scenes.level4:
-                    GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.RetroSciFiPlanet, true);
+        //            break;
+        //        case scenes.endoflevel:
+        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.OminousSciFiMenu, true);
 
-                    break;
-                case scenes.endoflevel:
-                    GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.OminousSciFiMenu, true);
+        //            break;
+        //        case scenes.credits:
+        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.CyberStreets, true);
 
-                    break;
-                case scenes.credits:
-                    GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.CyberStreets, true);
-
-                    break;
-                default:
-                    break;            }
-        });
+        //            break;
+        //        default:
+        //            break;            }
+        //});
     }
 
     public static scenes TranslateScenePath(string path)

@@ -397,5 +397,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialController
       objectReference: {fileID: 0}
+    - target: {fileID: 512096720231179028, guid: d72c38324f96510419bddde1cd072afb, type: 3}
+      propertyPath: retarting
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72c38324f96510419bddde1cd072afb, type: 3}

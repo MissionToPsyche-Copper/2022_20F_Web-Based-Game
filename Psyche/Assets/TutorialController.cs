@@ -19,23 +19,45 @@ public class TutorialController : MonoBehaviour
         videoController.gameObject.SetActive(false);
     }
 
+    public void Click_Controls()
+    {
+        videoController.gameObject.SetActive(true);
+        videoController.vidHolder.ChangeClip(0);
+
+        videoController.RestartVideo(Constants.Videos.controls);
+
+    }
+
+
     public void Click_Magnet()
     {
         videoController.gameObject.SetActive(true);
+        videoController.vidHolder.ChangeClip(1);
+
         videoController.RestartVideo(Constants.Videos.magnet);
+
     }
 
     public void Click_Multispect()
     {
+        videoController.gameObject.SetActive(true);
+        videoController.vidHolder.ChangeClip(2);
+
         videoController.RestartVideo(Constants.Videos.multispect);
     }
     public void Click_Radio()
     {
+        videoController.gameObject.SetActive(true);
+        videoController.vidHolder.ChangeClip(3);
+
         videoController.RestartVideo(Constants.Videos.radio);
     }
 
     public void Click_Spectrometer()
     {
+        videoController.gameObject.SetActive(true);
+        videoController.vidHolder.ChangeClip(4);
+
         videoController.RestartVideo(Constants.Videos.spectrometer);
     }
 
