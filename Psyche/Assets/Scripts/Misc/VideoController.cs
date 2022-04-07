@@ -11,7 +11,6 @@ public class VideoController : MonoBehaviour
     public GameObject videoPanel;
     private static RawImage videoScreen;
     private static VideoPlayer videoPlayer;
-    public VideoHolder vidHolder;
     public static VideoClip clip;
     public Button btn_Skip;
     public Button btn_Pause;
@@ -30,9 +29,6 @@ public class VideoController : MonoBehaviour
         videoScreen = videoPanel.GetComponent<RawImage>();
         videoPlayer = videoPanel.GetComponent<VideoPlayer>();
         videoPlayer.SetDirectAudioVolume(ushort.MinValue, 1.0f);
-        vidHolder = GetComponentInChildren<VideoHolder>();
-        vidHolder.clipSelect = 0;
-        clip = vidHolder.videos[vidHolder.clipSelect];
         videoEnd = new UnityEvent();
         Debug.Log(Application.streamingAssetsPath);
     }

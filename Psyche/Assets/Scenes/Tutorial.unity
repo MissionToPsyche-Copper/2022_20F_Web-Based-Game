@@ -349,6 +349,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 512096719417413587, guid: d72c38324f96510419bddde1cd072afb, type: 3}
+      propertyPath: m_Url
+      value: file://G:/UnityProjects/Psyche/Psyche/Assets/StreamingAssets/BasicControls.mp4
+      objectReference: {fileID: 0}
     - target: {fileID: 512096719778719409, guid: d72c38324f96510419bddde1cd072afb, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -401,5 +405,6 @@ PrefabInstance:
       propertyPath: retarting
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 177283707968436497, guid: d72c38324f96510419bddde1cd072afb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d72c38324f96510419bddde1cd072afb, type: 3}

@@ -1420,7 +1420,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: file://G:/UnityProjects/Psyche/Psyche/Assets/StreamingAssets/MagnetometerTutorial.mp4
+  m_Url: file://G:/UnityProjects/Psyche/Psyche/Assets/StreamingAssets/BasicControls.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -2165,7 +2165,6 @@ GameObject:
   - component: {fileID: 512096720231179018}
   - component: {fileID: 512096720231179029}
   - component: {fileID: 512096720231179028}
-  - component: {fileID: 177283707968436497}
   m_Layer: 5
   m_Name: VidController
   m_TagString: Untagged
@@ -2246,7 +2245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPanel: {fileID: 512096719417413599}
-  vidHolder: {fileID: 0}
   btn_Skip: {fileID: 512096719100031913}
   btn_Pause: {fileID: 1807350876656792751}
   videoName: 
@@ -2257,25 +2255,6 @@ MonoBehaviour:
   videoEnd:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &177283707968436497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512096720231179030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ddbfc2a194fb044594d3c820abefadc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clipSelect: 0
-  videos:
-  - {fileID: 32900000, guid: 658217916c1674948bb9fcb6a8e2a34b, type: 3}
-  - {fileID: 32900000, guid: 7485c65b792e47c43b14ae415bb0b2b5, type: 3}
-  - {fileID: 32900000, guid: 96ba0b36502b39f4691ebd2b3b948f3a, type: 3}
-  - {fileID: 32900000, guid: 2e7d55c907013d447953fcf2184f23cd, type: 3}
-  - {fileID: 32900000, guid: 437c22185679ca2478eef1f0a9bbc960, type: 3}
 --- !u!1 &1807350875328962617
 GameObject:
   m_ObjectHideFlags: 0

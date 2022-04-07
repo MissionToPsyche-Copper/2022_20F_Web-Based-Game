@@ -147,7 +147,6 @@ public class LevelController : MonoBehaviour
 
         vidController.videoEnd.AddListener(StageStart);
         vidController.gameObject.SetActive(true);
-        vidController.vidHolder.ChangeClip(0);
 
         switch (currScene)
         {
