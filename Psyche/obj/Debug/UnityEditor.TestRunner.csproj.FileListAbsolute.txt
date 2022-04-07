@@ -1,2 +1,0 @@
-G:\UnityProjects\Psyche\Psyche\obj\Debug\UnityEditor.TestRunner.csproj.AssemblyReference.cache
-G:\UnityProjects\Psyche\Psyche\obj\Debug\UnityEditor.TestRunner.csproj.CoreCompileInputs.cache
