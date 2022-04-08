@@ -33,7 +33,7 @@ public class ShipResources : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //add a method  for recharging the power when in the sunlight;
         //

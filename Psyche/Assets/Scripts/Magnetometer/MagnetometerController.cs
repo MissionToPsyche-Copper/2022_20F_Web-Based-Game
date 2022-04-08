@@ -194,7 +194,7 @@ public class MagnetometerController : MonoBehaviour
         mainField.fieldScoreMod = 0.0f;
 
         DefineEllipse(mainField);
-        mainField.fieldAlpha = 0.2f;
+        mainField.fieldAlpha = 0.3f;
         mainField.InitializeFlux();
         FitEllipse(mainField);
 
@@ -216,7 +216,7 @@ public class MagnetometerController : MonoBehaviour
         sideFields.fieldScoreMod = 0.0f;
 
         //DefineEllipse(sideFields);
-        sideFields.fieldAlpha = 0.3f;
+        sideFields.fieldAlpha = 0.4f;
         sideFields.InitializeFlux();
         FitEllipse(sideFields);
 
@@ -238,7 +238,7 @@ public class MagnetometerController : MonoBehaviour
         sideFields.fieldScoreMod = 0.0f;
 
         DefineEllipse(sideFields);
-        sideFields.fieldAlpha = 0.3f;
+        sideFields.fieldAlpha = 0.4f;
         sideFields.InitializeFlux();
         sideFields.MinorAxis += mainField.MinorAxis * 0.1f;
         FitEllipse(sideFields);

@@ -133,12 +133,12 @@ public class MagneticField : MonoBehaviour
         GameObject fluxLine;
         TrailRenderer fluxTrail;
         fluxLines = new List<TrailRenderer>();
-        int sizeMod = Mathf.CeilToInt( fluxArea / 3000.0f );
+        int sizeMod = Mathf.CeilToInt( fluxArea / 10000.0f );
  //       Debug.Log(this.gameObject.name +  " SizeMod: " + sizeMod.ToString());
         float timeSizeMod = Mathf.Pow(2, MinorAxis / MajorAxis); //bigger size means longer lasting
         float timeRotMod = 1.0f / Mathf.Abs(rotation.rotationSpeed); //faster rotation means shorter lasting
         float timeBaseMax = 1.5f;
-        float timeModMulti = 5.0f;
+        float timeModMulti = 2.0f;
         float maxTime = timeBaseMax + (timeModMulti * timeRotMod * timeSizeMod);
         //      Debug.Log(this.gameObject.name + " MaxTime: " + maxTime.ToString());
 
