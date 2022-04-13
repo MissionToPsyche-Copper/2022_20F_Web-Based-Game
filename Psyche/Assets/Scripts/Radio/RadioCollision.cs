@@ -62,7 +62,6 @@ public class RadioCollision : MonoBehaviour
 
         audioEmitter = this.GetComponent<AudioSource>();
         ringOpacity /= 100.0f;
-        effect.SetActive(false);
         audioEmitter.volume = Constants.Radio.Sounds.ringVolume * Constants.Audio.masterVolume;
         currPitch = audioEmitter.pitch;
         initPitch = audioEmitter.pitch;
@@ -70,6 +69,11 @@ public class RadioCollision : MonoBehaviour
         CreateRings();
         AdjustAudioSettings();
         ringPrefab.SetActive(false);
+
+        effect.transform.position = LevelController.player.transform.position;
+        effect.transform.parent = LevelController.player.transform;
+        effect.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -77,16 +81,7 @@ public class RadioCollision : MonoBehaviour
     {
         if (currentRing > 0 && ShipControl.resources.CanUsePower())
         {
-            effect.SetActive(true);
-            effect.transform.position = LevelController.player.transform.position;
             LevelController.levelRoot.ScoreRadio(scoreRatePS * ((float)currentRing / (float)ringList.Count) * Time.deltaTime);
-
-            if (audioEmitter.isPlaying)
-            {
-                currPitch = (((float)currentRing / (float)ringList.Count) * pitchVariance) + initPitch;
-
-                audioEmitter.pitch = currPitch;
-            }
         }
         else
             effect.SetActive(false);
@@ -113,9 +108,16 @@ public class RadioCollision : MonoBehaviour
             effect.transform.position = LevelController.player.transform.position;
             var ps = effect.GetComponent<ParticleSystem>();
             ScaleEffect(ps, currentRing);
+
             effect.SetActive(true);
-            if(!audioEmitter.isPlaying)
+//            effect.transform.position = LevelController.player.transform.position;
+
+            if (!audioEmitter.isPlaying)
                 audioEmitter.Play();
+
+            currPitch = (((float)currentRing / (float)ringList.Count) * pitchVariance) + initPitch;
+
+            audioEmitter.pitch = currPitch;
         }
         else
         {
@@ -214,13 +216,14 @@ public class RadioCollision : MonoBehaviour
         line.positionCount = 0;
         //function vars
         float angleStep = Mathf.PI / (radius * ringSmoothScalar);
-        Vector3 vector = new Vector3(radius, 0, 0);
-
-        for(float theta = 0.0f; theta < 360; theta += angleStep)
+        float x, y;
+        float theta;
+        for (float i = 0.0f; i < 2; i += angleStep)
         {
             line.positionCount++;
-            float x = vector.x * Mathf.Cos(theta) - vector.y * Mathf.Sin(theta);
-            float y = vector.x * Mathf.Sin(theta) - vector.y * Mathf.Cos(theta);
+            theta = i * Mathf.PI;
+            x = radius * Mathf.Cos(theta);
+            y = radius * Mathf.Sin(theta);
             line.SetPosition(line.positionCount - 1, new Vector3(x, y, 50.0f));
 
         }
@@ -238,33 +241,33 @@ public class RadioCollision : MonoBehaviour
     {
         if (numOfRings == 1)
         {
-            ringList[0].GetComponent<LineRenderer>().startColor = new Color(outerColor.r, outerColor.g, outerColor.b, 0);
+            ringList[0].GetComponent<LineRenderer>().startColor = new Color(outerColor.r, outerColor.g, outerColor.b, ringOpacity * translucentOffset);
             ringList[0].GetComponent<LineRenderer>().endColor = new Color(outerColor.r, outerColor.g, outerColor.b, ringOpacity * translucentOffset);
  //           ringList[0].GetComponent<Renderer>().sharedMaterial.SetColor("_TintColor", new Color(128.0f / 255.0f, 128.0f / 255.0f, 128.0f / 255.0f, ringTranslucency * translucentOffset));
         }
         else if (numOfRings == 2)
         {
-            ringList[0].GetComponent<LineRenderer>().startColor = new Color(outerColor.r, outerColor.g, outerColor.b, 0);
+            ringList[0].GetComponent<LineRenderer>().startColor = new Color(outerColor.r, outerColor.g, outerColor.b, ringOpacity * translucentOffset);
             ringList[0].GetComponent<LineRenderer>().endColor = new Color(outerColor.r, outerColor.g, outerColor.b, ringOpacity * translucentOffset);
 //            ringList[0].GetComponent<Renderer>().sharedMaterial.SetColor("_TintColor", new Color(128.0f / 255.0f, 128.0f / 255.0f, 128.0f / 255.0f, ringTranslucency * translucentOffset));
 
-            ringList[1].GetComponent<LineRenderer>().startColor = new Color(innerColor.r, innerColor.g, innerColor.b, 0);
+            ringList[1].GetComponent<LineRenderer>().startColor = new Color(innerColor.r, innerColor.g, innerColor.b, ringOpacity * translucentOffset);
             ringList[1].GetComponent<LineRenderer>().endColor = new Color(innerColor.r, innerColor.g, innerColor.b, ringOpacity * translucentOffset);
 //            ringList[1].GetComponent<Renderer>().sharedMaterial.SetColor("_TintColor", new Color(128.0f / 255.0f, 128.0f / 255.0f, 128.0f / 255.0f, ringTranslucency * translucentOffset));
 
         }
         else
         {
-            ringList[0].GetComponent<LineRenderer>().startColor = new Color(outerColor.r, outerColor.g, outerColor.b, 0);
+            ringList[0].GetComponent<LineRenderer>().startColor = new Color(outerColor.r, outerColor.g, outerColor.b, ringOpacity * translucentOffset);
             ringList[0].GetComponent<LineRenderer>().endColor = new Color(outerColor.r, outerColor.g, outerColor.b, ringOpacity * translucentOffset);
  //           ringList[0].GetComponent<Renderer>().sharedMaterial.SetColor("_TintColor", new Color(128.0f / 255.0f, 128.0f / 255.0f, 128.0f / 255.0f, ringTranslucency * translucentOffset));
 
-            ringList[numOfRings - 1].GetComponent<LineRenderer>().startColor = new Color(innerColor.r, innerColor.g, innerColor.b, 0);
+            ringList[numOfRings - 1].GetComponent<LineRenderer>().startColor = new Color(innerColor.r, innerColor.g, innerColor.b, ringOpacity * translucentOffset);
             ringList[numOfRings - 1].GetComponent<LineRenderer>().endColor = new Color(innerColor.r, innerColor.g, innerColor.b, ringOpacity * translucentOffset);
 //            ringList[numOfRings - 1].GetComponent<Renderer>().sharedMaterial.SetColor("_TintColor", new Color(128.0f / 255.0f, 128.0f / 255.0f, 128.0f / 255.0f, ringTranslucency * translucentOffset));
 
             int middle = Mathf.CeilToInt((numOfRings - 1) / 2.0f);
-            ringList[middle].GetComponent<LineRenderer>().startColor = new Color(middleColor.r, middleColor.g, middleColor.b, 0);
+            ringList[middle].GetComponent<LineRenderer>().startColor = new Color(middleColor.r, middleColor.g, middleColor.b, ringOpacity * translucentOffset);
             ringList[middle].GetComponent<LineRenderer>().endColor = new Color(middleColor.r, middleColor.g, middleColor.b, ringOpacity * translucentOffset);
 //            ringList[middle].GetComponent<Renderer>().sharedMaterial.SetColor("_TintColor", new Color(128.0f / 255.0f, 128.0f / 255.0f, 128.0f / 255.0f, ringTranslucency * translucentOffset));
 
@@ -286,7 +289,7 @@ public class RadioCollision : MonoBehaviour
             return;
 
         Color mixedColor = (ringList[begin].GetComponent<LineRenderer>().startColor + ringList[end].GetComponent<LineRenderer>().startColor ) / 2.0f;
-        ringList[mid].GetComponent<LineRenderer>().startColor = new Color(mixedColor.r, mixedColor.g, mixedColor.b, 0);
+        ringList[mid].GetComponent<LineRenderer>().startColor = new Color(mixedColor.r, mixedColor.g, mixedColor.b, ringOpacity * translucentOffset);
         ringList[mid].GetComponent<LineRenderer>().endColor = new Color(mixedColor.r, mixedColor.g, mixedColor.b, ringOpacity * translucentOffset);
 //        ringList[mid].GetComponent<Renderer>().sharedMaterial.SetColor("_TintColor", new Color(128.0f / 255.0f, 128.0f / 255.0f, 128.0f / 255.0f, ringTranslucency * translucentOffset));
         RecurveColorRings(begin, mid);

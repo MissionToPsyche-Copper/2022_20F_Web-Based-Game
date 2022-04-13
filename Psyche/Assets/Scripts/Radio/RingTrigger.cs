@@ -12,6 +12,8 @@ public class RingTrigger : MonoBehaviour
     [ReadOnly]
     public bool inRing;
 
+    private float messgTimeOut = 0.0f;
+
 
     public void Start()
     {
@@ -19,15 +21,28 @@ public class RingTrigger : MonoBehaviour
         inRing = false;
     }
 
+    public void Update()
+    {
+        if (messgTimeOut <= 0.0f)
+            return;
+
+        messgTimeOut -= Time.deltaTime;
+    }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            float alt = this.GetComponent<CircleCollider2D>().radius - LevelController.mainAsteroid.GetComponent<PolygonCollider2D>().bounds.extents.x;
             
             manager.CurrentRing(ringID);
-            PopMessageUI.PopUpMessage("Radio Science Altitude: " + (alt * Constants.Space.AltitudeFactorAdjust).ToString("0.0"), 4.0f);
             inRing = true;
+
+            if (messgTimeOut <= 0.0f)
+            {
+                float alt = this.GetComponent<CircleCollider2D>().radius - LevelController.mainAsteroid.GetComponent<PolygonCollider2D>().bounds.extents.x;
+                PopMessageUI.PopUpMessage("Radio Science Altitude: " + (alt * Constants.Space.AltitudeFactorAdjust).ToString("0.0"), 4.0f);
+                messgTimeOut = 1.0f;
+            }
         }
     }
 
