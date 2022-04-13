@@ -37,6 +37,7 @@ public class GameRoot : MonoBehaviour
 
     [ReadOnly]
     public AudioService audioService;
+    public AudioLibrary audioLibrary;
 
     //TotalOver Game Scores
     [ReadOnly] [SerializeField] public int[] tot_neutronScores;
@@ -49,7 +50,11 @@ public class GameRoot : MonoBehaviour
 
     private void Awake()
     {
-        _Root = this;
+        if (_Root == null)
+            _Root = this;
+        else
+            Destroy(this.gameObject);
+
         resourceService = this.GetComponent<ResourceService>();
         audioService = GetComponentInChildren<AudioService>();
         windowsController = GetComponentInChildren<UIWindowsController>();
@@ -62,7 +67,8 @@ public class GameRoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        OnSceneLoad();
+
+        OnSceneLoad(8);
     }
 
 
@@ -76,26 +82,12 @@ public class GameRoot : MonoBehaviour
         tot_radioScore = 0;
         tot_magnetometerScore = 0;
         tot_multispectScore = 0;
-
-        LoadAudioFiles();
     }
 
 
-    private void LoadAudioFiles()
+    public void OnSceneLoad(int trackNum)
     {
-        resourceService.LoadAudio(Constants.Audio.Gameplay.BlazingStars, true);
-        resourceService.LoadAudio(Constants.Audio.Gameplay.ColdMoon, true);
-        resourceService.LoadAudio(Constants.Audio.Gameplay.CyberREM, true);
-        resourceService.LoadAudio(Constants.Audio.Gameplay.RetroSciFiPlanet, true);
-        resourceService.LoadAudio(Constants.Audio.Gameplay.SciFiClose2, true);
-        resourceService.LoadAudio(Constants.Audio.Gameplay.StarLight, true);
-        resourceService.LoadAudio(Constants.Audio.Gameplay.TerraformingBegins, true);
-    }
-
-
-    public void OnSceneLoad()
-    {
-        audioService.PlayBgMusic(Constants.Audio.Gameplay.BlazingStars, true);
+        audioService.PlayBgMusic(audioLibrary.BGMS[trackNum], true);
 
     }
 }

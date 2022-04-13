@@ -15,7 +15,7 @@ public class Constants : MonoBehaviour
     public static class Audio
     {
         public const float masterVolume = 1.0f;
-        public const float bgmVolume = 0.05f;
+        public const float bgmVolume = 0.1f;
         public const float uiVolume = 0.5f;
         public const float fxVolume = 0.5f;
 

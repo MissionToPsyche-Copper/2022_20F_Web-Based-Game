@@ -226,6 +226,7 @@ MonoBehaviour:
     Min: 3
     Max: 7
   spawnOffset: 0
+  distBetweenTargets: 10
   spawnSizeRange:
     Min: 3
     Max: 6
@@ -237,12 +238,11 @@ MonoBehaviour:
   lineClrEnd: {r: 0, g: 0.8462279, b: 1, a: 0.57254905}
   lineClrStart: {r: 0.01234436, g: 0, b: 1, a: 1}
   offAngleColor: {r: 1, g: 0, b: 0, a: 1}
-  volume: 0.1
   pitchShiftRange:
     Min: 2
     Max: 6
   currPitch: 3
-  scoreMod: 5
+  scoreMod: 1
   easyMode: 0
   pivot: {fileID: 6332544116132644857}
   Target: {fileID: 3806490393413082527, guid: 5022a1e2bfaa6604bb592c802114d70e, type: 3}

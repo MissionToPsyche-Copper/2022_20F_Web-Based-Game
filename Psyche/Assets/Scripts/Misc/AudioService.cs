@@ -7,8 +7,8 @@ public class AudioService : MonoBehaviour
     public AudioSource audioUI;
     public AudioSource audioFX;
     private AudioLibrary library;
-    public float MasterVolume;
-    public float bgVolume;
+    public float MasterVolume = 1.0f;
+    public float bgVolume = 0.5f;
     public float UIVolume;
     public float FXVolume;
 
@@ -38,10 +38,28 @@ public class AudioService : MonoBehaviour
             audioBg.clip = audioClip;
             audioBg.loop = isLoop;
             audioBg.Play();
-            if(GameRoot._Root.isPause)
-                audioBg.volume = bgVolume * 0.5f;
+            if (GameRoot._Root.isPause)
+                audioBg.volume = bgVolume * MasterVolume * 0.5f;
             else
-                audioBg.volume = bgVolume;
+                audioBg.volume = bgVolume * MasterVolume;
+        }
+    }
+
+    public void PlayBgMusic(AudioClip audio, bool isLoop)
+    {
+        //Get the audio clip by the resource service
+        AudioClip audioClip = audio;
+
+        //Check if the background audio clip whether is null or next audio clip name matches the current audio clip
+        if (audioBg.clip == null || audioBg.clip.name != audioClip.name)
+        {
+            audioBg.clip = audioClip;
+            audioBg.loop = isLoop;
+            audioBg.Play();
+            if (GameRoot._Root.isPause)
+                audioBg.volume = bgVolume * MasterVolume * 0.5f;
+            else
+                audioBg.volume = bgVolume * MasterVolume;
         }
     }
 
@@ -50,6 +68,13 @@ public class AudioService : MonoBehaviour
         //Get the audio clip by the resource service
         AudioClip audioClip = GameRoot.resourceService.LoadAudio(audioName, true);
         audioUI.clip = audioClip;
+        audioUI.Play();
+    }
+    public void PlayUIAudio(AudioClip audio)
+    {
+        //Get the audio clip by the resource service
+        audioUI.clip = audio;
+        audioUI.loop = false;
         audioUI.Play();
     }
 

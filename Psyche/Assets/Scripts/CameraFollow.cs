@@ -32,7 +32,7 @@ public class CameraFollow : MonoBehaviour
         currDistace = displacement.magnitude;
 
         this.transform.position = (displacement * (2.0f / 3.0f)) + Vector3.forward * (-40);
-        this.GetComponent<Camera>().orthographicSize = initCamSize * (currDistace / initDistance);
+        this.GetComponent<Camera>().orthographicSize = initCamSize * (currDistace / initDistance) * 1.1f;
 
         if (cameraRotate)
             RotateCamera();

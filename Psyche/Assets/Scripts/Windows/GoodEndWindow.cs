@@ -16,6 +16,8 @@ public class GoodEndWindow : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         PopMessageUI.ClearMessages();
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
+
         LevelController.levelRoot.OnSceneChange();
         GameRoot._Root.sceneChanger.ChangeScene(SceneChanger.scenes.endoflevel);
     }

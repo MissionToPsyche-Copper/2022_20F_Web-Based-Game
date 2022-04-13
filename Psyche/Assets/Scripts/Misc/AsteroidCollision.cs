@@ -19,6 +19,10 @@ public class AsteroidCollision : MonoBehaviour
             explode.SetActive(true);
             LevelController.levelRoot.BadEnd(false, "Probe Destroyed");
         }
+        else
+        {
+ //           collision.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
+        }
     }
 
 }

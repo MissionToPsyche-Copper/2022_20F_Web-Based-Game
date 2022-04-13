@@ -44,7 +44,7 @@ public class OrbitLines : MonoBehaviour
     {
         line = this.GetComponent<LineRenderer>();
         mass = OrbitalGravity.factor * LevelController.player.GetComponent<Rigidbody2D>().mass * LevelController.mainAsteroid.GetComponent<Rigidbody2D>().mass;
-        asteroidRad = (LevelController.mainAsteroid.GetComponent<CircleCollider2D>().radius * LevelController.mainAsteroid.transform.localScale.x) * radBuffer;
+        asteroidRad = LevelController.mainAsteroid.GetComponent<PolygonCollider2D>().bounds.extents.x;
 
     }
 
@@ -67,7 +67,7 @@ public class OrbitLines : MonoBehaviour
     public void SimulateOrbit(GameObject ship)
     {
         Vector3 physicsStep;
-        asteroidRad = (LevelController.mainAsteroid.GetComponent<CircleCollider2D>().radius * LevelController.mainAsteroid.transform.localScale.x) * radBuffer;
+        asteroidRad = LevelController.mainAsteroid.GetComponent<PolygonCollider2D>().bounds.extents.x * radBuffer;
 
         obj.pos = ship.transform.position;
         obj.vel = ship.GetComponent<Rigidbody2D>().velocity;

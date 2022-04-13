@@ -17,6 +17,8 @@ public class LevelController : MonoBehaviour
 
 
     [Header("=========== Game Rules ===========")]
+    public bool orbitOn;
+
     public bool magnetometerOn;
     [ConditionalField(nameof(magnetometerOn))]
     [MinMaxRange(0, 100)]
@@ -43,7 +45,9 @@ public class LevelController : MonoBehaviour
     private bool radioGoalWon = false;
     private bool spectrometerGoalWon = false;
     public static bool gameEnd;
+
     //Tools
+    public GameObject orbit;
     public GameObject magnet;
     public GameObject multispect;
     public GameObject radio;
@@ -55,6 +59,7 @@ public class LevelController : MonoBehaviour
 
 
     [Header("=========== Scores ===========")]
+    public static float orbitBonus = 1.0f;
     //Per Scene Scores
     [SerializeField] private int[] neutronScores;
     private int neutronTot = 0; //This is an extra var holder specific to Neutron since neutron has several "types"
@@ -169,11 +174,14 @@ public class LevelController : MonoBehaviour
     {
         gameEnd = false;
         player.SetActive(true);
-        mainAsteroid.GetComponent<MeshRenderer>().enabled = true;
+        mainAsteroid.GetComponentInChildren<MeshRenderer>().enabled = true;
         player.GetComponent<ShipControl>().enabled = true;
         player.GetComponent<OrbitalGravity>().BoostVelocity();
         Time.timeScale = 2.0f;
         PlayPopUpGoals();
+
+        orbitBonus = 1.0f;
+        windowsController.scoresWindow.SetBonus(1.0f);
 
         neutronScores = new int[5];
         //Score Resets
@@ -191,7 +199,25 @@ public class LevelController : MonoBehaviour
                                             radioOn ? radioGoalScore : 0,
                                             spectrometerOn ? spectrometerGoalScore : 0
                             );
-        //start playing music here too
+        switch (currScene)
+        {
+            case SceneChanger.scenes.level1:
+                GameRoot._Root.OnSceneLoad(6);
+
+                break;
+            case SceneChanger.scenes.level2:
+                GameRoot._Root.OnSceneLoad(7);
+
+                break;
+            case SceneChanger.scenes.level3:
+                GameRoot._Root.OnSceneLoad(4);
+
+                break;
+            case SceneChanger.scenes.level4:
+                GameRoot._Root.OnSceneLoad(2);
+
+                break;
+        }
     }
 
     public void OnSceneLoad()
@@ -203,7 +229,7 @@ public class LevelController : MonoBehaviour
         mainAsteroid = GameObject.FindGameObjectWithTag("asteroid");
 
         windowsController.goodEndWindow.nextScene = nextScene;
-        mainAsteroid.GetComponent<MeshRenderer>().enabled = false;
+        mainAsteroid.GetComponentInChildren<MeshRenderer>().enabled = false;
         player.GetComponent<ShipControl>().enabled = false;
         player.SetActive(false);
         Time.timeScale = 1.0f;
@@ -221,11 +247,14 @@ public class LevelController : MonoBehaviour
         spectrometerGoalWon = false;
 
         //Tool Turn On/Off
+        orbit.SetActive(orbitOn);
         magnet.SetActive(magnetometerOn);
         multispect.SetActive(multipspectralOn);
         radio.SetActive(radioOn);
         spectrometer.SetActive(spectrometerOn);
 
+        if(orbitOn)
+            orbit.GetComponent<Orbit>().Init();
         if (magnetometerOn)
             magnetGoalScore = Random.Range(magnetGoalminMax.Min, magnetGoalminMax.Max);
         if (multipspectralOn)
@@ -237,7 +266,7 @@ public class LevelController : MonoBehaviour
 
         windowsController.shipPopWindow.gameObject.SetActive(true);
         windowsController.popUpMessages.gameObject.SetActive(true);
-        windowsController.scoresWindow.InitWindow(magnetometerOn, multipspectralOn, radioOn, spectrometerOn);
+        windowsController.scoresWindow.InitWindow(orbitOn, magnetometerOn, multipspectralOn, radioOn, spectrometerOn);
     }
 
     private void PlayPopUpGoals()
@@ -250,6 +279,12 @@ public class LevelController : MonoBehaviour
             PopMessageUI.PopUpMessage("New Goal: Measure " + radioGoalScore.ToString() + "mb with Radio Science Kit", 15.0f);
         if (spectrometerOn)
             PopMessageUI.PopUpMessage("New Goal: Measure " + spectrometerGoalScore.ToString() + "mb with Spectrometer", 15.0f);
+    }
+
+    public void SetBonus(float bonus)
+    {
+        orbitBonus = bonus;
+        windowsController.scoresWindow.SetBonus(bonus - 1.0f);
     }
 
     public void ScoreNeutron(int index, int score)
@@ -270,7 +305,7 @@ public class LevelController : MonoBehaviour
         if (gameEnd) //we don't want the player to gain points after the stage is over
             return;
 
-        radioScore += score;
+        radioScore += score * orbitBonus;
         windowsController.scoresWindow.ScoreRadio(radioScore);
         if (radioOn && radioScore >= radioGoalScore)
             radioGoalWon = true;
@@ -282,7 +317,7 @@ public class LevelController : MonoBehaviour
         if (gameEnd) //we don't want the player to gain points after the stage is over
             return;
 
-        multispectScore += score;
+        multispectScore += score * orbitBonus;
         windowsController.scoresWindow.ScoreMultispect(multispectScore);
         if (multipspectralOn && multispectScore >= multipspectralGoalScore)
             multispectGoalWon = true;
@@ -294,7 +329,7 @@ public class LevelController : MonoBehaviour
         if (gameEnd) //we don't want the player to gain points after the stage is over
             return;
 
-        magnetometerScore += score;
+        magnetometerScore += score * orbitBonus;
         windowsController.scoresWindow.ScoreMagnetometer(magnetometerScore);
         if (magnetometerOn && magnetometerScore >= magnetGoalScore)
             magnetGoalWon = true;

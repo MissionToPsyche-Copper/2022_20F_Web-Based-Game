@@ -22,6 +22,7 @@ public class TutorialController : MonoBehaviour
     public void Click_Controls()
     {
         videoController.gameObject.SetActive(true);
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
 
         videoController.RestartVideo(Constants.Videos.controls);
 
@@ -31,6 +32,7 @@ public class TutorialController : MonoBehaviour
     public void Click_Magnet()
     {
         videoController.gameObject.SetActive(true);
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
 
         videoController.RestartVideo(Constants.Videos.magnet);
 
@@ -39,12 +41,14 @@ public class TutorialController : MonoBehaviour
     public void Click_Multispect()
     {
         videoController.gameObject.SetActive(true);
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
 
         videoController.RestartVideo(Constants.Videos.multispect);
     }
     public void Click_Radio()
     {
         videoController.gameObject.SetActive(true);
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
 
         videoController.RestartVideo(Constants.Videos.radio);
     }
@@ -52,12 +56,15 @@ public class TutorialController : MonoBehaviour
     public void Click_Spectrometer()
     {
         videoController.gameObject.SetActive(true);
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
 
         videoController.RestartVideo(Constants.Videos.spectrometer);
     }
 
     public void Click_Back()
     {
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
+
         GameRoot._Root.prevScene = SceneChanger.scenes.tutorial;
         GameRoot._Root.currScene = SceneChanger.scenes.intro;
         GameRoot._Root.sceneChanger.ChangeScene(SceneChanger.scenes.intro);

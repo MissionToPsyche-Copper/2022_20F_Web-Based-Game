@@ -80,7 +80,7 @@ public class MagneticField : MonoBehaviour
 
             float posVsSunAngle = Vector3.Angle(angle2sun, this.transform.position.normalized);
             this.transform.localScale = new Vector3(this.transform.localScale.x, this.transform.localScale.y, MajorAxis * 0.5f + Mathf.Pow(MajorAxis * 4, (posVsSunAngle / 180.0f) * 0.9f ));
-            this.transform.position = this.transform.position.normalized * ((LevelController.mainAsteroid.GetComponent<CircleCollider2D>().radius * LevelController.mainAsteroid.transform.localScale.x) - (1 - Mathf.Pow(MajorAxis * 1.5f, (posVsSunAngle / 180.0f) * 0.9f)));
+            this.transform.position = this.transform.position.normalized * (LevelController.mainAsteroid.GetComponent<PolygonCollider2D>().bounds.extents.x - (1 - Mathf.Pow(MajorAxis * 1.5f, (posVsSunAngle / 180.0f) * 0.9f)));
 
 
             if (currLife > lifeSpan)

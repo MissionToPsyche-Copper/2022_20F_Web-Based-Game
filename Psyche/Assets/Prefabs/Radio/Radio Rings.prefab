@@ -60,7 +60,7 @@ MonoBehaviour:
   soundVolume: 0.5
   pitchVariance: 0
   rateOfPitchChange: 1
-  scoreRatePS: 0
+  scoreRatePS: 0.5
   effect: {fileID: 813325658915927617}
   ringPrefab: {fileID: 8611258817859510934}
 --- !u!82 &3169130191770114543

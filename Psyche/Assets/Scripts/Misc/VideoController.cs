@@ -132,6 +132,8 @@ public class VideoController : MonoBehaviour
     public void Click_Pause()
     {
         pause = !pause;
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
+
         if (pause)
         {
             btn_Pause.GetComponent<Image>().sprite = playSprite;
@@ -147,6 +149,7 @@ public class VideoController : MonoBehaviour
     public void Click_Skip()
     {
         btn_Skip.gameObject.SetActive(false);
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
         skipping = true;
     }
 }

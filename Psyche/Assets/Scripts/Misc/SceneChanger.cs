@@ -22,47 +22,34 @@ public class SceneChanger : MonoBehaviour
     public void ChangeScene(scenes scene)
     {
         GameRoot.resourceService.LoadScene(TranslateSceneEnum(scene));
+        switch (scene)
+        {
+            case scenes.none:
+                break;
+            case scenes.intro:
+                GameRoot._Root.OnSceneLoad(8);
+
+                break;
+            case scenes.tutorial:
+                GameRoot._Root.OnSceneLoad(8);
+
+                break;
+
+            case scenes.endoflevel:
+                GameRoot._Root.OnSceneLoad(9);
+
+                break;
+            case scenes.credits:
+                GameRoot._Root.OnSceneLoad(0);
+
+                break;
+            default:
+                break;
+        }
+
         //GameRoot.resourceService.AsynLoadScene(TranslateSceneEnum(scene), () =>
         //{
         //  //  CloseAllWindow();
-        //    switch (scene)
-        //    {
-        //        case scenes.none:
-        //            break;
-        //        case scenes.intro:
-        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.CosmicSwitchboard, true);
-
-        //            break;
-        //        case scenes.tutorial:
-        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.DystopicTechnology, true);
-
-        //            break;
-        //        case scenes.level1:
-        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.BlazingStars, true);
-
-        //            break;
-        //        case scenes.level2:
-        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.ColdMoon, true);
-
-        //            break;
-        //        case scenes.level3:
-        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.CyberREM, true);
-
-        //            break;
-        //        case scenes.level4:
-        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Gameplay.RetroSciFiPlanet, true);
-
-        //            break;
-        //        case scenes.endoflevel:
-        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.OminousSciFiMenu, true);
-
-        //            break;
-        //        case scenes.credits:
-        //            GameRoot._Root.audioService.PlayBgMusic(Constants.Audio.Menu.CyberStreets, true);
-
-        //            break;
-        //        default:
-        //            break;            }
         //});
     }
 

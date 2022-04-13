@@ -7,6 +7,7 @@ TagManager:
   - asteroid
   - magnet
   - Sun
+  - orbit
   layers:
   - Default
   - TransparentFX

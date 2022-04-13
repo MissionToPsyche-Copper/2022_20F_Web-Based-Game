@@ -328,6 +328,8 @@ public class DSOCcontroller : MonoBehaviour
 
     public void Click_Continue()
     {
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
+
         GameRoot._Root.sceneChanger.ChangeScene(GameRoot._Root.nextScene);
         this.gameObject.SetActive(false);
     }

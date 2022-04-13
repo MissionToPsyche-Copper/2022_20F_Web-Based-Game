@@ -147,7 +147,8 @@ public class MagnetometerController : MonoBehaviour
         rotSpeed *= Random.value > 0.5f ? 1.0f : -1.0f;
         anomallyField.ChangeRotateSpeed(rotSpeed);
         anomallyField.Focus = Vector3.zero;
-        anomallyField.Center = Random.insideUnitCircle.normalized * ((LevelController.mainAsteroid.GetComponent<CircleCollider2D>().radius * LevelController.mainAsteroid.transform.localScale.x) + major / 4.0f);
+        Vector2 circleDirection = Random.insideUnitCircle;
+        anomallyField.Center = circleDirection.normalized * LevelController.mainAsteroid.GetComponent<PolygonCollider2D>().bounds.ClosestPoint(circleDirection.normalized).magnitude * (major / 4.0f);
         if (major > minor)
         {
             anomallyField.MinorAxis = minor + orbitRadius / 2.0f;

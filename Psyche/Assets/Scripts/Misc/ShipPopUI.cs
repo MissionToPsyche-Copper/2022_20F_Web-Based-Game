@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ShipPopUI : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class ShipPopUI : MonoBehaviour
     [SerializeField] private Camera asteroidCam;
     [SerializeField] private GameObject shipPopUp;
     [SerializeField] private GameObject asteroidPopUp;
+    [SerializeField] private GameObject asteroidKey;
+    [SerializeField] private TextMeshProUGUI asteroidKeyText;
+
     [SerializeField] private GameObject shipPointer;
     [SerializeField] private int turnOnRange = 150;
     private bool showMiniMap = false;
@@ -20,11 +24,14 @@ public class ShipPopUI : MonoBehaviour
         mainCam = GameObject.FindGameObjectWithTag("MainCamera");
         chaseCam.transform.position = new Vector3(LevelController.player.transform.position.x, LevelController.player.transform.position.y, -10);
         chaseCam.transform.parent = LevelController.player.transform;
+        asteroidCam.transform.position = LevelController.mainAsteroid.transform.position + Vector3.back * 80;
+        asteroidKeyText.text = "Asteroid View";
 
         shipPointer.SetActive(false);
         shipPopUp.SetActive(false);
         chaseCam.enabled = false;
         asteroidPopUp.SetActive(false);
+        asteroidKey.SetActive(false);
         asteroidCam.enabled = false;
 
     }
@@ -76,6 +83,7 @@ public class ShipPopUI : MonoBehaviour
         showMiniMap = !showMiniMap;
 
         asteroidPopUp.SetActive(showMiniMap);
+        asteroidKey.SetActive(showMiniMap);
         asteroidCam.enabled = showMiniMap;
     }
 
@@ -87,17 +95,19 @@ public class ShipPopUI : MonoBehaviour
         {
             asteroidCam.transform.position = LevelController.mainAsteroid.transform.position + Vector3.back * 80;
             asteroidCam.orthographicSize = 50;
+            asteroidKeyText.text = "Asteroid View";
             shipPointer.SetActive(false);
         }
         else
         {
             shipPointer.SetActive(true);
-            asteroidCam.transform.position = LevelController.levelRoot.magnet.GetComponent<MagnetometerController>().GetRingCenter() + Vector3.back * 100;
+            asteroidCam.transform.position = LevelController.levelRoot.orbit.GetComponent<Orbit>().GetOrbitCenter() + Vector3.back * 100;
+            asteroidKeyText.text = "Orbit View";
 
-            if (LevelController.player.transform.position.magnitude > LevelController.levelRoot.magnet.GetComponent<MagnetometerController>().GetRingSize())
+            if (LevelController.player.transform.position.magnitude > LevelController.levelRoot.orbit.GetComponent<Orbit>().GetOrbitSemiMajor())
                 asteroidCam.orthographicSize = LevelController.player.transform.position.magnitude;
             else
-                asteroidCam.orthographicSize = LevelController.levelRoot.magnet.GetComponent<MagnetometerController>().GetRingSize();
+                asteroidCam.orthographicSize = LevelController.levelRoot.orbit.GetComponent<Orbit>().GetOrbitSemiMajor();
 
 
             shipPointer.transform.localScale = new Vector3(asteroidCam.orthographicSize * 0.5f, asteroidCam.orthographicSize * 0.5f, 1);

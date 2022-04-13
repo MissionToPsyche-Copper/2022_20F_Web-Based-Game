@@ -26,6 +26,8 @@ public class BadEndWindow : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         PopMessageUI.ClearMessages();
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
+
         LevelController.levelRoot.OnSceneChange();
         GameRoot._Root.sceneChanger.ChangeScene(GameRoot._Root.currScene);
 //        Destroy(GameRoot._Root.gameObject);        
@@ -34,6 +36,8 @@ public class BadEndWindow : MonoBehaviour
     public void Click_Quit()
     {
         this.gameObject.SetActive(false);
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
+
         PopMessageUI.ClearMessages();
         GameRoot._Root.sceneChanger.ChangeScene(SceneChanger.scenes.intro);
     }

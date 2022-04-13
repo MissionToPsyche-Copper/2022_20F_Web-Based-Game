@@ -23,7 +23,7 @@ public class RingTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            float alt = this.GetComponent<CircleCollider2D>().radius - (LevelController.mainAsteroid.GetComponent<CircleCollider2D>().radius * LevelController.mainAsteroid.transform.localScale.x);
+            float alt = this.GetComponent<CircleCollider2D>().radius - LevelController.mainAsteroid.GetComponent<PolygonCollider2D>().bounds.extents.x;
             
             manager.CurrentRing(ringID);
             PopMessageUI.PopUpMessage("Radio Science Altitude: " + (alt * Constants.Space.AltitudeFactorAdjust).ToString("0.0"), 4.0f);

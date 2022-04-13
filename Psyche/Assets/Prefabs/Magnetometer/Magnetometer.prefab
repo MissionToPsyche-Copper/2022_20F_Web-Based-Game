@@ -285,7 +285,7 @@ MonoBehaviour:
     Min: 0.7997817
     Max: 1
   baseScoreMod: 0.05
-  bonusScoreAdjust: 1
+  bonusScoreAdjust: 0.25
   bonusScoreMod: 0
   inField: 0
 --- !u!1 &1315779577097928107

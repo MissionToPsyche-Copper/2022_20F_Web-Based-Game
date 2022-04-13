@@ -54,6 +54,7 @@ MonoBehaviour:
   currScene: 0
   nextScene: 3
   audioService: {fileID: 0}
+  audioLibrary: {fileID: 3169709411405172253}
   tot_neutronScores: 
   tot_radioScore: 0
   tot_magnetometerScore: 0
@@ -906,10 +907,10 @@ MonoBehaviour:
   audioBg: {fileID: 8014294034586341760}
   audioUI: {fileID: 4171437186882575421}
   audioFX: {fileID: 2701413769666716754}
-  MasterVolume: 0
-  bgVolume: 0
-  UIVolume: 0
-  FXVolume: 0
+  MasterVolume: 1
+  bgVolume: 0.75
+  UIVolume: 1
+  FXVolume: 1
 --- !u!114 &3169709411405172253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,7 +932,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 012a85024fbaa2247b0b3ab902d339d9, type: 3}
   - {fileID: 8300000, guid: bd52a37ec2dfc614c963f043a8d2c636, type: 3}
   - {fileID: 8300000, guid: 3edec7270d94165458deccd4c296c28b, type: 3}
-  UI: []
+  - {fileID: 8300000, guid: 26a51ca7723670b42b04d78b1647da3f, type: 3}
+  UI:
+  - {fileID: 8300000, guid: 48a248c3e73474b4688700597058c479, type: 3}
   FX: []
 --- !u!1 &6710928695015100304
 GameObject:

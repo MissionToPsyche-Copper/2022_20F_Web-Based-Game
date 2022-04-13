@@ -64,16 +64,16 @@ public class MultiSpectController : MonoBehaviour
     private GameObject shipAntenna;
     private LineRenderer scanLine;
     private GameObject antennaPoint;
-    private CircleCollider2D asteroid;
+    private PolygonCollider2D asteroid;
     private AudioSource audioEmitter;
 
 	public static bool toolActive = false;
 
     void Start()
     {
-        instance = this;    
+        instance = this;
 
-        asteroid = LevelController.mainAsteroid.GetComponent<CircleCollider2D>();
+        asteroid = LevelController.mainAsteroid.GetComponent<PolygonCollider2D>();
         targetList = new List<GameObject>();
         pivot.GetComponent<ObjectRotate>().SetAxis(asteroid.gameObject.GetComponent<ObjectRotate>().rotationAxis);
         pivot.GetComponent<ObjectRotate>().SetSpeed(asteroid.gameObject.GetComponent<ObjectRotate>().rotationSpeed);
@@ -93,7 +93,8 @@ public class MultiSpectController : MonoBehaviour
 
         float dist2AnotherTarget = 1000.0f;
         Vector3 circleDirection = Random.insideUnitCircle.normalized;
-        circleDirection = circleDirection.normalized * asteroid.radius * (asteroid.gameObject.transform.localScale.x) + (circleDirection.normalized * spawnOffset);
+        circleDirection = asteroid.ClosestPoint(circleDirection.normalized * asteroid.bounds.size.x);
+        circleDirection += (circleDirection.normalized * spawnOffset);
         circleDirection.z = -1;
 
         //Check that this target is not too close to any other active targets

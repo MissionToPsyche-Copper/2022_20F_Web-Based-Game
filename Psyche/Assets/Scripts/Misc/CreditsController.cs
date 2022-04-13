@@ -72,6 +72,8 @@ public class CreditsController : MonoBehaviour
 
     public void Click_Exit()
     {
+        GameRoot._Root.audioService.PlayUIAudio(GameRoot._Root.audioLibrary.UI[0]);
+
         GameRoot._Root.sceneChanger.ChangeScene(SceneChanger.scenes.intro);
     }
 

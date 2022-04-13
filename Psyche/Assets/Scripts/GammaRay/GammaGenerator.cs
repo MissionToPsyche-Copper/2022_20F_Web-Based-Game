@@ -15,6 +15,7 @@ public class GammaGenerator : MonoBehaviour
     void Start()
     {
         ejectTimer = Timer.Register(Random.Range(Constants.Spectrometer.Ray.ejectMinTime, Constants.Spectrometer.Ray.ejectMaxTime), this.EjectRay, useRealTime: false);
+        asteroidObj = LevelController.mainAsteroid;
     }
 
     // Update is called once per frame
@@ -25,6 +26,9 @@ public class GammaGenerator : MonoBehaviour
 
     private void EjectRay()
     {
+        if(asteroidObj == null)
+            asteroidObj = LevelController.mainAsteroid;
+
         Timer.Cancel(ejectTimer);
 
         Vector3 vectVari = new Vector2(Random.Range(-20, 20), Random.Range(-20, 20));
